@@ -9,18 +9,27 @@ class MovieDetails extends Component {
   constructor(props) {
     super(props);
 
+    const { match: { params: { id } } } = this.props;
     this.state = {
       movie: {},
       loading: true,
+      id,
     };
+
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   componentDidMount() {
     this.fetchMovie();
   }
 
+  handleDelete() {
+    const { id } = this.state;
+    movieAPI.deleteMovie(id);
+  }
+
   async fetchMovie() {
-    const { match: { params: { id } } } = this.props;
+    const { id } = this.state;
     const movieObj = await movieAPI.getMovie(id);
     this.setState((prevState) => ({
       loading: !prevState,
@@ -51,6 +60,12 @@ class MovieDetails extends Component {
         <br />
         <button type="button"><Link to="/">VOLTAR</Link></button>
         <button type="button"><Link to={ `/movies/${id}/edit` }>EDITAR</Link></button>
+        <button
+          type="button"
+          onClick={ this.handleDelete }
+        >
+          <Link to="/">DELETAR</Link>
+        </button>
       </div>
     );
   }
