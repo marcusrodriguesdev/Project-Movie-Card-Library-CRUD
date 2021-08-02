@@ -7,7 +7,7 @@ function App() {
     <BrowserRouter>
       <div>Movie Card Library CRUD</div>
       <Switch>
-      <Route
+        <Route
           exact
           path="/"
           component={ MovieList }
