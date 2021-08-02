@@ -23,7 +23,8 @@ class MovieList extends Component {
      this.setState({
        loading: true,
      });
-     const moviesList = await getMovies();
+     const moviesList = await getMovies()
+       .then((result) => result);
      this.setState({
        movies: [...moviesList],
        loading: false,
