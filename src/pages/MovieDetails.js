@@ -1,25 +1,69 @@
-// import React, { Component } from 'react';
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
-// import * as movieAPI from '../services/movieAPI';
-// import { Loading } from '../components';
+import * as movieAPI from '../services/movieAPI';
+import { Loading } from '../components';
 
-// class MovieDetails extends Component {
-//   render() {
-//     // Change the condition to check the state
-//     // if (true) return <Loading />;
+class MovieDetails extends Component {
+  constructor() {
+    super();
+    this.state = {
+      loading: false,
+      details: {},
+    };
+  }
 
-//     const { title, storyline, imagePath, genre, rating, subtitle } = {};
+  componentDidMount() {
+    this.fetchDetails();
+  }
 
-//     return (
-//       <div data-testid="movie-details">
-//         <img alt="Movie Cover" src={ `../${imagePath}` } />
-//         <p>{ `Subtitle: ${subtitle}` }</p>
-//         <p>{ `Storyline: ${storyline}` }</p>
-//         <p>{ `Genre: ${genre}` }</p>
-//         <p>{ `Rating: ${rating}` }</p>
-//       </div>
-//     );
-//   }
-// }
+  fetchDetails() {
+    this.setState({
+      loading: true,
+    }, async () => {
+      const { match } = this.props;
+      const { params } = match;
+      const details = await movieAPI.getMovie(params.id);
+      this.setState({
+        loading: false,
+        details,
+      });
+    });
+  }
 
-// export default MovieDetails;
+  detailedMovie() {
+    const { details } = this.state;
+    const { title, storyline, imagePath, genre, rating, subtitle, id } = details;
+    return (
+      <div data-testid="movie-details">
+        <img alt="Movie Cover" src={ `../${imagePath}` } />
+        <p>{`Title: ${title}`}</p>
+        <p>{ `Subtitle: ${subtitle}` }</p>
+        <p>{ `Storyline: ${storyline}` }</p>
+        <p>{ `Genre: ${genre}` }</p>
+        <p>{ `Rating: ${rating}` }</p>
+        <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
+        <Link to="/">VOLTAR</Link>
+        <Link to="/" onClick={ () => movieAPI.deleteMovie(id) }>DELETAR</Link>
+      </div>
+    );
+  }
+
+  render() {
+    const { loading } = this.state;
+
+    return (
+      <div data-testid="movie-details">
+        { loading ? <Loading /> : this.detailedMovie }
+      </div>
+
+    );
+  }
+}
+
+MovieDetails.propTypes = {
+  match: PropTypes.objectOf(PropTypes.object).isRequired,
+};
+
+export default MovieDetails;
