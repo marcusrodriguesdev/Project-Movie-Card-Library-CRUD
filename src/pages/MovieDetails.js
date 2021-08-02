@@ -54,8 +54,8 @@ class MovieDetails extends Component {
     const { loading } = this.state;
 
     return (
-      <div data-testid="movie-details">
-        { loading ? <Loading /> : this.detailedMovie }
+      <div>
+        { loading ? <Loading /> : this.detailedMovie() }
       </div>
 
     );
