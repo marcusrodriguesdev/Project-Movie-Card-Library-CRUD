@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import { Loading, MovieForm } from '../components';
 import * as movieAPI from '../services/movieAPI';
@@ -6,7 +7,7 @@ import * as movieAPI from '../services/movieAPI';
 class EditMovie extends Component {
   constructor(props) {
     super(props);
-    // const { match: { params: { id } } } = this.props;
+    const { match: { params: { id } } } = this.props;
     this.state = {
       movie: '',
       status: 'loading',
@@ -54,5 +55,8 @@ class EditMovie extends Component {
     );
   }
 }
-
+EditMovie.propTypes = {
+  match: PropTypes.string.isRequired,
+  params: PropTypes.string.isRequired,
+};
 export default EditMovie;
