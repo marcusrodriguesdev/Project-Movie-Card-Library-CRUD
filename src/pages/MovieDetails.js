@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import { Loading } from '../components';
 
@@ -13,7 +13,6 @@ class MovieDetails extends Component {
     this.state = {
       movie: undefined,
       status: 'loading',
-      shouldRedirect: false,
     };
   }
 
@@ -29,8 +28,6 @@ class MovieDetails extends Component {
     } = this.props;
 
     movieAPI.deleteMovie(Number(id));
-
-    this.setState({ shouldRedirect: true });
   };
 
   fetchMovie = async () => {
@@ -50,14 +47,10 @@ class MovieDetails extends Component {
   render() {
     // Change the condition to check the state
     // if (true) return <Loading />;
-    const { movie, status, shouldRedirect } = this.state;
+    const { movie, status } = this.state;
     const {
       match: { url },
     } = this.props;
-
-    if (shouldRedirect) {
-      return <Redirect to="/" />;
-    }
 
     if (status === 'loading') {
       return <Loading />;
