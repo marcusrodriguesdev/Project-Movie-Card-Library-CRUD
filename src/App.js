@@ -34,3 +34,5 @@ function App() {
 }
 
 export default App;
+
+// sites de apoio - https://reactrouter.com/web/api/Switch, https://www.w3schools.com/, materiais e exercícios curse.
