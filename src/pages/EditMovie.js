@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Redirect } from 'react-router-dom';
 
 import { Loading, MovieForm } from '../components';
 import * as movieAPI from '../services/movieAPI';
@@ -11,7 +12,7 @@ class EditMovie extends Component {
     this.state = {
       movie: '',
       status: 'loading',
-      shouldRedirect: true,
+      shouldRedirect: false,
       id,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -22,8 +23,12 @@ class EditMovie extends Component {
   }
 
   async handleSubmit(updatedMovie) {
-    const blab = await movieAPI.updateMovie(updatedMovie);
-    console.log(blab);
+    /**
+ * Consultei o repositório do Lucas Caribé para resolver essa parte.
+ * https://github.com/tryber/sd-013-b-project-movie-card-library-crud/blob/lucas-caribe-project-movie-card-library-crud/src/pages/EditMovie.js
+ */
+    await movieAPI.updateMovie(updatedMovie);
+    this.setState({ shouldRedirect: true });
   }
 
   async FetchUpdate() {
@@ -41,7 +46,7 @@ class EditMovie extends Component {
   render() {
     const { status, shouldRedirect, movie } = this.state;
     if (shouldRedirect) {
-      // Redirect
+      return <Redirect to="/" />;
     }
 
     if (status === 'loading') {
