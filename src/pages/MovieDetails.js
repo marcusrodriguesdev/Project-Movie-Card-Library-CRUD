@@ -22,7 +22,6 @@ class MovieDetails extends Component {
     const { id } = params;
     const movieResponse = await movieAPI.getMovie(id);
     this.setMovie(movieResponse);
-    // console.log(this.state);
   }
 
   setMovie(movie) {
@@ -47,8 +46,6 @@ class MovieDetails extends Component {
         <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
       </div>
     );
-    // Change the condition to check the state
-    // if (true) return <Loading />;
     return (
       <div data-testid="movie-details">
         {movieReady ? returnedMovie() : <Loading /> }
