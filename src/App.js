@@ -2,11 +2,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
-import MovieList from './components/MovieList';
-import NewMovie from './components/NewMovie';
-import MovieDetails from './components/MovieDetails';
-import EditMovie from './components/EditMovie';
-import NotFound from './components/NotFound';
+import MovieList from './pages/MovieList';
+import NewMovie from './pages/NewMovie';
+import MovieDetails from './pages/MovieDetails';
+import EditMovie from './pages/EditMovie';
+import NotFound from './pages/NotFound';
 
 class App extends React.Component {
   /*  constructor(props) {
