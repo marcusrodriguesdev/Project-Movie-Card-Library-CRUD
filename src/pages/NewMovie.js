@@ -10,9 +10,11 @@ class NewMovie extends Component {
   }
 
   handleSubmit(newMovie) {
+    console.log(newMovie);
   }
 
   render() {
+    console.log(movieAPI);
     return (
       <div data-testid="new-movie">
         <MovieForm onSubmit={ this.handleSubmit } />
