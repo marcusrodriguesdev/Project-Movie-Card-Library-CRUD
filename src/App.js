@@ -1,13 +1,17 @@
 import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 
-function App() {
-  return (
-    <Router>
-      <div>Movie Card Library CRUD</div>
-    </Router>
-  );
-}
+import MovieList from './pages/MovieList';
 
-export default App;
+export default class App extends React.Component {
+  render() {
+    return (
+      <Router>
+        <div>
+          <Route path="/" component={ MovieList } />
+        </div>
+      </Router>
+    );
+  }
+}
