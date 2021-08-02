@@ -5,6 +5,7 @@ class MovieCard extends React.Component {
     return (
       <div data-testid="movie-card">
         Movie Card
+
       </div>
     );
   }

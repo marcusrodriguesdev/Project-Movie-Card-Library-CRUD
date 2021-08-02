@@ -4,11 +4,11 @@ import MovieCard from '../components/MovieCard';
 import * as movieAPI from '../services/movieAPI';
 
 class MovieList extends Component {
-  constructor() {
-    super();
-
+  constructor(props) {
+    super(props);
+    console.log(movieAPI);
     this.state = {
-      movies: [],
+      movies: [movieAPI],
     };
   }
 
