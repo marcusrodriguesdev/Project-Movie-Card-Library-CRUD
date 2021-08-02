@@ -1,25 +1,80 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import * as movieAPI from '../services/movieAPI';
+
 import { Loading } from '../components';
 
 class MovieDetails extends Component {
-  render() {
-    // Change the condition to check the state
-    // if (true) return <Loading />;
+  constructor() {
+    super();
+    this.state = {
+      movie: {},
+    };
 
-    const { title, storyline, imagePath, genre, rating, subtitle } = {};
+    this.deleteHandler = this.deleteHandler.bind(this);
+  }
+
+  componentDidMount() {
+    const { match } = this.props;
+    movieAPI.getMovie(match.params.id).then((res) => {
+      this.setState({
+        movie: res,
+      });
+    });
+  }
+
+  deleteHandler() {
+    const { movie } = this.state;
+    const { id } = movie;
+    const { history } = this.props;
+
+    movieAPI.deleteMovie(id).then((res) => {
+      if (res.status === 'OK') {
+        history.push('/');
+      }
+    });
+  }
+
+  render() {
+    const { movie } = this.state;
+    const { id, title, storyline, imagePath, genre, rating, subtitle } = movie;
 
     return (
-      <div data-testid="movie-details">
-        <img alt="Movie Cover" src={ `../${imagePath}` } />
-        <p>{ `Subtitle: ${subtitle}` }</p>
-        <p>{ `Storyline: ${storyline}` }</p>
-        <p>{ `Genre: ${genre}` }</p>
-        <p>{ `Rating: ${rating}` }</p>
-      </div>
+      <>
+        { !title && <Loading /> }
+        { title && (
+          <div data-testid="movie-details">
+            <img alt="Movie Cover" src={ `../${imagePath}` } />
+            <p>{ `Subtitle: ${subtitle}` }</p>
+            <p>{ `Storyline: ${storyline}` }</p>
+            <p>{ `Genre: ${genre}` }</p>
+            <p>{ `Rating: ${rating}` }</p>
+            <Link to={ `movies/${id}/edit` } style={ { textDecoration: 'none' } }>
+              <span
+                style={ { backgroundColor: 'black', padding: '0.8rem 1.2rem' } }
+              >
+                EDITAR
+              </span>
+            </Link>
+            <Link to="/">VOLTAR</Link>
+            <button type="button" onClick={ this.deleteHandler }>DELETAR</button>
+          </div>
+        )}
+      </>
     );
   }
 }
+
+MovieDetails.propTypes = {
+  match: PropTypes.shape({
+    isExact: PropTypes.bool,
+    params: PropTypes.shape({ id: PropTypes.string }),
+    path: PropTypes.string,
+    url: PropTypes.string,
+  }).isRequired,
+  history: PropTypes.shape({ push: PropTypes.func }).isRequired,
+};
 
 export default MovieDetails;
