@@ -21,10 +21,6 @@ class MovieDetails extends Component {
     this.fetchMovieById(id);
   }
 
-  // componentWillUnmount() {
-  //   this.deletedMovie();
-  // }
-
   async fetchMovieById(id) {
     const fetchMovie = await movieAPI.getMovie(id);
     this.setState({ movies: fetchMovie });
@@ -59,9 +55,6 @@ class MovieDetails extends Component {
         }
         <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
         <Link to="/">VOLTAR</Link>
-
-        {/* Ideia de usar no ComponentWilUnmont: https://stackoverflow.com/questions/55041169/react-router-link-callback-function */}
-
         <Link to="/" onClick={ this.deletedMovie }>DELETAR</Link>
       </div>
     );
