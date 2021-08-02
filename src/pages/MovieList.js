@@ -22,15 +22,15 @@ class MovieList extends Component {
 
   alterData(data) {
     this.setState({
-      loading:false,
+      loading: false,
       movies: data,
-    })
+    });
   }
 
   render() {
     const { movies, loading } = this.state;
 
-    if(loading === true) return <Loading />
+    if (loading === true) return <Loading />;
 
     return (
       <div data-testid="movie-list">
