@@ -19,7 +19,6 @@ class MovieList extends Component {
   }
 
   fetchMovie = async () => {
-    const { loading } = this.state;
     const movies = await movieAPI.getMovies();
     this.setState({
       movies,
@@ -35,7 +34,8 @@ class MovieList extends Component {
 
     return (
       <div data-testid="movie-list">
-        {loading ? loadingElement : movies.map((movie) => <MovieCard key={ movie.title } movie={ movie } />)}
+        {loading ? loadingElement
+          : movies.map((movie) => <MovieCard key={ movie.title } movie={ movie } />)}
       </div>
     );
   }
