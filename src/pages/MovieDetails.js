@@ -9,7 +9,7 @@ class MovieDetails extends Component {
     // if (true) return <Loading />;
 
     const { title, storyline, imagePath, genre, rating, subtitle } = {};
-
+    console.log(title, movieAPI, Loading);
     return (
       <div data-testid="movie-details">
         <img alt="Movie Cover" src={ `../${imagePath}` } />

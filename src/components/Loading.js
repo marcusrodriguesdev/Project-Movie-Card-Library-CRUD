@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-
+// Loading message
 class Loading extends Component {
   render() {
     return (
-      <div>Loading message</div>
+      <div>Carregando...</div>
     );
   }
 }
