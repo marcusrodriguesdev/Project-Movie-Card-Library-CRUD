@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 
 import MovieForm from '../components/MovieForm';
 import * as movieAPI from '../services/movieAPI';
@@ -6,18 +7,30 @@ import * as movieAPI from '../services/movieAPI';
 class NewMovie extends Component {
   constructor(props) {
     super(props);
+    this.state = ({
+      created: false,
+    });
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleSubmit(newMovie) {
-    console.log(newMovie);
+  async handleSubmit(newMovie) {
+    await movieAPI.createMovie(newMovie);
+    this.setState({
+      created: true,
+    });
   }
 
   render() {
-    console.log(movieAPI);
+    const { created } = this.state;
     return (
       <div data-testid="new-movie">
         <MovieForm onSubmit={ this.handleSubmit } />
+        {
+          created
+            ? <Redirect to="/" />
+            : null
+        }
+
       </div>
     );
   }
