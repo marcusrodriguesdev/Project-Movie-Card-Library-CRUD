@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
-import { Route, Redirect } from 'react-router';
+import { Redirect } from 'react-router';
+import PropTypes from 'prop-types';
 import { MovieForm, Loading } from '../components';
 import * as movieAPI from '../services/movieAPI';
 
@@ -46,5 +47,9 @@ class EditMovie extends Component {
     );
   }
 }
+
+EditMovie.propTypes = {
+  match: PropTypes.objectOf(Object).isRequired,
+};
 
 export default EditMovie;
