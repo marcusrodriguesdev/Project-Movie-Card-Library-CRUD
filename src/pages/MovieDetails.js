@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
 
@@ -10,14 +10,19 @@ class MovieDetails extends Component {
     super(props);
     this.state = {
       movies: {},
+      shouldRedirect: false,
     };
     this.fetchMovieById = this.fetchMovieById.bind(this);
+    this.deletedMovie = this.deletedMovie.bind(this);
   }
 
   componentDidMount() {
     const { match: { params: { id } } } = this.props;
     this.fetchMovieById(id);
-    console.log(this.props);
+  }
+
+  componentWillUnmount() {
+    this.deletedMovie();
   }
 
   async fetchMovieById(id) {
@@ -25,10 +30,15 @@ class MovieDetails extends Component {
     this.setState({ movies: fetchMovie });
   }
 
+  async deletedMovie() {
+    const { match: { params: { id } } } = this.props;
+    await movieAPI.deleteMovie(id);
+  }
+
   render() {
     // Change the condition to check the state
     // if (true) return <Loading />;
-    const { movies } = this.state;
+    const { movies, shouldRedirect } = this.state;
     const { title, storyline, imagePath, genre, rating, subtitle, id } = movies;
     const component = (
       <>
@@ -41,7 +51,7 @@ class MovieDetails extends Component {
       </>
     );
     // const loading = <p> Carregando... </p>;
-
+    if (shouldRedirect) { return <Redirect to="/" />; }
     return (
       <div data-testid="movie-details">
         {
@@ -49,6 +59,8 @@ class MovieDetails extends Component {
         }
         <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
         <Link to="/">VOLTAR</Link>
+        {/* Ideia de usar no ComponentWilUnmont: https://stackoverflow.com/questions/55041169/react-router-link-callback-function */}
+        <Link to="/">DELETAR</Link>
       </div>
     );
   }
