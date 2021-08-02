@@ -165,7 +165,7 @@ class MovieForm extends React.Component {
 }
 
 MovieForm.defaultProps = {
-  movie: [],
+  movie: {},
 };
 
 MovieForm.propTypes = {
