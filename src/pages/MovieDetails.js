@@ -1,43 +1,62 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
-// import * as movieAPI from '../services/movieAPI';
-// import { Loading } from '../components';
+import * as movieAPI from '../services/movieAPI';
+import { Loading } from '../components';
 
 class MovieDetails extends Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     loading: false,
-  //   };
-  // }
+  constructor(props) {
+    super(props);
+    this.state = {
+      loading: false,
+      movie: [],
+    };
+  }
 
-  // componentDidMount() {
-  //   this.callMovies();
-  // }
+  componentDidMount() {
+    this.callMovies();
+  }
 
-  //  callMovies = async () => {
-  //    this.setState({
-  //      loading: true,
-  //    });
-
-  //    this.setState({
-  //      loading: false,
-  //    });
-  //  }
+  callMovies = async () => {
+    const { match } = this.props;
+    const { getMovie } = movieAPI;
+    this.setState({
+      loading: true,
+    });
+    const actualMovie = await getMovie(match.params.id)
+      .then((result) => result);
+    this.setState({
+      movie: actualMovie,
+      loading: false,
+    });
+  }
 
   render() {
     // Change the condition to check the state
     // if (true) return <Loading />;
-    //  const { loading } = this.state;
-    const { storyline, imagePath, genre, rating, subtitle } = {};
+    const { loading, movie } = this.state;
+    const { id, title, storyline, imagePath, genre, rating, subtitle } = movie;
 
     return (
       <div data-testid="movie-details">
-        <img alt="Movie Cover" src={ `../${imagePath}` } />
-        <p>{ `Subtitle: ${subtitle}` }</p>
-        <p>{ `Storyline: ${storyline}` }</p>
-        <p>{ `Genre: ${genre}` }</p>
-        <p>{ `Rating: ${rating}` }</p>
+        {
+          loading
+            ? <Loading />
+            : (
+              <div>
+                <div>
+                  <img alt="Movie Cover" src={ `../${imagePath}` } />
+                  <p>{ `Tittle: ${title}` }</p>
+                  <p>{ `Subtitle: ${subtitle}` }</p>
+                  <p>{ `Storyline: ${storyline}` }</p>
+                  <p>{ `Genre: ${genre}` }</p>
+                  <p>{ `Rating: ${rating}` }</p>
+                </div>
+                <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
+                <Link to="/">VOLTAR</Link>
+              </div>
+            )
+        }
       </div>
     );
   }
