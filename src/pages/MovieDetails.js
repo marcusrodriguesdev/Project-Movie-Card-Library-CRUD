@@ -39,7 +39,7 @@ class MovieDetails extends Component {
     const loadingElement = <Loading />;
 
     return (
-      <div data-testid="movie-details">
+      <div data-testid="">
         {loading ? loadingElement
           : (
             <div data-testid="movie-details">
