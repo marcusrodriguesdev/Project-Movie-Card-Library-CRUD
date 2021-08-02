@@ -1,28 +1,48 @@
-// import React, { Component } from 'react';
-// import MovieCard from '../components/MovieCard';
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import MovieCard from '../components/MovieCard';
+import * as movieAPI from '../services/movieAPI';
+import { Loading } from '../components';
 
-// import * as movieAPI from '../services/movieAPI';
+class MovieList extends Component {
+  constructor() {
+    super();
 
-// class MovieList extends Component {
-//   constructor() {
-//     super();
+    this.state = {
+      movies: [],
+      loading: false,
+    };
+  }
 
-//     this.state = {
-//       movies: [],
-//     };
-//   }
+  componentDidMount() {
+    this.fetchMovie();
+  }
 
-//   render() {
-//     const { movies } = this.state;
+  fetchMovie() {
+    this.setState({
+      loading: true,
+    }, async () => {
+      const movies = await movieAPI.getMovie();
+      this.setState({
+        loading: false,
+        movies,
+      });
+    });
+  }
 
-//     // Render Loading here if the request is still happening
+  render() {
+    const { movies, loading } = this.state;
 
-//     return (
-//       <div data-testid="movie-list">
-//         {movies.map((movie) => <MovieCard key={ movie.title } movie={ movie } />)}
-//       </div>
-//     );
-//   }
-// }
+    // Render Loading here if the request is still happening
 
-// export default MovieList;
+    return (
+      <div data-testid="movie-list">
+        { loading ? <Loading />
+          : movies.map((movie) => <MovieCard key={ movie.title } movie={ movie } />) }
+        <Link to="/movies/new">Adicionar Cartão</Link>
+      </div>
+    );
+  }
+}
+
+export default MovieList;
