@@ -25,6 +25,10 @@ class MovieDetails extends Component {
     });
   }
 
+  deleteMovie(id) {
+    movieAPI.deleteMovie(id);
+  }
+
   render() {
     // Change the condition to check the state
     const { movie } = this.state;
@@ -41,6 +45,7 @@ class MovieDetails extends Component {
         <p>{ `Genre: ${genre}` }</p>
         <p>{ `Rating: ${rating}` }</p>
         <Link to={ `/movies/${match.params.id}/edit` }>EDITAR</Link>
+        <Link to="/" onClick={ this.deleteMovie(match.params.id) }>DELETAR</Link>
         <Link to="/">VOLTAR</Link>
       </div>
     );
