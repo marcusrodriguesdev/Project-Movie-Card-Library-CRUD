@@ -12,6 +12,7 @@ class MovieDetails extends Component {
 
     this.state = {
       movie: undefined,
+      status: 'loading',
     };
   }
 
@@ -29,17 +30,17 @@ class MovieDetails extends Component {
     const data = await movieAPI.getMovie(Number(id));
 
     if (data) {
-      this.setState({ movie: data });
+      this.setState({ movie: data, status: 'ok' });
     }
   };
 
   render() {
     // Change the condition to check the state
     // if (true) return <Loading />;
-    const { movie } = this.state;
+    const { movie, status } = this.state;
     const { match: { url } } = this.props;
 
-    if (!movie) {
+    if (status === 'loading') {
       return <Loading />;
     }
 
@@ -54,7 +55,7 @@ class MovieDetails extends Component {
         <p>{`Genre: ${genre}`}</p>
         <p>{`Rating: ${rating}`}</p>
         <Link to={ `${url}/edit` }>EDITAR</Link>
-        <Link exact to="/">VOLTAR</Link>
+        <Link to="/">VOLTAR</Link>
       </div>
     );
   }
