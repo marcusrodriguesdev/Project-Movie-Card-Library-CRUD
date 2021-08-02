@@ -39,7 +39,6 @@ class EditMovie extends Component {
     const loadingElement = <Loading />;
     if (redirect) return <Redirect to="/" />;
 
-
     return (
       <div data-testid="edit-movie">
         {loading ? loadingElement
@@ -52,6 +51,5 @@ class EditMovie extends Component {
 EditMovie.propTypes = {
   match: PropTypes.objectOf(PropTypes.object),
 }.isRequired;
-
 
 export default EditMovie;
