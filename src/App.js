@@ -18,7 +18,11 @@ function App() {
           path="/movies/:id"
           component={ (props) => <MovieDetails { ...props } /> }
         />
-        <Route exact path="/movies/:id/edit" component={ EditMovie } />
+        <Route
+          exact
+          path="/movies/:id/edit"
+          component={ (props) => <EditMovie { ...props } /> }
+        />
         {/* Consulta em https://ultimatecourses.com/blog/react-router-not-found-component */}
         <Route component={ NotFound } />
       </Switch>
