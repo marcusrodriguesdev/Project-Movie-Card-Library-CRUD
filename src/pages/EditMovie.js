@@ -1,35 +1,68 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { Redirect } from 'react-router-dom';
 
-import { MovieForm } from '../components';
+import { Loading, MovieForm } from '../components';
 import * as movieAPI from '../services/movieAPI';
 
 class EditMovie extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    const { match } = this.props;
+    const { id } = match.params;
+    this.state = {
+      movie: [],
+      loading: true,
+      id,
+      atualizado: false,
+    };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.getData = this.getData.bind(this);
   }
 
-  handleSubmit(updatedMovie) {
-    console.log(updatedMovie, movieAPI);
+  async componentDidMount() {
+    const { id } = this.state;
+    await this.getData(id);
+  }
+
+  async handleSubmit(updatedMovie) {
+    await movieAPI.updateMovie(updatedMovie);
+    this.setState({
+      atualizado: true,
+    });
+  }
+
+  async getData(id) {
+    const response = await movieAPI.getMovie(id);
+    this.setState({
+      movie: response,
+      loading: false,
+    });
   }
 
   render() {
-    const { status, shouldRedirect, movie } = this.state;
-    if (shouldRedirect) {
-      // Redirect
-    }
-
-    if (status === 'loading') {
-      // render Loading
-    }
+    const { movie, loading, atualizado } = this.state;
 
     return (
       <div data-testid="edit-movie">
-        <MovieForm movie={ movie } onSubmit={ this.handleSubmit } />
+        {
+          loading
+            ? <Loading />
+            : <MovieForm movie={ movie } onSubmit={ this.handleSubmit } />
+        }
+        {
+          atualizado
+            ? <Redirect to="/" />
+            : null
+        }
+
       </div>
     );
   }
 }
+
+EditMovie.propTypes = {
+  match: PropTypes.func.isRequired,
+};
 
 export default EditMovie;
