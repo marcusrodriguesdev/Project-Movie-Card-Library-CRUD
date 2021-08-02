@@ -13,7 +13,11 @@ function App() {
       <Switch>
         <Route exact path="/" component={ MovieList } />
         <Route exact path="/movies/new" component={ NewMovie } />
-        <Route exact path="/movies/:id" component={ MovieDetails } />
+        <Route
+          exact
+          path="/movies/:id"
+          component={ (props) => <MovieDetails { ...props } /> }
+        />
         <Route exact path="/movies/:id/edit" component={ EditMovie } />
         {/* Consulta em https://ultimatecourses.com/blog/react-router-not-found-component */}
         <Route component={ NotFound } />
