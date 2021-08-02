@@ -47,19 +47,16 @@ class MovieDetails extends Component {
         { title && (
           <div data-testid="movie-details">
             <img alt="Movie Cover" src={ `../${imagePath}` } />
+            <p>{ `Title: ${title}`}</p>
             <p>{ `Subtitle: ${subtitle}` }</p>
             <p>{ `Storyline: ${storyline}` }</p>
             <p>{ `Genre: ${genre}` }</p>
             <p>{ `Rating: ${rating}` }</p>
-            <Link to={ `movies/${id}/edit` } style={ { textDecoration: 'none' } }>
-              <span
-                style={ { backgroundColor: 'black', padding: '0.8rem 1.2rem' } }
-              >
-                EDITAR
-              </span>
+            <Link to={ `/movies/${id}/edit` } style={ { textDecoration: 'none' } }>
+              EDITAR
             </Link>
             <Link to="/">VOLTAR</Link>
-            <button type="button" onClick={ this.deleteHandler }>DELETAR</button>
+            <Link onClick={ this.deleteHandler } to="/">DELETAR</Link>
           </div>
         )}
       </>
