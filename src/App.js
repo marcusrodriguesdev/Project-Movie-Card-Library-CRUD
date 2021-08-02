@@ -23,6 +23,7 @@ function App() {
           <Route component={ NotFound } />
         </Switch>
       </BrowserRouter>
+
     </div>
   );
 }
