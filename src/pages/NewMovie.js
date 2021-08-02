@@ -10,8 +10,6 @@ class NewMovie extends Component {
   }
 
   handleSubmit(newMovie) {
-    console.log(newMovie);
-    console.log(movieAPI);
   }
 
   render() {
