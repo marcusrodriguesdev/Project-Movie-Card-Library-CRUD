@@ -10,7 +10,7 @@ class MovieDetails extends Component {
     this.state = {
       movie: {},
       loading: true,
-    }
+    };
   }
 
   componentDidMount() {
@@ -29,7 +29,8 @@ class MovieDetails extends Component {
   render() {
     // Change the condition to check the state
     // if (true) return <Loading />;
-    const { movie : { id, title, storyline, imagePath, genre, rating, subtitle }, loading } = this.state;
+    const { movie: { id, title, storyline,
+      imagePath, genre, rating, subtitle }, loading } = this.state;
     if (loading) return <Loading />;
     return (
       <div data-testid="movie-details">
