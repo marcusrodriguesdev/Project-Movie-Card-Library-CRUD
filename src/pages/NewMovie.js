@@ -24,7 +24,6 @@ class NewMovie extends Component {
 
   render() {
     const { shouldRedirect, newMovie } = this.state;
-
     if (shouldRedirect) {
       return <Redirect to="/" state={ newMovie } />;
     }
