@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import MovieCard from '../components/MovieCard';
-
+import {Route} from 'react-router-dom';
 import * as movieAPI from '../services/movieAPI';
 
 class MovieList extends Component {
@@ -15,6 +15,7 @@ class MovieList extends Component {
   render() {
     const { movies } = this.state;
 
+    // Render Loading here if the request is still happening
 
     return (
       <div data-testid="movie-list">
