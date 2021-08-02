@@ -27,7 +27,8 @@ function App() {
           />
 
           <Route
-            exact path="/movies/:id"
+            exact
+            path="/movies/:id"
             render={ (props) => <MovieDetails { ...props } /> }
           />
 
