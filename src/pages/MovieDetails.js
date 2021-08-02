@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
-import movieAPI, { getMovie } from '../services/movieAPI';
+import { getMovie } from '../services/movieAPI';
 import Loading from '../components/Loading';
 
 class MovieDetails extends Component {
@@ -10,12 +11,17 @@ class MovieDetails extends Component {
 
     this.state = {
       movie: [],
-      loading:false,
-    }
+      loading: false,
+    };
   }
-  
+
+  componentDidMount() {
+    this.fetchMovie();
+  }
+
   fetchMovie() {
-    const id = this.props.match.params.id;
+    const { match } = this.props;
+    const { id } = match.params;
     this.setState({ loading: true });
     getMovie(id)
       .then((data) => {
@@ -26,18 +32,14 @@ class MovieDetails extends Component {
       });
   }
 
-  componentDidMount() {
-    this.fetchMovie();
-  }
-  
   render() {
     // Change the condition to check the state
     // if (true) return <Loading />;
-    
-    const { title, storyline, imagePath, genre, rating, subtitle, id } = this.state.movie;
-    const { loading } = this.state
+    const { movie } = this.state;
+    const { title, storyline, imagePath, genre, rating, subtitle, id } = movie;
+    const { loading } = this.state;
     if (loading) {
-      return <Loading />
+      return <Loading />;
     }
     return (
       <div data-testid="movie-details">
@@ -53,5 +55,13 @@ class MovieDetails extends Component {
     );
   }
 }
+
+MovieDetails.propTypes = {
+  match: PropTypes.objectOf({
+    params: PropTypes.objectOf({
+      id: PropTypes.number.isRequired,
+    }).isRequired,
+  }).isRequired,
+};
 
 export default MovieDetails;
