@@ -26,16 +26,19 @@ Aqui você vai encontrar os detalhes de como estruturar o desenvolvimento do seu
     - [Dica: watch mode](#dica-watch-mode)
 - [Requisitos do projeto](#requisitos-do-projeto)
 
-    `Requisitos Obrigatórios:`
-    - [1 - Renderize BrowserRouter no componente App usando rotas](#1-renderize-browserrouter-no-componente-app-usando-rotas)
-    - [2 - Faça uma requisição para buscar e mostrar a lista de filmes quando MovieList for montado](#2-faça-uma-requisição-para-buscar-e-mostrar-a-lista-de-filmes-quando-movielist-for-montado)
-    - [3 - Insira um link para a página de detalhes de um filme dentro de MovieCard](#3-insira-um-link-para-a-página-de-detalhes-de-um-filme-dentro-de-moviecard)
-    - [4 - Faça uma requisição para buscar o filme que deverá ser renderizado dentro de Movie Details](#4-faça-uma-requisição-para-buscar-o-filme-que-deverá-ser-renderizado-dentro-de-movie-details)
-    - [5 - Realize uma requisição para buscar o filme que será editado em EditMovie](#5-realize-uma-requisição-para-buscar-o-filme-que-será-editado-em-editmovie)
-    - [6 - Insira um link na página inicial para NewMovie para criar novos cartões](#6-insira-um-link-na-página-inicial-para-newmovie-para-criar-novos-cartões)
-        
-    `Requisitos Bônus:`
-    - [7 - Adicione um link para deletar um cartão em MovieDetails](#7-adicione-um-link-para-deletar-um-cartão-em-moviedetails)
+  `Requisitos Obrigatórios:`
+
+  - [1 - Renderize BrowserRouter no componente App usando rotas](#1-renderize-browserrouter-no-componente-app-usando-rotas)
+  - [2 - Faça uma requisição para buscar e mostrar a lista de filmes quando MovieList for montado](#2-faça-uma-requisição-para-buscar-e-mostrar-a-lista-de-filmes-quando-movielist-for-montado)
+  - [3 - Insira um link para a página de detalhes de um filme dentro de MovieCard](#3-insira-um-link-para-a-página-de-detalhes-de-um-filme-dentro-de-moviecard)
+  - [4 - Faça uma requisição para buscar o filme que deverá ser renderizado dentro de Movie Details](#4-faça-uma-requisição-para-buscar-o-filme-que-deverá-ser-renderizado-dentro-de-movie-details)
+  - [5 - Realize uma requisição para buscar o filme que será editado em EditMovie](#5-realize-uma-requisição-para-buscar-o-filme-que-será-editado-em-editmovie)
+  - [6 - Insira um link na página inicial para NewMovie para criar novos cartões](#6-insira-um-link-na-página-inicial-para-newmovie-para-criar-novos-cartões)
+
+  `Requisitos Bônus:`
+
+  - [7 - Adicione um link para deletar um cartão em MovieDetails](#7-adicione-um-link-para-deletar-um-cartão-em-moviedetails)
+
 - [Depois de terminar o desenvolvimento](#depois-de-terminar-o-desenvolvimento)
 - [Revisando um pull request](#revisando-um-pull-request)
 - [Avisos Finais](#avisos-finais)
@@ -65,13 +68,13 @@ Lembre-se que você pode consultar nosso conteúdo sobre Git & GitHub sempre que
 
 ## O que deverá ser desenvolvido
 
-Dando continuidade aos últimos projetos, você criará um **CRUD** de cartões de filmes em React. 
+Dando continuidade aos últimos projetos, você criará um **CRUD** de cartões de filmes em React.
 A sigla **CRUD** significa, _Create, Read, Update and Delete_, então deve ser possível realizar as seguintes operações nesse projeto:
 
-  - Adicionar um novo filme à lista - **CREATE**;
-  - Listar todos os filmes cadastrados, com uma página de informações resumidas sobre cada filme e uma página de informações detalhadas de um filme selecionado - **READ**;
-  - Editar um filme da lista - **UPDATE**;
-  - E apagar um filme da lista - **DELETE**;
+- Adicionar um novo filme à lista - **CREATE**;
+- Listar todos os filmes cadastrados, com uma página de informações resumidas sobre cada filme e uma página de informações detalhadas de um filme selecionado - **READ**;
+- Editar um filme da lista - **UPDATE**;
+- E apagar um filme da lista - **DELETE**;
 
 ## Desenvolvimento
 
@@ -97,8 +100,8 @@ Outra diferença importante neste projeto em relação aos anteriores é que os 
 
 ## Data de entrega
 
-  - Serão `2` dias de projeto.
-  - Data de entrega para avaliação final do projeto: `10/08/2021 - 14:00h`.
+- Serão `2` dias de projeto.
+- Data de entrega para avaliação final do projeto: `10/08/2021 - 14:00h`.
 
 ---
 
@@ -107,30 +110,34 @@ Outra diferença importante neste projeto em relação aos anteriores é que os 
 ## Antes de começar a desenvolver
 
 1. Clone o repositório
-  * `git clone https://github.com/tryber/sd-013-b-project-movie-card-library-crud.git`.
-  * Entre na pasta do repositório que você acabou de clonar:
-    * `cd sd-013-b-project-movie-card-library-crud`
+
+- `git clone https://github.com/tryber/sd-013-b-project-movie-card-library-crud.git`.
+- Entre na pasta do repositório que você acabou de clonar:
+  - `cd sd-013-b-project-movie-card-library-crud`
 
 2. Instale as dependências e inicialize o projeto
-  * Instale as dependências:
-    * `npm install`
-  * Inicialize o projeto:
-    * `npm start` (uma nova página deve abrir no seu navegador com um texto simples)
+
+- Instale as dependências:
+  - `npm install`
+- Inicialize o projeto:
+  - `npm start` (uma nova página deve abrir no seu navegador com um texto simples)
 
 3. Crie uma branch a partir da branch `master`
-  * Verifique que você está na branch `master`
-    * Exemplo: `git branch`
-  * Se não estiver, mude para a branch `master`
-    * Exemplo: `git checkout master`
-  * Agora, crie uma branch onde você vai guardar os `commits` do seu projeto
-    * Você deve criar uma branch no seguinte formato: `nome-de-usuario-nome-do-projeto`
-    * Exemplo: `git checkout -b joaozinho-project-movie-card-library-crud`
+
+- Verifique que você está na branch `master`
+  - Exemplo: `git branch`
+- Se não estiver, mude para a branch `master`
+  - Exemplo: `git checkout master`
+- Agora, crie uma branch onde você vai guardar os `commits` do seu projeto
+  - Você deve criar uma branch no seguinte formato: `nome-de-usuario-nome-do-projeto`
+  - Exemplo: `git checkout -b joaozinho-project-movie-card-library-crud`
 
 4. Faça alterações em algum dos componentes que precisam de implementação, por exemplo o `App` em `src/`:
+
 ```jsx
-import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router } from "react-router-dom";
+import "./App.css";
 
 function App() {
   return (
@@ -144,43 +151,45 @@ export default App;
 ```
 
 5. Adicione as mudanças ao _stage_ do Git e faça um `commit`
-  * Verifique que as mudanças ainda não estão no _stage_
-    * Exemplo: `git status` (deve aparecer listado o arquivo _src/App.js_ em vermelho)
-  * Adicione o arquivo alterado ao _stage_ do Git
-      * Exemplo:
-        * `git add .` (adicionando todas as mudanças - _que estavam em vermelho_ - ao stage do Git)
-        * `git status` (deve aparecer listado o arquivo _src/App.js_ em verde)
-  * Faça o `commit` inicial
-      * Exemplo:
-        * `git commit -m 'iniciando o projeto. VAMOS COM TUDO :rocket:'` (fazendo o primeiro commit)
-        * `git status` (deve aparecer uma mensagem tipo _nothing to commit_ )
+
+- Verifique que as mudanças ainda não estão no _stage_
+  - Exemplo: `git status` (deve aparecer listado o arquivo _src/App.js_ em vermelho)
+- Adicione o arquivo alterado ao _stage_ do Git
+  - Exemplo:
+    - `git add .` (adicionando todas as mudanças - _que estavam em vermelho_ - ao stage do Git)
+    - `git status` (deve aparecer listado o arquivo _src/App.js_ em verde)
+- Faça o `commit` inicial
+  - Exemplo:
+    - `git commit -m 'iniciando o projeto. VAMOS COM TUDO :rocket:'` (fazendo o primeiro commit)
+    - `git status` (deve aparecer uma mensagem tipo _nothing to commit_ )
 
 6. Adicione a sua branch com o novo `commit` ao repositório remoto
-  * Usando o exemplo anterior: `git push -u origin joaozinho-project-movie-card-library-crud`
+
+- Usando o exemplo anterior: `git push -u origin joaozinho-project-movie-card-library-crud`
 
 7. Crie um novo `Pull Request` _(PR)_
-  * Vá até a página de _Pull Requests_ do [repositório no GitHub](https://github.com/tryber/sd-013-b-project-movie-card-library-crud/pulls)
-  * Clique no botão verde _"New pull request"_
-  * Clique na caixa de seleção _"Compare"_ e escolha a sua branch **com atenção**
-  * Clique no botão verde _"Create pull request"_
-  * Adicione uma descrição para o _Pull Request_ e clique no botão verde _"Create pull request"_
-  * **Não se preocupe em preencher mais nada por enquanto!**
-  * Volte até a [página de _Pull Requests_ do repositório](https://github.com/tryber/sd-013-b-project-movie-card-library-crud/pulls) e confira que o seu _Pull Request_ está criado
 
+- Vá até a página de _Pull Requests_ do [repositório no GitHub](https://github.com/tryber/sd-013-b-project-movie-card-library-crud/pulls)
+- Clique no botão verde _"New pull request"_
+- Clique na caixa de seleção _"Compare"_ e escolha a sua branch **com atenção**
+- Clique no botão verde _"Create pull request"_
+- Adicione uma descrição para o _Pull Request_ e clique no botão verde _"Create pull request"_
+- **Não se preocupe em preencher mais nada por enquanto!**
+- Volte até a [página de _Pull Requests_ do repositório](https://github.com/tryber/sd-013-b-project-movie-card-library-crud/pulls) e confira que o seu _Pull Request_ está criado
 
 ---
 
 ## Durante o desenvolvimento
 
-* ⚠ **PULL REQUESTS COM ISSUES NO LINTER NÃO SERÃO AVALIADAS, ATENTE-SE PARA RESOLVÊ-LAS ANTES DE FINALIZAR O DESENVOLVIMENTO!** ⚠
+- ⚠ **PULL REQUESTS COM ISSUES NO LINTER NÃO SERÃO AVALIADAS, ATENTE-SE PARA RESOLVÊ-LAS ANTES DE FINALIZAR O DESENVOLVIMENTO!** ⚠
 
-* ⚠ **LEMBRE-SE DE CRIAR TODOS OS ARQUIVOS DENTRO DA PASTA COM O SEU NOME** ⚠
+- ⚠ **LEMBRE-SE DE CRIAR TODOS OS ARQUIVOS DENTRO DA PASTA COM O SEU NOME** ⚠
 
-* Faça `commits` das alterações que você fizer no código regularmente;
+- Faça `commits` das alterações que você fizer no código regularmente;
 
-* Lembre-se de sempre após um ~~(ou alguns)~~ `commits` atualizar o repositório remoto (o famoso `git push`);
+- Lembre-se de sempre após um ~~(ou alguns)~~ `commits` atualizar o repositório remoto (o famoso `git push`);
 
-* Os comandos que você utilizará com mais frequência são:
+- Os comandos que você utilizará com mais frequência são:
 
   1. `git status` _(para verificar o que está em vermelho - fora do stage - e o que está em verde - no stage)_;
 
@@ -200,7 +209,7 @@ Este repositório já contém um _template_ com um App React criado. Após clona
 
 ---
 
-## Nomenclatura 
+## Nomenclatura
 
 **ATENÇÃO!** Muito cuidado com os nomes especificados nos requisitos! O conteúdo deve ser **exatamente igual** ao texto descrito no requisito. Em alguns componentes foram colocadas propriedades chamadas _data-testid_ que, sob nenhuma hipótese devem ser alteradas. Os detalhes acima tem implicação direta no funcionamento do avaliador.
 
@@ -241,10 +250,10 @@ Para executar os testes localmente, digite no terminal o comando `npm test`.
 Especialmente no início, quando a maioria dos testes está falhando, a saída após executar os testes é bastante poluída. Você pode desabilitar temporariamente um teste utilizando a função `skip` junto à função `it`. Como o nome indica, esta função "pula" um teste:
 
 ```js
-it.skip('it includes the text `Movie Cards Library` inside a h1 tag', () => {
+it.skip("it includes the text `Movie Cards Library` inside a h1 tag", () => {
   wrapper = shallow(<Header />);
 
-  expect(wrapper.find('header h1').text()).toBe('Movie Cards Library');
+  expect(wrapper.find("header h1").text()).toBe("Movie Cards Library");
 });
 ```
 
@@ -276,7 +285,7 @@ Caso queira avaliar apenas um tópico do requisito, você também pode usar o `.
 
 Ao executar os testes localmente, [Jest](https://jestjs.io/), a ferramenta que executa os testes, entra em _watch mode_. Nesse modo, a cada vez que um arquivo é salvo, os testes são executados novamente. Isso pode aumentar sua produtividade removendo a necessidade de executar os testes manualmente o tempo todo. Você pode abrir uma aba no seu terminal ou no terminal do _VSCode_ e deixar o _Jest_ rodando nesse modo.
 
-⚠️  **Este trabalho contém alguns testes de componente não relacionados diretamente a requisitos! Estude-os e use-os para se orientar durante o desenvolvimento, garantindo que estejam sempre passando** ✅! ⚠️
+⚠️ **Este trabalho contém alguns testes de componente não relacionados diretamente a requisitos! Estude-os e use-os para se orientar durante o desenvolvimento, garantindo que estejam sempre passando** ✅! ⚠️
 
 ---
 
@@ -298,8 +307,7 @@ Você deve utilizar um `BrowserRouter` pra criar as rotas da sua aplicação. As
 
 - Será validado se qualquer rota não declarada renderiza a página NotFound
 
-
-### 2 - Faça uma requisição para buscar e mostrar a lista de filmes quando `MovieList` for montado 
+### 2 - Faça uma requisição para buscar e mostrar a lista de filmes quando `MovieList` for montado
 
 Para buscar a lista, você deve utilizar a função `getMovies` importada do módulo `movieAPI` em `MovieList`. Essa função retorna uma _promise_. A requisição deve ser feita no momento em que o `MovieList` for montado no DOM. Enquanto a requisição estiver em curso, `MovieList` deve renderizar o componente `Loading`, como ilustrado na imagem a seguir.
 
@@ -313,13 +321,11 @@ Uma vez que a requisição retornar, o resultado deve ser renderizado. Para cada
 
 Você precisará adicionar um estado em `MovieList` para controlar o que será exibido.
 
-
 #### O que será verificado:
 
 - Será validado se a página `MovieList` exibe o texto `Carregando...` enquanto estiver fazendo a requisição
 
 - Será validado se a página `MovieList` exibe um `MovieCard` para cada filme retornado pela API
-
 
 ### 3 - Insira um link para a página de detalhes de um filme dentro de `MovieCard`
 
@@ -331,18 +337,17 @@ Todos os `MovieCard`s devem possuir em seu conteúdo, pelo menos, o título, a s
 
 - Será validado se cada `MovieCard` contém um link com o texto `VER DETALHES` que redireciona para a página de detalhes do filme
 
-
 ### 4 - Faça uma requisição para buscar o filme que deverá ser renderizado dentro de `Movie Details`
 
 `MovieDetails` se comporta de forma muito semelhante ao `MovieList`. Ao ser montado, deve fazer uma requisição utilizando a função `getMovie`, se atente para o nome da função que é muito semelhante ao de outra função que já utilizamos, a `getMovies`, do módulo `movieAPI`, passando o id do filme. O componente `Loading` deve ser renderizado enquanto a requisição estiver em curso. Após terminar, deve-se renderizar um card com mais detalhes sobre o filme, contendo:
 
-  - Uma `<img>` com a imagem do filme e `alt='Movie Cover'`;
-  - Título;
-  - Subtítulo;
-  - Sinopse;
-  - Gênero;
-  - Avaliação;
-  - um link com o texto "EDITAR" apontando para a rota `/movies/:id/edit` e um link apontando para a rota raiz (`/`) com o texto "VOLTAR".
+- Uma `<img>` com a imagem do filme e `alt='Movie Cover'`;
+- Título;
+- Subtítulo;
+- Sinopse;
+- Gênero;
+- Avaliação;
+- um link com o texto "EDITAR" apontando para a rota `/movies/:id/edit` e um link apontando para a rota raiz (`/`) com o texto "VOLTAR".
 
 Os campos devem existir no cartão conforme ilustrado na imagem abaixo.
 
@@ -360,16 +365,17 @@ Os campos devem existir no cartão conforme ilustrado na imagem abaixo.
 
 ### Para os requisitos 5 e 6:
 
-Para correta avaliação, os campos do formulário devem possuir as seguintes tags `<label>` e  tipos de entrada:
+Para correta avaliação, os campos do formulário devem possuir as seguintes tags `<label>` e tipos de entrada:
+
 - label: 'Título', entrada: tag `<input>` de tipo 'text'
 - label: 'Subtítulo', entrada: tag `<input>` de tipo 'text'
 - label: 'Imagem', entrada: tag `<input>` de tipo 'text'
 - label: 'Sinopse', entrada: tag `<textarea>`
 - label: 'Gênero', entrada: tag `<select>`, com as seguintes opções:
-    - `<option value="action">Ação</option>`
-    - `<option value="comedy">Comédia</option>`
-    - `<option value="thriller">Suspense</option>`
-    - `<option value="fantasy">Fantasia</option>`
+  - `<option value="action">Ação</option>`
+  - `<option value="comedy">Comédia</option>`
+  - `<option value="thriller">Suspense</option>`
+  - `<option value="fantasy">Fantasia</option>`
 - label: 'Avaliação', entrada: tag `<input>`, de tipo 'number' com valores que vão de 0 (mínimo) a 5 (máximo), com um step de 0.1.
 
 Obs: O conteúdo das tags `<label>` devem estar idênticos ao específicado acima. Importante associar corretamente todas as suas entradas e labels!
@@ -385,7 +391,6 @@ Ao ser montada, a página de edição do filme deve fazer uma requisição pra b
 
 - Será validado se, ao clicar no botão de submit, uma requisição para API é feita e o filme selecionado é atualizado. Após a conclusão da atualização a pessoa usuária deve ser redirecionada para a página inicial
 
-
 ### 6 - Insira um link na página inicial para `NewMovie` para criar novos cartões
 
 O link deve conter o texto "ADICIONAR CARTÃO" e apontar para a rota `/movies/new`, contendo um formulário para criar novos cartões.
@@ -397,7 +402,6 @@ Na rota `/movies/new`, utilizando a callback passada para `MovieForm`, `NewMovie
 - Será validado se a página inicial contém um link "ADICIONAR CARTÃO". Esse link deve redirecionar para a página de criação de filmes
 
 - Será validado se `NewMovie` contém um formulário que faz uma requisição para API para criar um novo filme. Após a criação, a pessoa usuária deverá ser redirecionada para a página inicial
-
 
 #### Requisitos bônus:
 
@@ -417,13 +421,13 @@ Ao clicar neste link, faça uma requisição utilizando a função `deleteMovie`
 
 Para sinalizar que o seu projeto está pronto para o _"Code Review"_ dos seus colegas, faça o seguinte:
 
-* Vá até a página **DO SEU** _Pull Request_, adicione a label de _"code-review"_ e marque seus colegas:
+- Vá até a página **DO SEU** _Pull Request_, adicione a label de _"code-review"_ e marque seus colegas:
 
-  * No menu à direita, clique no _link_ **"Labels"** e escolha a _label_ **code-review**;
+  - No menu à direita, clique no _link_ **"Labels"** e escolha a _label_ **code-review**;
 
-  * No menu à direita, clique no _link_ **"Assignees"** e escolha **o seu usuário**;
+  - No menu à direita, clique no _link_ **"Assignees"** e escolha **o seu usuário**;
 
-  * No menu à direita, clique no _link_ **"Reviewers"** e digite `students`, selecione o time `tryber/students-sd-00`.
+  - No menu à direita, clique no _link_ **"Reviewers"** e digite `students`, selecione o time `tryber/students-sd-00`.
 
 Caso tenha alguma dúvida, [aqui tem um video explicativo](https://vimeo.com/362189205).
 
