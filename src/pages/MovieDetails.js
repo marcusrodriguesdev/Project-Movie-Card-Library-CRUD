@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
+import { Link } from 'react-router-dom';
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
 
@@ -8,7 +10,7 @@ class MovieDetails extends Component {
     super(props);
 
     this.state = {
-      movies: [movieAPI],
+
     };
     this.fetchMovie = this.fetchMovie.bind(this);
   }
@@ -38,30 +40,63 @@ class MovieDetails extends Component {
 
     const { movie, loading } = this.state;
 
-
-    if (loading === true && movie === undefined) {
-      return (
-        <Loading />
-
-      );
-    }
-
-    if (movie !== undefined) {
-      const { storyline, imagePath, genre, rating, subtitle } = movie[0];
+    if (movie !== undefined && loading === false) {
+      const { title, storyline, imagePath, genre, rating, subtitle } = movie[0];
       console.log(movie[0]);
 
       return (
-        <div data-testid="movie-details">
-          <img alt="Movie Cover" src={ `../${imagePath}` } />
-          <p>{ `Subtitle: ${subtitle}` }</p>
-          <p>{ `Storyline: ${storyline}` }</p>
-          <p>{ `Genre: ${genre}` }</p>
-          <p>{ `Rating: ${rating}` }</p>
+        <div>
+
+          <div data-testid="movie-details">
+
+            <img alt="Movie Cover" src={ `../${imagePath}` } />
+            <p>{ `Title: ${title}` }</p>
+            <p>{ `Subtitle: ${subtitle}` }</p>
+            <p>{ `Storyline: ${storyline}` }</p>
+            <p>{ `Genre: ${genre}` }</p>
+            <p>{ `Rating: ${rating}` }</p>
+          </div>
+          <div>
+            <Link to="/">VOLTAR</Link>
+            <Link to="/movies/:id/edit">EDITAR</Link>
+
+          </div>
+
         </div>
       );
     }
-    return <Loading />;
+    return (
+      <div>
+
+        <Loading />
+        <Link to="/">VOLTAR</Link>
+        <Link to="/movies/:id/edit">EDITAR</Link>
+
+      </div>
+    );
   }
 }
+
+/*
+  Erros de lint !
+  consultei o stackoverflow
+  https://stackoverflow.com/questions/47519612/eslint-match-is-missing-in-props-validation-react-prop-types/47519751
+
+*/
+
+MovieDetails.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.number,
+
+    }).isRequired,
+
+  }).isRequired,
+
+};
+
+MovieDetails.propTypes = {
+
+};
 
 export default MovieDetails;
