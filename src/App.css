@@ -10,7 +10,7 @@ img {
 .movie-list {
   display: flex;
   flex-flow: row wrap;
-  justify-content:center;
+  justify-content: center;
 }
 
 .movie-card {
