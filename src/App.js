@@ -12,7 +12,9 @@ class App extends React.Component {
   render() {
     return (
       <Router>
-        <div>Movie Card Library CRUD</div>
+        <header>
+          <h1>Movie Card Library CRUD</h1>
+        </header>
 
         <Switch>
 
