@@ -16,7 +16,6 @@ class MovieDetails extends Component {
       shouldRedirect: false,
       movie: {},
     };
-
   }
 
   componentDidMount() {
