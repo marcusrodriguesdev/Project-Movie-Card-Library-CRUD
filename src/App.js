@@ -13,7 +13,11 @@ function App() {
       <Switch>
         <Route exact path="/movies/new" component={ NewMovie } />
         <Route exact path="/movies/:id/edit" component={ EditMovie } />
-        <Route exact path="/movies/:id" render={ (routeProps) => <MovieDetails props={ routeProps } /> } />
+        <Route
+          exact
+          path="/movies/:id"
+          render={ (routeProps) => <MovieDetails props={ routeProps } /> }
+        />
         <Route exact path="/" component={ MovieList } />
         <Route path="*" component={ NotFount } />
       </Switch>
