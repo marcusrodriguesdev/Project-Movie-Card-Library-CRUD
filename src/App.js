@@ -11,7 +11,6 @@ function App() {
     <BrowserRouter>
       <div>Movie Card Library CRUD</div>
       <Switch>
-        <Route exact path="/" component={ MovieList } />
         <Route exact path="/movies/new" component={ NewMovie } />
         <Route exact path="/movies/:id" component={ MovieDetails } />
         <Route
@@ -19,6 +18,7 @@ function App() {
           path="/movies/:id/edit"
           render={ (props) => <EditMovie { ...props } /> }
         />
+        <Route exact path="/" component={ MovieList } />
         <Route exact path="*" component={ NotFound } />
       </Switch>
     </BrowserRouter>
