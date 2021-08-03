@@ -26,7 +26,7 @@ export default class MovieDetails extends Component {
   }
 
   getMovie = async () => {
-    const { props: { match: { params } } } = this.props;
+    const { match: { params } } = this.props;
     const data = await movieAPI.getMovie(params.id);
     const { title, storyline, imagePath, genre, rating, subtitle, id } = data;
     this.setState({
