@@ -19,7 +19,10 @@ function App() {
           path="/movies/:id"
           render={ (props) => <MovieDetails { ...props } /> }
         />
-        <Route path="/movies/:id/edit" component={ EditMovie } />
+        <Route
+          path="/movies/:id/edit"
+          render={ (props) => <EditMovie { ...props } /> }
+        />
         <Route path="/:404" component={ NotFound } />
       </Switch>
     </BrowserRouter>
