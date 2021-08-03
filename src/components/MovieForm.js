@@ -175,7 +175,11 @@ MovieForm.propTypes = {
     imagePath: PropTypes.string,
     bookmarked: PropTypes.bool,
     genre: PropTypes.string,
-  }).isRequired,
+  }),
+};
+
+MovieForm.defaultProps = {
+  movie: {},
 };
 
 export default MovieForm;
