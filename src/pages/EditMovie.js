@@ -47,7 +47,7 @@ class EditMovie extends Component {
     }
 
     return (
-      <div data-testid="edit-movie">
+      <div data-testid="edit-movie" className="container-pages">
 
         {
           status ? <Loading />

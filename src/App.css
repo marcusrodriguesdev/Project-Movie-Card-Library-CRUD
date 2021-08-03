@@ -1,5 +1,45 @@
 body {
-  background-color: whitesmoke;
+  background-color: rgba(31, 30, 30, 0.712);
   box-sizing: border-box;
 }
 
+.App {
+  text-align: center;
+}
+
+.container-pages {
+  margin: 50px;
+  padding: 20px;
+  border: 2px solid rgba(0, 0, 0, 0.185);
+  border-radius: 3px;
+  background-color: rgba(245, 223, 223, 0.904);
+}
+
+.container-card {
+  margin: 25px;
+  border: 1px solid rgba(0, 0, 0, 0.315);
+  border-radius: 10px;
+  padding: 20px 50px;
+}
+
+.route-link {
+  text-decoration: none;
+  border: 1px solid rgba(167, 51, 51, 0.212);
+  border-radius: 5px; 
+  padding: 6px;
+  margin: 5px;
+  color: white;
+  background-color:  rgba(17, 17, 17, 0.76);
+}
+
+.route-link:hover {
+  background-color: rgba(17, 17, 17, 0.582);
+}
+
+.form-movie {
+  padding: 50px;
+}
+
+input {
+  margin: 5px;
+}
