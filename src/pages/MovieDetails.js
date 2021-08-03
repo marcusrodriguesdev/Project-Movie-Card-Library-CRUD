@@ -62,9 +62,15 @@ class MovieDetails extends Component {
                 <p>{ `Storyline: ${storyline}` }</p>
                 <p>{ `Genre: ${genre}` }</p>
                 <p>{ `Rating: ${rating}` }</p>
-                <Link to="/">VOLTAR</Link>
-                <Link to={ movieId }>EDITAR</Link>
-                <Link to="/" onClick={ this.deleteMovie }>DELETAR</Link>
+                <Link to="/" className="route-link">VOLTAR</Link>
+                <Link to={ movieId } className="route-link">EDITAR</Link>
+                <Link
+                  to="/"
+                  onClick={ this.deleteMovie }
+                  className="route-link"
+                >
+                  DELETAR
+                </Link>
               </div>)
         }
       </div>
