@@ -169,7 +169,7 @@ MovieForm.propTypes = {
   movie: PropTypes.shape({
     rating: PropTypes.string,
   }).isRequired,
-  onSubmit: PropTypes.string.isRequired,
+  onSubmit: PropTypes.func.isRequired,
 };
 
 export default MovieForm;
