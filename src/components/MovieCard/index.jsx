@@ -15,7 +15,7 @@ class MovieCard extends React.Component {
         className="card-container"
         data-testid="movie-card"
       >
-        <div className="overlay" />
+        <div className="card-overlay" />
         <div className="card-body">
           <span>{ movie.title }</span>
           <p>{ movie.storyline }</p>

@@ -67,7 +67,7 @@
   opacity: 87%;
 }
 
-.overlay {
+.card-overlay {
   background-color: var(--surface);
   border-radius: 8px;
   height: 100%;
@@ -80,6 +80,6 @@
   width: 100%;
 }
 
-.card-container:hover .overlay {
+.card-container:hover .card-overlay {
   opacity: 85%;
 }
