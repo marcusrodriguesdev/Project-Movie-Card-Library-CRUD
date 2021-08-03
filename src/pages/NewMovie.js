@@ -15,6 +15,7 @@ class NewMovie extends Component {
   render() {
     return (
       <div data-testid="new-movie">
+        <Link to="/movies/new">ADICIONAR CARTÃO</Link>
         <MovieForm onSubmit={ this.handleSubmit } />
       </div>
     );
