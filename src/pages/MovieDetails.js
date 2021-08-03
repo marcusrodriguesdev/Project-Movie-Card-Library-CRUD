@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
-import '../App.css'
+import '../App.css';
 
 class MovieDetails extends Component {
   constructor() {
@@ -54,7 +54,7 @@ class MovieDetails extends Component {
           <div className="button-details">
             <Link className="bottons" to={ `/movies/${id}/edit` }>EDITAR</Link>
             <Link className="bottons" to="/">VOLTAR</Link>
-            <Link className="bottons" to="/" onClick={ this.deleteMovie }>DELETAR</Link> 
+            <Link className="bottons" to="/" onClick={ this.deleteMovie }>DELETAR</Link>
           </div>
         </div>
       </div>
