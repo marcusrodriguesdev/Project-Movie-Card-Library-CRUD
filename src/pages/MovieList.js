@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import MovieCard from '../components/MovieCard';
 import * as movieAPI from '../services/movieAPI';
+import { Loading } from '../components';
 
 class MovieList extends Component {
   constructor() {
@@ -26,7 +27,6 @@ class MovieList extends Component {
     const { movies } = this.state;
 
     // Render Loading here if the request is still happening
-    const loading = <span>Carregando...</span>;
     return (
       <div data-testid="movie-list">
         <span>
@@ -37,7 +37,7 @@ class MovieList extends Component {
               ))}
             </div>
           ) : (
-            loading
+            <Loading />
           )}
         </span>
       </div>
