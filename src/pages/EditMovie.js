@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { MovieForm } from '../components';
+import { Loading, MovieForm } from '../components';
 import * as movieAPI from '../services/movieAPI';
 
 class EditMovie extends Component {
@@ -10,8 +10,9 @@ class EditMovie extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleSubmit(updatedMovie) {
-    console.log(updatedMovie, movieAPI);
+  async handleSubmit(updatedMovie) {
+    const required = movieAPI.updateMovie(updatedMovie);
+    return required;
   }
 
   render() {
@@ -21,7 +22,7 @@ class EditMovie extends Component {
     }
 
     if (status === 'loading') {
-      // render Loading
+      return <Loading />;
     }
 
     return (
