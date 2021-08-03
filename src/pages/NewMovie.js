@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Redirect, Link } from 'react-router-dom';
 
+import Header from './Header';
 import MovieForm from '../components/MovieForm';
 import { createMovie } from '../services/movieAPI';
 
@@ -27,8 +28,9 @@ class NewMovie extends Component {
     }
     return (
       <div data-testid="new-movie">
+        <Header />
         <MovieForm onSubmit={ this.handleSubmit } />
-        <Link to="/">Voltar</Link>
+        <Link to="/" className="back-button">Voltar</Link>
       </div>
     );
   }

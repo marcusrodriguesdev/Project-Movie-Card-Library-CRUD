@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
+import Header from './Header';
 import { deleteMovie, getMovie } from '../services/movieAPI';
 import Loading from '../components/Loading';
 
@@ -49,17 +50,22 @@ class MovieDetails extends Component {
       return <Loading />;
     }
     return (
-      <div data-testid="movie-details">
-        <img alt="Movie Cover" src={ `../${imagePath}` } />
-        <p>{ `Title: ${title}` }</p>
-        <p>{ `Subtitle: ${subtitle}` }</p>
-        <p>{ `Storyline: ${storyline}` }</p>
-        <p>{ `Genre: ${genre}` }</p>
-        <p>{ `Rating: ${rating}` }</p>
-        <Link to="/">VOLTAR</Link>
-        <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
-        <Link to="/" onClick={ this.handleDelete }>DELETAR</Link>
-      </div>
+      <section className="movie-details">
+          <Header />
+        <div data-testid="movie-details">
+          <img alt="Movie Cover" src={ `../${imagePath}` } width="90%" height="200px" className="details-image" />
+          <p className="details-text">{ `Title: ${title}` }</p>
+          <p className="details-text">{ `Subtitle: ${subtitle}` }</p>
+          <p className="details-text">{ `Storyline: ${storyline}` }</p>
+          <p className="details-text">{ `Genre: ${genre}` }</p>
+          <p className="details-text">{ `Rating: ${rating}` }</p>
+        </div>
+        <div className="detail-links">
+          <Link to="/" className="details-link">VOLTAR</Link>
+          <Link to={ `/movies/${id}/edit` } className="details-link">EDITAR</Link>
+          <Link to="/" onClick={ this.handleDelete } className="details-link">DELETAR</Link>
+        </div>
+      </section>
     );
   }
 }

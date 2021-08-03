@@ -21,8 +21,8 @@ class MovieForm extends React.Component {
     const { title } = this.state;
 
     return (
-      <div>
-        <label htmlFor="movie_title">
+      <div class>
+        <label htmlFor="movie_title" class="form-component">
           <input
             placeholder="Insira o título"
             id="movie_title"
@@ -42,7 +42,7 @@ class MovieForm extends React.Component {
 
     return (
       <div>
-        <label htmlFor="movie_subtitle">
+        <label htmlFor="movie_subtitle" class="form-component">
           <input
             placeholder="Insira o subtítulo"
             id="movie_subtitle"
@@ -61,7 +61,7 @@ class MovieForm extends React.Component {
 
     return (
       <div className="row">
-        <label htmlFor="movie_image">
+        <label htmlFor="movie_image" class="form-component">
           <input
             placeholder="Insira o caminho da imagem"
             id="movie_image"
@@ -80,7 +80,7 @@ class MovieForm extends React.Component {
 
     return (
       <div>
-        <label htmlFor="movie_storyline">
+        <label htmlFor="movie_storyline" class="form-component">
           <textarea
             id="movie_storyline"
             value={ storyline }
@@ -96,7 +96,7 @@ class MovieForm extends React.Component {
     const { genre } = this.state;
     return (
       <div>
-        <label htmlFor="movie_genre">
+        <label htmlFor="movie_genre" class="form-component">
           Gênero
           <select
             id="movie_genre"
@@ -117,7 +117,7 @@ class MovieForm extends React.Component {
     const { rating } = this.state;
     return (
       <div>
-        <label htmlFor="movie_rating">
+        <label htmlFor="movie_rating" class="form-component">
           <input
             placeholder="Dê a avaliação do filme"
             id="movie_rating"
@@ -140,6 +140,7 @@ class MovieForm extends React.Component {
         <button
           type="button"
           onClick={ this.handleSubmit }
+          class="submit-button"
         >
           Submit
         </button>
@@ -149,8 +150,8 @@ class MovieForm extends React.Component {
 
   render() {
     return (
-      <div>
-        <form>
+      <section>
+        <form class="form">
           {this.renderTitleInput()}
           {this.renderSubtitleInput()}
           {this.renderImagePathInput()}
@@ -159,7 +160,7 @@ class MovieForm extends React.Component {
           {this.renderRatingInput()}
           {this.renderSubmitButton()}
         </form>
-      </div>
+      </section>
     );
   }
 }

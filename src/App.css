@@ -1,5 +1,145 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 body {
-  background-color: whitesmoke;
+  background-color: rgb(15, 15, 15);
   box-sizing: border-box;
 }
 
+.loading {
+  display: flex;
+  color: rgb(200, 200, 200);
+  align-self: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  font-size: 40px;
+  font-weight: 2000;
+}
+
+.header {
+  display: flex;
+  height: 100px;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(56, 53, 53);
+}
+
+.title {
+  color: rgb(140, 0, 0);
+  font-size: 40px;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-shadow: 1px 1px rgb(30, 0, 0);
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.movie-list {
+  display: flex;
+  padding: 20px 3%;
+  flex-wrap: wrap;
+}
+
+.add-button, .details-link, .back-button, .submit-button {
+  text-decoration: none;
+  background-color: rgb(100, 0, 50);
+  color: rgb(200, 200, 200);
+  padding: 10px;
+  margin-bottom: 40px;
+  border-radius: 10px;
+  box-shadow: -3px 1px #888888;
+}
+
+.movie-card {
+  display: flex;
+  width: 30%;
+  margin: 10px 5px;
+  padding: 10px 20px;
+  flex-direction: column;
+  color: rgb(228, 228, 228);
+  background-color: rgb(35, 35, 35);
+  border-left: 5px solid rgb(63, 2, 2);
+  border-bottom: 5px solid rgb(63, 2, 2);
+  border-radius: 30px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.card-title {
+  font-weight: 1000;
+  font-size: 20px;
+  align-self: center;
+  padding: 10px;
+  text-shadow: 1px 1px rgb(179, 0, 0);
+}
+
+.card-story {
+  padding: 5px 10px;
+  text-align: justify;
+  font-size: 17px;
+  min-height: 80px;
+}
+
+.details-button {
+  text-decoration: none;
+  justify-content: center;
+  align-self: center;
+  color: rgb(200, 200, 200);
+  background-color: rgb(100, 0, 50);
+  border-radius: 30px;
+  padding: 8px;
+  margin: 10px;
+}
+
+.movie-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.details-image {
+  padding: 10px 5%;
+  border-radius: 10% 50%;
+}
+
+.details-text{
+  color: rgb(200, 200, 200);
+  font-size: 20px;
+  padding: 3px 10%;
+}
+
+.details-links {
+  display: flex;
+}
+
+.details-link {
+  display: inline-block;
+  width: 80px;
+  margin-left: 200px;
+  margin-top: 20px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 35%;
+  color: rgb(200, 200, 200);
+}
+
+.form-component {
+  margin: 50px;
+}
+
+.submit-button {
+  margin: 5px 30%;
+}
+
+.back-button {
+  margin-left: 44%;
+}

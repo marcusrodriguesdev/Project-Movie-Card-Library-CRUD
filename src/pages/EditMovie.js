@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Redirect, Link } from 'react-router-dom';
 
+import Header from './Header';
 import Loading from '../components/Loading';
 import { MovieForm } from '../components';
 import { getMovie, updateMovie } from '../services/movieAPI';
@@ -58,8 +59,9 @@ class EditMovie extends Component {
 
     return (
       <div data-testid="edit-movie">
+        <Header />
         <MovieForm movie={ movie } onSubmit={ this.handleSubmit } />
-        <Link to="/">Voltar</Link>
+        <Link to="/" className="back-button">Voltar</Link>
       </div>
     );
   }
