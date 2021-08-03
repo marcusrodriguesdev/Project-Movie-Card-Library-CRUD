@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import * as movieAPI from '../services/movieAPI';
 import { Loading, Touchable } from '../components';
+import Detail from '../components/Detail';
 
 class MovieDetails extends Component {
   constructor(props) {
@@ -49,11 +50,11 @@ class MovieDetails extends Component {
     return (
       <div data-testid="movie-details">
         <img alt="Movie Cover" src={ `../${imagePath}` } />
-        <p>{ `Title: ${title}` }</p>
-        <p>{ `Subtitle: ${subtitle}` }</p>
-        <p>{ `Storyline: ${storyline}` }</p>
-        <p>{ `Genre: ${genre}` }</p>
-        <p>{ `Rating: ${rating}` }</p>
+        <Detail title="Title" content={ title } />
+        <Detail title="Subtitle" content={ subtitle } />
+        <Detail title="Storyline" content={ storyline } />
+        <Detail title="Genre" content={ genre } />
+        <Detail title="Rating" content={ rating.toString() } />
         <Touchable type="button" to="/">
           VOLTAR
         </Touchable>

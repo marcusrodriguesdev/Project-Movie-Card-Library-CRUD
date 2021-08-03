@@ -1,0 +1,27 @@
+.detail-container {
+  border-color: var(--secundary);
+  border-radius: 8px;
+  box-shadow: 4px 4px 4px var(--shadow);
+  color: var(--onSurface);
+  position: relative;
+}
+
+.detail-container legend {
+  font-size: 1.1em;
+  opacity: 60%;
+}
+
+.detail-container h3 {
+  opacity: 87%;
+}
+
+.detail-overlay {
+  background-color: white;
+  height: calc(100% + 5.6px);
+  left: 0;
+  opacity: 5%;
+  pointer-events: none;
+  position: absolute;
+  top: -5.6px;
+  width: 100%;
+}
