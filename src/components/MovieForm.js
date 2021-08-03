@@ -178,8 +178,4 @@ MovieForm.propTypes = {
   onSubmit: PropTypes.func.isRequired,
 };
 
-// MovieForm.defaultProps = {
-//   movie: {},
-// };
-
 export default MovieForm;
