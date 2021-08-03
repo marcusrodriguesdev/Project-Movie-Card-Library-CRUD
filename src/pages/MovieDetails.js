@@ -15,6 +15,7 @@ class MovieDetails extends Component {
     };
 
     this.displayMovie = this.displayMovie.bind(this);
+    this.deleteRequisition = this.deleteRequisition.bind(this);
   }
 
   componentDidMount() {
@@ -23,10 +24,7 @@ class MovieDetails extends Component {
 
   displayMovie() {
     const { movie } = this.state;
-    const { title, storyline, imagePath, genre, rating, subtitle } = movie;
-    const { match } = this.props;
-    const { params } = match;
-    const { id } = params;
+    const { title, storyline, imagePath, genre, rating, subtitle, id } = movie;
 
     return (
       <div data-testid="movie-details">
@@ -38,8 +36,13 @@ class MovieDetails extends Component {
         <p>{ `Rating: ${rating}` }</p>
         <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
         <Link to="/">VOLTAR</Link>
+        <Link to="/" onClick={ () => this.deleteRequisition(id) }>DELETAR</Link>
       </div>
     );
+  }
+
+  deleteRequisition(id) {
+    movieAPI.deleteMovie(id);
   }
 
   async fetchApi() {
@@ -57,9 +60,6 @@ class MovieDetails extends Component {
   }
 
   render() {
-    // Change the condition to check the state
-    // if (true) return <Loading />;
-
     const { loading } = this.state;
 
     return loading ? <Loading /> : this.displayMovie();
