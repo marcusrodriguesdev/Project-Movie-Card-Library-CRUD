@@ -25,6 +25,7 @@ class MovieDetails extends Component {
 
     this.setState({
       loading: true,
+      id,
     });
     const Movie = await movieAPI.getMovie(id);
 
@@ -39,9 +40,10 @@ class MovieDetails extends Component {
     // if (true) return <Loading />;
 
     const { movie, loading } = this.state;
-
+    const { id } = this.state;
     if (movie !== undefined && loading === false) {
       const { title, storyline, imagePath, genre, rating, subtitle } = movie[0];
+
       console.log(movie[0]);
 
       return (
@@ -58,7 +60,7 @@ class MovieDetails extends Component {
           </div>
           <div>
             <Link to="/">VOLTAR</Link>
-            <Link to="/movies/:id/edit">EDITAR</Link>
+            <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
 
           </div>
 
@@ -70,7 +72,7 @@ class MovieDetails extends Component {
 
         <Loading />
         <Link to="/">VOLTAR</Link>
-        <Link to="/movies/:id/edit">EDITAR</Link>
+        <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
 
       </div>
     );
