@@ -31,6 +31,11 @@ class MovieDetails extends Component {
       );
   }
 
+  componentWillUnmount() {
+    // Dica do Rafael Nery Machado
+    this.setState = () => {};
+  }
+
   deleteMovie(idMovie) {
     movieAPI.deleteMovie(idMovie)
       .then(
