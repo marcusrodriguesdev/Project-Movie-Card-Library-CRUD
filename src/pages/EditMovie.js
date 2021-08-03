@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 
 import Loading from '../components/Loading';
 import { MovieForm } from '../components';
@@ -46,11 +46,9 @@ class EditMovie extends Component {
 
   render() {
     const { loading, shouldRedirect, movie } = this.state;
-    const { id } = movie;
     if (shouldRedirect) {
       // Redirect
-      const adress = `/movies/${id}`;
-      return <Redirect to={ adress } />;
+      return <Redirect to="/" />;
     }
 
     if (loading) {
@@ -61,6 +59,7 @@ class EditMovie extends Component {
     return (
       <div data-testid="edit-movie">
         <MovieForm movie={ movie } onSubmit={ this.handleSubmit } />
+        <Link to="/">Voltar</Link>
       </div>
     );
   }
