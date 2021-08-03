@@ -15,11 +15,17 @@ class MovieDetails extends Component {
     };
 
     this.renderCard = this.renderCard.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   componentDidMount() {
     const { match: { params: { id } } } = this.props;
     this.fetchRequisition(id);
+  }
+
+  handleDelete() {
+    const { match: { params: { id } } } = this.props;
+    movieAPI.deleteMovie(id);
   }
 
   async fetchRequisition(params) {
@@ -56,6 +62,7 @@ class MovieDetails extends Component {
     return (
       <div>
         { loading ? <Loading /> : this.renderCard() }
+        <Link onClick={ this.handleDelete } to="/">DELETAR</Link>
       </div>
     );
   }
