@@ -8,7 +8,8 @@ class NewMovie extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      shouldRedirect: false
+      shouldRedirect: false,
+      movie: {},
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -23,14 +24,14 @@ class NewMovie extends Component {
   }
 
   render() {
-    const { shouldRedirect } = this.state;
+    const { movie, shouldRedirect } = this.state;
     if (shouldRedirect) {
     // Redirect
       return <Redirect to="/" />;
     }
     return (
       <div data-testid="new-movie">
-        <MovieForm onSubmit={ this.handleSubmit } />
+        <MovieForm movie={ movie } onSubmit={ this.handleSubmit } />
       </div>
     );
   }
