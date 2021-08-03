@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import PropTypes from 'prop-types';
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
 import { Link } from 'react-router-dom';
@@ -50,11 +50,18 @@ class MovieDetails extends Component {
         <p>{ `Genre: ${ genre }` }</p>
         <p>{ `Rating: ${ rating }` }</p>
 
-        <Link to={`${id}/edit`}>EDITAR</Link>
-        <Link to="/" >VOLTAR</Link>
+        <Link to={ `/movies/${id}/edit` }> EDITAR </Link>
+        <Link to="/"> VOLTAR </Link>
+        <Link to="/" onClick={ () => movieAPI.deleteMovie(id) }> DELETAR </Link>
       </div>
     );
   }
 }
-
+MovieDetails.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.string.isRequired,
+    }).isRequired,
+  }).isRequired,
+};
 export default MovieDetails;
