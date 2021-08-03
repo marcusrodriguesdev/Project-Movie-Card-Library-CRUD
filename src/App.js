@@ -1,11 +1,12 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { EditMovie, MovieDetails, MovieList, NewMovie, NotFound } from './pages';
+import './App.css';
 
 function App() {
   return (
     <BrowserRouter>
-      <div>Movie Card Library CRUD</div>
+      <div className="movie-card-header">Movie Card Library CRUD</div>
       <Switch>
         <Route
           exact
@@ -35,4 +36,4 @@ function App() {
 
 export default App;
 
-// sites de apoio - https://reactrouter.com/web/api/Switch, https://www.w3schools.com/, https://pt-br.reactjs.org/docs/typechecking-with-proptypes.html materiais e exercícios curse.
+// sites de apoio - https://reactrouter.com/web/api/Switch, https://www.w3schools.com/, https://tableless.com.br/como-usar-gradient-no-css-de-forma-consciente/, https://pt-br.reactjs.org/docs/typechecking-with-proptypes.html, https://css-tricks.com/perfect-full-page-background-image/, https://freefrontend.com/css-buttons/, materiais e exercícios curse.

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
+import '../App.css'
 
 class MovieDetails extends Component {
   constructor() {
@@ -38,16 +39,24 @@ class MovieDetails extends Component {
       imagePath, genre, rating, subtitle }, loading } = this.state;
     if (loading) return <Loading />;
     return (
-      <div data-testid="movie-details">
-        <img alt="Movie Cover" src={ `../${imagePath}` } />
-        <p>{ `title: ${title}` }</p>
-        <p>{ `Subtitle: ${subtitle}` }</p>
-        <p>{ `Storyline: ${storyline}` }</p>
-        <p>{ `Genre: ${genre}` }</p>
-        <p>{ `Rating: ${rating}` }</p>
-        <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
-        <Link to="/">VOLTAR</Link>
-        <Link to="/" onClick={ this.deleteMovie }>DELETAR</Link>
+      <div className="card-details" data-testid="movie-details">
+        <img className="image-details" alt="Movie Cover" src={ `../${imagePath}` } />
+        <div>
+          <div className="info-details">
+            <p className="title-details">{ `Title: ${title}` }</p>
+            <p className="movie-card-subtitle">{ `Subtitle: ${subtitle}` }</p>
+            <p>{ `Storyline: ${storyline}` }</p>
+            <p>{ `Genre: ${genre}` }</p>
+          </div>
+          <div className="Rating">
+            <p className="rating">{ `Rating: ${rating}` }</p>
+          </div>
+          <div className="button-details">
+            <Link className="bottons" to={ `/movies/${id}/edit` }>EDITAR</Link>
+            <Link className="bottons" to="/">VOLTAR</Link>
+            <Link className="bottons" to="/" onClick={ this.deleteMovie }>DELETAR</Link> 
+          </div>
+        </div>
       </div>
     );
   }
