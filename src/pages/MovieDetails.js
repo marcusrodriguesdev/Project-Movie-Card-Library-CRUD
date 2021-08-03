@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import './pages.css';
 
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
@@ -36,16 +37,22 @@ class MovieDetails extends Component {
     const { details } = this.state;
     const { title, storyline, imagePath, genre, rating, subtitle, id } = details;
     return (
-      <div data-testid="movie-details">
+      <div data-testid="movie-details" className="movie-details">
         <img alt="Movie Cover" src={ `../${imagePath}` } />
-        <p>{`Title: ${title}`}</p>
-        <p>{ `Subtitle: ${subtitle}` }</p>
-        <p>{ `Storyline: ${storyline}` }</p>
-        <p>{ `Genre: ${genre}` }</p>
-        <p>{ `Rating: ${rating}` }</p>
-        <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
-        <Link to="/">VOLTAR</Link>
-        <Link to="/" onClick={ () => movieAPI.deleteMovie(id) }>DELETAR</Link>
+        <div className="movie-details-text">
+          <p>{`Título: ${title}`}</p>
+          <p>{ `SubTítulo: ${subtitle}` }</p>
+          <p>{ `Sinopse: ${storyline}` }</p>
+          <p>{ `Gênero: ${genre}` }</p>
+          <p>{ `Avaliação: ${rating}` }</p>
+          <Link to="/" className="return">  VOLTAR </Link>
+          <br />
+          <Link to={ `/movies/${id}/edit` } className="edit"> EDITAR </Link>
+          <br />
+          <Link to="/" onClick={ () => movieAPI.deleteMovie(id) } className="delete">
+            DELETAR
+          </Link>
+        </div>
       </div>
     );
   }

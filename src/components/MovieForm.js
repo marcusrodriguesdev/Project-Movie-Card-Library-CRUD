@@ -23,15 +23,14 @@ class MovieForm extends React.Component {
     return (
       <div>
         <label htmlFor="movie_title">
+          Título
           <input
             placeholder="Insira o título"
-            id="movie_title"
+            className="movie_title"
             type="text"
-            className="validate"
             value={ title }
             onChange={ (event) => this.updateMovie('title', event.target.value) }
           />
-          Título
         </label>
       </div>
     );
@@ -42,15 +41,16 @@ class MovieForm extends React.Component {
 
     return (
       <div>
-        <label htmlFor="movie_subtitle">
+        <label htmlFor="movie_subtitle" className="subtitle">
+          Subtítulo
           <input
             placeholder="Insira o subtítulo"
-            id="movie_subtitle"
+            className="movie_subtitle"
             type="text"
             value={ subtitle }
             onChange={ (event) => this.updateMovie('subtitle', event.target.value) }
           />
-          Subtítulo
+
         </label>
       </div>
     );
@@ -60,16 +60,17 @@ class MovieForm extends React.Component {
     const { imagePath } = this.state;
 
     return (
-      <div className="row">
-        <label htmlFor="movie_image">
+      <div>
+        <label htmlFor="movie_image" className="row">
+          Imagem
           <input
             placeholder="Insira o caminho da imagem"
-            id="movie_image"
+            className="movie_image"
             type="text"
             value={ imagePath }
             onChange={ (event) => this.updateMovie('imagePath', event.target.value) }
           />
-          Imagem
+
         </label>
       </div>
     );
@@ -80,13 +81,14 @@ class MovieForm extends React.Component {
 
     return (
       <div>
-        <label htmlFor="movie_storyline">
+        <label htmlFor="movie_storyline" className="storyline">
+          Sinopse
           <textarea
-            id="movie_storyline"
+            className="movie_storyline"
             value={ storyline }
             onChange={ (event) => this.updateMovie('storyline', event.target.value) }
           />
-          Sinopse
+
         </label>
       </div>
     );
@@ -96,10 +98,10 @@ class MovieForm extends React.Component {
     const { genre } = this.state;
     return (
       <div>
-        <label htmlFor="movie_genre">
+        <label htmlFor="movie_genre" className="genre">
           Gênero
           <select
-            id="movie_genre"
+            className="movie_genre"
             value={ genre }
             onChange={ (event) => this.updateMovie('genre', event.target.value) }
           >
@@ -117,10 +119,11 @@ class MovieForm extends React.Component {
     const { rating } = this.state;
     return (
       <div>
-        <label htmlFor="movie_rating">
+        <label htmlFor="movie_rating" className="rating">
+          Avaliação
           <input
             placeholder="Dê a avaliação do filme"
-            id="movie_rating"
+            className="movie_rating"
             type="number"
             step={ 0.1 }
             min={ 0 }
@@ -128,7 +131,6 @@ class MovieForm extends React.Component {
             value={ rating }
             onChange={ (event) => this.updateMovie('rating', event.target.value) }
           />
-          Avaliação
         </label>
       </div>
     );
@@ -140,6 +142,7 @@ class MovieForm extends React.Component {
         <button
           type="button"
           onClick={ this.handleSubmit }
+          className="submit"
         >
           Submit
         </button>
@@ -149,7 +152,7 @@ class MovieForm extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="form">
         <form>
           {this.renderTitleInput()}
           {this.renderSubtitleInput()}

@@ -9,8 +9,7 @@ import NotFound from './pages/NotFound';
 
 function App() {
   return (
-    <header>
-      <div>Movie Card Library CRUD</div>
+    <header className="header">
       <BrowserRouter>
         <Switch>
           <Route

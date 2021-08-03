@@ -29,6 +29,7 @@ class NewMovie extends Component {
     }
     return (
       <div data-testid="new-movie">
+        <h1 className="Header">Adicione o Filme</h1>
         <MovieForm onSubmit={ this.handleSubmit } />
       </div>
     );

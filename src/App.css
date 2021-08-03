@@ -1,5 +1,7 @@
 body {
-  background-color: whitesmoke;
+  background-color: #303030;
   box-sizing: border-box;
+  color: whitesmoke;
+  display: flex;
+  flex-direction: row;
 }
-
