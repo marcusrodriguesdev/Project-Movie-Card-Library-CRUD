@@ -19,6 +19,11 @@ class MovieDetails extends Component {
     this.fetchMovie();
   }
 
+  componentWillUnmount() {
+    // fix Warning: Can't perform a React state update on an unmounted component
+    this.setState = () => {};
+  }
+
   deleteMovie = () => {
     const { match: { params: { id } } } = this.props;
     movieAPI.deleteMovie(id);

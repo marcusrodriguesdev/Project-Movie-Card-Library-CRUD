@@ -21,6 +21,11 @@ class EditMovie extends Component {
     this.fetchMovie();
   }
 
+  componentWillUnmount() {
+    // fix Warning: Can't perform a React state update on an unmounted component
+    this.setState = () => {};
+  }
+
   handleSubmit(updatedMovie) {
     movieAPI.updateMovie(updatedMovie);
     this.setState({ shouldRedirect: true });
