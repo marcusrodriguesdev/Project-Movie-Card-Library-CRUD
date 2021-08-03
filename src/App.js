@@ -13,6 +13,8 @@ function App() {
           <Route
             exact
             path="/movies/:id"
+            // this props passes an object = 'RouteComponentProps'
+            // {history: {…}, location: {…}, match: {…}, staticContext: undefined}
             render={ (props) => <MovieDetails { ...props } /> }
           />
           <Route
