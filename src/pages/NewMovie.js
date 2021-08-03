@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import { Redirect } from 'react-router';
 
 import MovieForm from '../components/MovieForm';
 import * as movieAPI from '../services/movieAPI';
@@ -7,31 +7,29 @@ import * as movieAPI from '../services/movieAPI';
 class NewMovie extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
-      movies: props.movies,
+      shouldRedirect: false,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   async handleSubmit(newMovie) {
-    const newMovieSet = await movieAPI.createMovie(newMovie);
-    this.setState(({ movies }) => ({
-      movies: [...movies, newMovieSet],
-    }));
+    await movieAPI.createMovie(newMovie);
+    this.setState({
+      shouldRedirect: true,
+    });
   }
 
   render() {
+    const { shouldRedirect } = this.state;
     return (
       <div data-testid="new-movie">
-        <MovieForm onSubmit={ this.handleSubmit } />
+        {shouldRedirect
+          ? <Redirect to="/" />
+          : <MovieForm onSubmit={ this.handleSubmit } />}
       </div>
     );
   }
 }
-
-NewMovie.propTypes = {
-  movies: PropTypes.arrayOf(PropTypes.object).isRequired,
-};
 
 export default NewMovie;
