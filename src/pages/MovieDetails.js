@@ -21,6 +21,12 @@ class MovieDetails extends Component {
     this.fetchMovie();
   }
 
+  async componentWillUnmount() {
+    const { match } = this.props;
+    const deleteMovie = await movieAPI.deleteMovie(match.params.id);
+    return deleteMovie;
+  }
+
   async fetchMovie() {
     const { match } = this.props;
     const movieDetail = await movieAPI.getMovie(match.params.id);
@@ -59,6 +65,7 @@ class MovieDetails extends Component {
 
         <Link to={ `/movies/${match.params.id}/edit` }> EDITAR </Link>
         <Link to="/"> VOLTAR </Link>
+        <Link to="/"> DELETAR </Link>
       </div>
     );
   }
