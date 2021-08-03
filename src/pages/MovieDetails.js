@@ -13,7 +13,6 @@ class MovieDetails extends Component {
   }
 
   async componentDidMount() {
-    // eslint-disable-next-line react/prop-types
     const { match: { params: { id } } } = this.props;
     await movieAPI.getMovie(id).then((iten) => {
       this.setState({
@@ -49,5 +48,17 @@ class MovieDetails extends Component {
     );
   }
 }
+
+MovieDetails.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.number,
+    }),
+  }),
+};
+
+MovieDetails.defaultProps = {
+  match: undefined,
+};
 
 export default MovieDetails;
