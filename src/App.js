@@ -5,6 +5,7 @@ import MovieList from './pages/MovieList';
 import MovieDetails from './pages/MovieDetails';
 import NewMovie from './pages/NewMovie';
 import EditMovie from './pages/EditMovie';
+import NotFound from './pages/NotFound';
 
 class App extends Component {
   render() {
@@ -15,6 +16,7 @@ class App extends Component {
         <Route path="/movies/:id" render={ () => <MovieDetails /> } />
         <Route path="/movies/new" component={ NewMovie } />
         <Route path="/movies/:id/edit" render={ () => <EditMovie /> } />
+        <Route component={ NotFound } />
       </BrowserRouter>
     );
   }
