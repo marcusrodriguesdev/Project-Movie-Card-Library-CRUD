@@ -5,6 +5,8 @@ import { Link, Redirect } from 'react-router-dom';
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
 
+import './MovieDetails.css';
+
 class MovieDetails extends Component {
   constructor(props) {
     super(props);
@@ -46,22 +48,34 @@ class MovieDetails extends Component {
     const loadingElement = <Loading />;
     const { movie, loading } = this.state;
     const { id, title, storyline, imagePath, genre, rating, subtitle } = movie;
+    const { shouldRedirect } = this.state;
 
     const movieDetail = (
-      <div data-testid="movie-details">
-        <img alt="Movie Cover" src={ `../${imagePath}` } />
-        <h2>{ title }</h2>
-        <p>{ `Subtitle: ${subtitle}` }</p>
-        <p>{ `Storyline: ${storyline}` }</p>
-        <p>{ `Genre: ${genre}` }</p>
-        <p>{ `Rating: ${rating}` }</p>
-        <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
-        <Link to="/">VOLTAR</Link>
-        <Link to="/" onClick={ () => this.deleteMovie(id) }>DELETAR</Link>
+      <div className="movie-card-box details">
+        <div className="movie-details" data-testid="movie-details">
+          <img alt="Movie Cover" src={ `../${imagePath}` } />
+          <div className="movie-card-body">
+            <h2 className="movie-card-title">{ title }</h2>
+            <p className="movie-card-subtitle">{ `Subtitle: ${subtitle}` }</p>
+            <p className="movie-card-storyline">{ `Storyline: ${storyline}` }</p>
+            <p className="movie-card-storyline">{ `Genre: ${genre}` }</p>
+            <p className="movie-card-storyline">{ `Rating: ${rating}` }</p>
+            <div className="flex">
+              <Link to={ `/movies/${id}/edit` } className="movie-card-btn">EDITAR</Link>
+              <Link to="/" className="movie-card-btn">VOLTAR</Link>
+              <Link
+                to="/"
+                onClick={ () => this.deleteMovie(id) }
+                className="movie-card-btn"
+              >
+                DELETAR
+              </Link>
+            </div>
+          </div>
+        </div>
       </div>
     );
 
-    const { shouldRedirect } = this.state;
     if (shouldRedirect) {
     // Redirect
       return <Redirect to="/" />;

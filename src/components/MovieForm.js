@@ -21,7 +21,7 @@ class MovieForm extends React.Component {
     const { title } = this.state;
 
     return (
-      <div>
+      <div className="form-input">
         <label htmlFor="movie_title">
           <input
             placeholder="Insira o título"
@@ -41,7 +41,7 @@ class MovieForm extends React.Component {
     const { subtitle } = this.state;
 
     return (
-      <div>
+      <div className="form-input">
         <label htmlFor="movie_subtitle">
           <input
             placeholder="Insira o subtítulo"
@@ -60,7 +60,7 @@ class MovieForm extends React.Component {
     const { imagePath } = this.state;
 
     return (
-      <div className="row">
+      <div className="row form-input">
         <label htmlFor="movie_image">
           <input
             placeholder="Insira o caminho da imagem"
@@ -79,7 +79,7 @@ class MovieForm extends React.Component {
     const { storyline } = this.state;
 
     return (
-      <div>
+      <div className="form-input">
         <label htmlFor="movie_storyline">
           <textarea
             id="movie_storyline"
@@ -95,7 +95,7 @@ class MovieForm extends React.Component {
   renderGenreSelection() {
     const { genre } = this.state;
     return (
-      <div>
+      <div className="form-input">
         <label htmlFor="movie_genre">
           Gênero
           <select
@@ -116,7 +116,7 @@ class MovieForm extends React.Component {
   renderRatingInput() {
     const { rating } = this.state;
     return (
-      <div>
+      <div className="form-input">
         <label htmlFor="movie_rating">
           <input
             placeholder="Dê a avaliação do filme"
@@ -136,8 +136,9 @@ class MovieForm extends React.Component {
 
   renderSubmitButton() {
     return (
-      <div>
+      <div className="flex">
         <button
+          className="movie-card-btn"
           type="button"
           onClick={ this.handleSubmit }
         >
@@ -149,8 +150,8 @@ class MovieForm extends React.Component {
 
   render() {
     return (
-      <div>
-        <form>
+      <div className="movie-card-box details">
+        <form className="movie-card-body">
           {this.renderTitleInput()}
           {this.renderSubtitleInput()}
           {this.renderImagePathInput()}

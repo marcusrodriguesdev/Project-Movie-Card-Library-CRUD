@@ -10,12 +10,16 @@ class MovieCard extends React.Component {
 
     return (
       <div className="movie-card" data-testid="movie-card">
-        <img alt="Movie Cover" className="movie-card-image" src={ imagePath } />
-        <div className="movie-card-bory">
-          <h4 className="movie-card-title">{ title }</h4>
-          <p className="movie-card-storyline">{ storyline }</p>
+        <div className="movie-card-box">
+          <img alt="Movie Cover" className="movie-card-image" src={ imagePath } />
+          <div className="movie-card-body">
+            <h4 className="movie-card-title">{ title }</h4>
+            <p className="movie-card-storyline">{ storyline }</p>
+            <div className="flex">
+              <Link to={ `/movies/${id}` } className="movie-card-btn">VER DETALHES</Link>
+            </div>
+          </div>
         </div>
-        <Link to={ `/movies/${id}` }>VER DETALHES</Link>
       </div>
     );
   }

@@ -1,5 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
 body {
-  background-color: whitesmoke;
+background-color: rgb(30, 30, 30);
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
+.header {
+  align-items: center;
+  background-color: rgb(10, 10, 10);
+  color: bisque;
+  display: flex;
+  font-family: 'Lobster', cursive;
+  font-size: 35px;
+  height: 55px;
+  justify-content: center;
+  text-align: center;
+}
+
+.flex {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.movie-card-header {
+  align-items: center;
+  background-color: #343a40;
+  display: flex;
+  height: 100px;
+  justify-content: center;
+}
+
+.page-title {
+  color: #f8f9fa;
+  font-size: 28px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.movie-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  flex-flow: row wrap;
+  justify-content: center;
+  padding: 48px 30px;
+}
+
+.movie-card {
+  background-color: rgb(250, 250, 250);
+  border: 2px solid black;
+  border-radius: 8px;
+  display: flex;
+  margin: 10px;
+  overflow: hidden;
+  width: 300px;
+  box-shadow: 2px 2px 3px rgba(250, 250, 250, 0.1);
+}
+
+.movie-card:hover {
+  box-shadow: 0px 0px 5px inset rgba(0, 0, 0, 0.9);
+}
+
+.movie-card-box {
+  background-color: rgb(10, 10, 10);
+  border: 2px solid rgba(180, 0, 0, 0.7);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  /* height: 350px; */
+  margin: 5px;
+  overflow: hidden;
+  width: 300px;
+  box-shadow: 2px 2px 3px rgba(250, 250, 250, 0.1);
+}
+
+.details {
+  margin: 20px auto !important;
+}
+
+
+.movie-card-image {
+  width: 100%;
+}
+
+.movie-card-body {
+  display: flex;
+  flex-grow: 8;
+  flex-direction: column;
+  justify-content: space-between;
+  /* flex: 1 1 auto; */
+  padding: 10px;
+}
+
+.movie-card-title {
+  color:rgb(221, 200, 12);
+  font-size: 24px;
+  font-weight: 500;
+  margin: 0 0 12px;
+}
+
+.movie-card-subtitle {
+  color: #6c757d;
+  font-size: 16px;
+  font-weight: 500;
+  margin: 0 0 8px;
+}
+
+.movie-card-storyline {
+  font-size: 14px;
+  text-align: justify;
+  color: white;
+}
+
+.movie-card-btn {
+  background-color: #007bff;
+  border-radius: 15px;
+  color: white;
+  font-size: 12px;
+  font-weight: 500;
+  margin: 0 0 0 10px;
+  padding: 5px 10px;
+  text-decoration: none;
+}
+
+.movie-card-btn:hover {
+  box-shadow: 0px 0px 2px inset rgba(0, 0, 0, 0.9);
+}
+
+.rating {
+  background-color: #007bff;
+  border-radius: 25px;
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 3px 9px;
+}
+
+.movie-card-rating {
+  background-color: rgba(0, 0, 0, 0.03);
+  border-top: 1px solid rgba(0, 0, 0, 0.125);
+  display: flex;
+  justify-content: flex-end;
+  padding: 12px 20px;
+}
+
+.footer {
+  align-items: center;
+  background-color: rgb(10, 10, 10);
+  display: flex;
+  height: 25px;
+  justify-content: flex-end;
+  padding: 10px;
+  text-align: center;
+}
+
+.movie-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.form-input {
+  color: white;
+  font-size: 13px;
+  margin: 5px;
+}
+
+.form-input label {
+  color: rgb(150, 150, 150);
+  font-weight: 400;
+}
+
+.form-input input {
+  background-color: rgb(150, 150, 150);
+  margin: 4px 0 1px 0;
+  width: 263px;
+}
+
+.form-input select {
+  background-color: rgb(150, 150, 150);
+  margin: 4px 0 1px 0;
+  width: 270px;
+}
+
+.form-input textarea {
+  background-color: rgb(150, 150, 150);
+  height: 120px;
+  margin: 4px 0 1px 0;
+  width: 263px;
+}
