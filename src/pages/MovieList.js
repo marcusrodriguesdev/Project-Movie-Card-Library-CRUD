@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Loading } from '../components';
 import MovieCard from '../components/MovieCard';
 
 import * as movieAPI from '../services/movieAPI';
@@ -27,7 +28,7 @@ class MovieList extends Component {
     return (
       <div data-testid="movie-list">
         {loading
-          ? <p>Carregando...</p>
+          ? <Loading />
           : movies
             .map((movie) => (<MovieCard
               key={ movie.title }
