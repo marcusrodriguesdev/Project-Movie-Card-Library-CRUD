@@ -45,6 +45,7 @@ class MovieDetails extends Component {
         <p>{ `Genre: ${genre}` }</p>
         <p>{ `Rating: ${rating}` }</p>
         <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
+        <Link to="/">VOLTAR</Link>
       </div>
     );
   }
@@ -55,7 +56,6 @@ class MovieDetails extends Component {
     return (
       <div>
         { loading ? <Loading /> : this.renderCard() }
-        <Link to="/">VOLTAR</Link>
       </div>
     );
   }
