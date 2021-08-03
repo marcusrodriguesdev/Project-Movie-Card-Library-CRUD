@@ -18,8 +18,13 @@ class App extends React.Component {
           <Switch>
             <Route exact path="/" component={ MovieList } />
             <Route exact path="/movies/new" component={ NewMovie } />
-            <Route exact path="/movies/:id" component={ MovieDetails } />
+            <Route
+              exact
+              path="/movies/:id"
+              render={ (props) => <MovieDetails { ...props } /> }
+            />
             <Route exact path="/movies/:id/edit" component={ EditMovie } />
+            {/* feita com ajuda do Gabs */}
             <Route path="*" component={ NotFound } />
           </Switch>
         </BrowserRouter>
