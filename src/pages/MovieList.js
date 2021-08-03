@@ -19,7 +19,7 @@ class MovieList extends Component {
     this.returnGetMovies();
   }
 
-  async returnGetMovies() {
+  returnGetMovies() {
     movieAPI.getMovies()
       .then((movies) => {
         this.setState({
