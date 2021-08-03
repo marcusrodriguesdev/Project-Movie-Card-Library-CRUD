@@ -3,6 +3,7 @@ import MovieCard from '../components/MovieCard';
 
 import * as movieAPI from '../services/movieAPI';
 
+console.log(movieAPI);
 class MovieList extends Component {
   constructor() {
     super();
