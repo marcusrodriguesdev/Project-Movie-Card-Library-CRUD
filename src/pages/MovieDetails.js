@@ -11,6 +11,8 @@ class MovieDetails extends Component {
     this.state = {
       movie: [],
     };
+
+    this.HandledeleteMovie = this.HandledeleteMovie.bind(this);
   }
 
   async componentDidMount() {
@@ -21,8 +23,13 @@ class MovieDetails extends Component {
 
   setarEstado(estado) {
     this.setState({
-      movie: ([estado]),
+      movie: (estado),
     });
+  }
+
+  async HandledeleteMovie() {
+    const { match } = this.props;
+    await movieAPI.deleteMovie(match.params.id);
   }
 
   render() {
@@ -30,8 +37,7 @@ class MovieDetails extends Component {
     const { movie } = this.state;
     if (movie.length === 0) return <Loading />;
     const { match } = this.props;
-    const { title, storyline, imagePath, genre, rating, subtitle } = movie[0];
-
+    const { title, storyline, imagePath, genre, rating, subtitle } = movie;
     return (
       <div data-testid="movie-details">
         <img alt="Movie Cover" src={ `../${imagePath}` } />
@@ -42,6 +48,7 @@ class MovieDetails extends Component {
         <p>{ `Rating: ${rating}` }</p>
         <Link to={ `/movies/${match.params.id}/edit` }>EDITAR</Link>
         <Link to="/">VOLTAR</Link>
+        <Link to="/" onClick={ this.HandledeleteMovie }>DELETAR</Link>
       </div>
     );
   }
