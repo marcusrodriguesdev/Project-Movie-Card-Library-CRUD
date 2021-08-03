@@ -41,21 +41,31 @@ export default class MovieDetails extends Component {
     });
   }
 
+  handleClick = (movieId) => {
+    movieAPI.deleteMovie(movieId);
+  }
+
   render() {
-    const { title, storyline, imagePath, genre, rating, subtitle, id } = this.state;
-    const { loading } = this.state;
-    const details = (
-      <div>
-        <img alt="Movie Cover" src={ `../${imagePath}` } />
-        <p>{ `Title: ${title}` }</p>
-        <p>{ `Subtitle: ${subtitle}` }</p>
-        <p>{ `Storyline: ${storyline}` }</p>
-        <p>{ `Genre: ${genre}` }</p>
-        <p>{ `Rating: ${rating}` }</p>
-      </div>);
+    const { title,
+      storyline,
+      imagePath,
+      genre,
+      rating,
+      subtitle,
+      id,
+      loading } = this.state;
+
     return (
       <div data-testid="movie-details">
-        { loading ? <Loading /> : details }
+        { loading ? <Loading /> : (
+          <>
+            <img alt="Movie Cover" src={ `../${imagePath}` } />
+            <p>{ `Title: ${title}` }</p>
+            <p>{ `Subtitle: ${subtitle}` }</p>
+            <p>{ `Storyline: ${storyline}` }</p>
+            <p>{ `Genre: ${genre}` }</p>
+            <p>{ `Rating: ${rating}` }</p>
+          </>) }
         <div>
           <Link to="/">
             VOLTAR
@@ -63,8 +73,10 @@ export default class MovieDetails extends Component {
           <Link to={ `/movies/${id}/edit` }>
             EDITAR
           </Link>
+          <Link to="/" onClick={ () => this.handleClick(id) }>
+            DELETAR
+          </Link>
         </div>
-
       </div>
     );
   }

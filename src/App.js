@@ -11,8 +11,8 @@ function App() {
     <BrowserRouter>
       <div>Movie Card Library CRUD</div>
       <Switch>
-        <Route exact path="/" component={ MovieList } />
         <Route exact path="/movies/new" component={ NewMovie } />
+        <Route exact path="/" component={ MovieList } />
         <Route
           exact
           path="/movies/:id/edit"
