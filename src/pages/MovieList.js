@@ -12,13 +12,19 @@ class MovieList extends Component {
     };
   }
 
+  componentDidMount() {
+    movieAPI.getMovies();
+  }
+
   render() {
     const { movies } = this.state;
-
     // Render Loading here if the request is still happening
-
+    const loadingMessage = <span>Carregando...</span>;
     return (
       <div data-testid="movie-list">
+        <span>
+          { movies.length === 0 ? loadingMessage : movies}
+        </span>
         {movies.map((movie) => <MovieCard key={ movie.title } movie={ movie } />)}
       </div>
     );
