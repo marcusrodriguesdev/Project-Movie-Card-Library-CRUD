@@ -5,8 +5,6 @@ import { Link, Redirect } from 'react-router-dom';
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
 
-import './MovieDetails.css';
-
 class MovieDetails extends Component {
   constructor(props) {
     super(props);
