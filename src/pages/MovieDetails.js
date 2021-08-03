@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import { getMovie } from '../services/movieAPI';
+import { deleteMovie, getMovie } from '../services/movieAPI';
 import Loading from '../components/Loading';
 
 class MovieDetails extends Component {
   constructor(props) {
     super(props);
+
+    this.handleDelete = this.handleDelete.bind(this);
 
     this.state = {
       movie: [],
@@ -32,6 +34,12 @@ class MovieDetails extends Component {
       });
   }
 
+  async handleDelete() {
+    const { movie } = this.state;
+    const { id } = movie;
+    await deleteMovie(id);
+  }
+
   render() {
     // Change the condition to check the state
     // if (true) return <Loading />;
@@ -50,6 +58,7 @@ class MovieDetails extends Component {
         <p>{ `Rating: ${rating}` }</p>
         <Link to="/">VOLTAR</Link>
         <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
+        <Link to="/" onClick={ this.handleDelete }>DELETAR</Link>
       </div>
     );
   }
