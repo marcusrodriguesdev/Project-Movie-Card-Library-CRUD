@@ -16,8 +16,6 @@ class MovieList extends Component {
 
   componentDidMount() {
     this.getMovies();
-    console.log('Mount');
-    console.log(this.state);
   }
 
   getMovies = async () => {
