@@ -10,6 +10,7 @@ class MovieDetails extends Component {
     this.state = {
       movie: {},
       status: true,
+      redirect: false,
     };
     this.removeMovie = this.removeMovie.bind(this);
   }
@@ -32,7 +33,7 @@ class MovieDetails extends Component {
     await movieAPI.deleteMovie(id)
       .then(() => {
         this.setState({
-          status: false,
+          redirect: true,
         });
       });
   }
@@ -40,7 +41,7 @@ class MovieDetails extends Component {
   render() {
     // Change the condition to check the state
     // if (true) return <Loading />
-    const { status, movie } = this.state;
+    const { status, movie, redirect } = this.state;
     const { id, title, storyline, imagePath, genre, rating, subtitle } = movie;
     return (
       <div>
@@ -55,7 +56,12 @@ class MovieDetails extends Component {
               <p>{ `Rating: ${rating}` }</p>
               <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
               <Link to="/">VOLTAR</Link>
-              <Link to="/" onClick={ () => this.removeMovie() }>DELETAR</Link>
+              <Link
+                to="/"
+                onClick={ redirect ? '' : (() => this.removeMovie()) }
+              >
+                DELETAR
+              </Link>
             </div>
           )}
       </div>
