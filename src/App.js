@@ -22,7 +22,7 @@ function App() {
           path="/movies/:id/edit"
           render={ (props) => <EditMovie { ...props } /> }
         />
-        <Route path="*" component={ NotFound } />
+        <Route component={ NotFound } />
       </Switch>
     </BrowserRouter>
   );
