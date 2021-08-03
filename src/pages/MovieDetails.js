@@ -21,6 +21,12 @@ class MovieDetails extends Component {
     this.fetchMovie();
   }
 
+  async handleDelete() {
+    const { movie } = this.state;
+    const { id } = movie;
+    await deleteMovie(id);
+  }
+
   fetchMovie() {
     const { match } = this.props;
     const { id } = match.params;
@@ -32,12 +38,6 @@ class MovieDetails extends Component {
           loading: false,
         });
       });
-  }
-
-  async handleDelete() {
-    const { movie } = this.state;
-    const { id } = movie;
-    await deleteMovie(id);
   }
 
   render() {
