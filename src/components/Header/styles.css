@@ -13,6 +13,10 @@
   opacity: 87%;
 }
 
+.header-container a {
+  text-decoration: none;
+}
+
 .header-overlay {
   background-color: white;
   height: 100%;

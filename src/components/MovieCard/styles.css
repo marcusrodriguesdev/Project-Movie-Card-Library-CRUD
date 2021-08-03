@@ -56,15 +56,7 @@
 
 .card-container a {
   align-self: flex-end;
-  color: var(--primary);
   font-size: 0.8em;
-  opacity: 60%;
-  text-decoration: none;
-  transition: opacity 0.5s;
-}
-
-.card-container a:hover {
-  opacity: 87%;
 }
 
 .card-overlay {

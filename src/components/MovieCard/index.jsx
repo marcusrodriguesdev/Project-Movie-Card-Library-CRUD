@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 import './styles.css';
+import Touchable from '../Touchable';
 
 class MovieCard extends React.Component {
   render() {
@@ -19,7 +19,7 @@ class MovieCard extends React.Component {
         <div className="card-body">
           <span>{ movie.title }</span>
           <p>{ movie.storyline }</p>
-          <Link to={ `/movies/${movie.id}` }>VER DETALHES</Link>
+          <Touchable to={ `/movies/${movie.id}` } type="link">VER DETALHES</Touchable>
         </div>
       </div>
     );

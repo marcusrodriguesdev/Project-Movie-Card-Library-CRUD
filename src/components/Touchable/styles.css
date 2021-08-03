@@ -1,0 +1,29 @@
+.link {
+  color: var(--primary);
+  opacity: 60%;
+  text-decoration: none;
+  transition: opacity 0.5s;
+}
+
+.link:hover {
+  opacity: 87%;
+}
+
+.button {
+  background-color: var(--primary);
+  border-radius: 8px;
+  box-shadow: 2px 2px 2px var(--shadow);
+  color: var(--onPrimary);
+  padding: 8px;
+  text-decoration: none;
+  transition: box-shadow 0.5s , opacity 0.5s , transform 0.3s;
+}
+
+.button:hover {
+  box-shadow: 4px 4px 4px var(--shadow);
+  opacity: 90%;
+}
+
+.button:active {
+  transform: scale(0.9, 0.9);
+}

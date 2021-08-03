@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Link, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './App.css';
 
 import MovieList from './pages/MovieList';
@@ -7,13 +7,13 @@ import MovieDetails from './pages/MovieDetails';
 import NewMovie from './pages/NewMovie';
 import EditMovie from './pages/EditMovie';
 import NotFound from './pages/NotFound';
-import { Header } from './components';
+import { Header, Touchable } from './components';
 
 function App() {
   return (
     <BrowserRouter>
       <Header title="Movie Card Library CRUD">
-        <Link to="/movies/new">ADICIONAR CARTÃO</Link>
+        <Touchable to="/movies/new" type="button">ADICIONAR CARTÃO</Touchable>
       </Header>
       <Switch>
         <Route exact path="/" component={ MovieList } />
