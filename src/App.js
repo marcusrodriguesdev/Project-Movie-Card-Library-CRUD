@@ -17,7 +17,10 @@ function App() {
           <Route exact path="/" component={ MovieList } />
           <Route path="/movies/:id/edit" component={ EditMovie } />
           <Route path="/movies/new" component={ NewMovie } />
-          <Route path="/movies/:id" component={ MoviesDetails } />
+          <Route
+            path="/movies/:id"
+            render={ (props) => <MoviesDetails { ...props } /> }
+          />
           <Route path="/404" component={ NotFound } />
           <Redirect to="/404" />
         </Switch>
