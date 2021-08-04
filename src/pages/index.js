@@ -11,7 +11,7 @@ class BrowserRoute extends React.Component {
     render() {
         return (
             <Switch>
-                <Route path="/" Component={ MovieList } />
+                <Route exact path="/" Component={ MovieList } />
                 <Route path="/movies/:id" Component={ MovieDetails } />
                 <Route path="/movies/new" Component={ NewMovie } />
                 <Route path="/movies/:id/edit" Component={ EditMovie } />
