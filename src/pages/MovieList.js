@@ -26,19 +26,13 @@ class MovieList extends Component {
     });
   }
 
-  functionMov = () => {
-    const { movies } = this.state;
-    return (movies.map((movie) => <MovieCard key={ movie.title } movie={ movie } />));
-  }
-
   render() {
-    const { loading } = this.state;
-
-    // Render Loading here if the request is still happening
+    const { loading, movies } = this.state;
 
     return (
       <div data-testid="movie-list">
-        {loading ? <Loading /> : this.functionMov()}
+        {loading ? <Loading />
+          : movies.map((movie) => <MovieCard key={ movie.title } movie={ movie } />)}
       </div>
     );
   }
