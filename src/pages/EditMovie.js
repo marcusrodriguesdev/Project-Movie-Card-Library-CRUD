@@ -5,6 +5,7 @@ import { Redirect } from 'react-router-dom';
 import { Loading, MovieForm } from '../components';
 import * as movieAPI from '../services/movieAPI';
 
+// Com a ajuda do Rafael Nery para fazer o requisito 5 (Editar o filme desejado)
 class EditMovie extends Component {
   constructor(props) {
     super(props);

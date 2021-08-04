@@ -13,6 +13,7 @@ class MovieDetails extends Component {
       movie: {},
       loading: true,
     };
+    this.deleteMovieCard = this.deleteMovieCard.bind(this);
   }
 
   componentDidMount() {
@@ -28,6 +29,12 @@ class MovieDetails extends Component {
       movie: getMovie,
       loading: false,
     });
+  }
+
+  async deleteMovieCard() {
+    const { match: { params: { id } } } = this.props;
+    const movies = await movieAPI.deleteMovie(id);
+    this.setState({ movie: movies });
   }
 
   render() {
@@ -51,6 +58,8 @@ class MovieDetails extends Component {
         <p>{ `Rating: ${rating}` }</p>
         <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
         <Link to="/">VOLTAR</Link>
+        {/* Com a ajuda no stackoverflow para conseguir implementar o onclick no Link */}
+        <Link to="/" onClick={ this.deleteMovieCard }>DELETAR</Link>
       </div>
     );
   }
