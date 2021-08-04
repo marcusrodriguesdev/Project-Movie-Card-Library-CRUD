@@ -14,6 +14,7 @@ class MovieDetails extends Component {
     };
 
     this.fetchMovie = this.fetchMovie.bind(this);
+    this.deleteMovie = this.deleteMovie.bind(this);
   }
 
   componentDidMount() {
@@ -23,6 +24,15 @@ class MovieDetails extends Component {
   async fetchMovie() {
     const { match: { params: id } } = this.props;
     const movieData = await movieAPI.getMovie(parseInt(id.id, 10));
+    this.setState({
+      movie: movieData,
+      status: 'carregado',
+    });
+  }
+
+  async deleteMovie() {
+    const { match: { params: id } } = this.props;
+    const movieData = await movieAPI.deleteMovie(parseInt(id.id, 10));
     this.setState({
       movie: movieData,
       status: 'carregado',
@@ -45,6 +55,7 @@ class MovieDetails extends Component {
         <p>{ `Storyline: ${movie.storyline}` }</p>
         <p>{ `Genre: ${movie.genre}` }</p>
         <p>{ `Rating: ${movie.rating}` }</p>
+        <Link to="/" onClick={ this.deleteMovie }>DELETAR</Link>
       </div>
     );
   }
