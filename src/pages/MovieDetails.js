@@ -38,18 +38,18 @@ class MovieDetails extends Component {
         {loading
           ? <Loading />
           : (
-            <div>
-              <img alt="Movie Cover" src={ `../${imagePath}` } />
-              <p>{ `Title: ${title}` }</p>
-              <p>{ `Subtitle: ${subtitle}` }</p>
-              <p>{ `Storyline: ${storyline}` }</p>
-              <p>{ `Genre: ${genre}` }</p>
-              <p>{ `Rating: ${rating}` }</p>
-              <div>
-                <Link to="/">VOLTAR</Link>
-              </div>
-              <div>
-                <Link to={ `/movies/${movie.id}/edit` }>EDITAR</Link>
+            <div className="movie-list-menu">
+              <div className="movie-card-details">
+                <img alt="Movie Cover" src={ `../${imagePath}` } />
+                <div className="movie-card-details-text">
+                  <p>{ `Title: ${title}` }</p>
+                  <p>{ `Subtitle: ${subtitle}` }</p>
+                  <p>{ `Storyline: ${storyline}` }</p>
+                  <p>{ `Genre: ${genre}` }</p>
+                  <p>{ `Rating: ${rating}` }</p>
+                  <Link className="link" to="/">VOLTAR</Link>
+                  <Link className="link" to={ `/movies/${movie.id}/edit` }>EDITAR</Link>
+                </div>
               </div>
             </div>)}
       </div>
