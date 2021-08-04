@@ -25,7 +25,7 @@ class MovieDetails extends Component {
       },
     } = this.props;
 
-    movieAPI.deleteMovie(Number(id));
+    movieAPI.deleteMovie((id));
   }
 
   fetchMovie = async () => {
@@ -35,7 +35,7 @@ class MovieDetails extends Component {
       },
     } = this.props;
 
-    const data = await movieAPI.getMovie(Number(id));
+    const data = await movieAPI.getMovie(id);
 
     if (data) {
       this.setState({ movie: data, loading: false });
