@@ -24,8 +24,11 @@ class NewMovie extends Component {
     return (
       shouldRedirect ? <Redirect to="/" />
         : (
-          <div data-testid="new-movie">
-            <MovieForm onSubmit={ this.handleSubmit } />
+          <div data-testid="new-movie" className="edit-page">
+            <div className="edit-form-card">
+              <h1>New Movie</h1>
+              <MovieForm onSubmit={ this.handleSubmit } />
+            </div>
           </div>)
     );
   }

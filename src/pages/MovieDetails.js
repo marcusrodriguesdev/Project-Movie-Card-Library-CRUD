@@ -39,24 +39,60 @@ class MovieDetails extends Component {
     return (
       loading ? <Loading />
         : (
-          <div data-testid="movie-details">
-            <img alt="Movie Cover" src={ `../${imagePath}` } />
-            <h1>{ title }</h1>
-            <p>{ `Subtitle: ${subtitle}` }</p>
-            <p>{ `Storyline: ${storyline}` }</p>
-            <p>{ `Genre: ${genre}` }</p>
-            <p>{ `Rating: ${rating}` }</p>
+          <div
+            data-testid="movie-details"
+            className="movie-details-page"
+          >
+            <div className="movie-details-img">
+              <img alt="Movie Cover" src={ `../${imagePath}` } />
+            </div>
 
-            <Link to="/">VOLTAR</Link>
+            <div className="movie-details">
+              <h1>{ title }</h1>
 
-            <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
+              <div className="details">
+                <p>
+                  <strong>Subtitle: </strong>
+                  { subtitle }
+                </p>
+                <p>
+                  <strong>Storyline: </strong>
+                  { storyline }
+                </p>
+                <p>
+                  <strong>Genre: </strong>
+                  {genre}
+                </p>
+                <p>
+                  <strong>Rating: </strong>
+                  {rating}
+                </p>
+              </div>
 
-            <Link
-              to="/"
-              onClick={ async () => movieAPI.deleteMovie(id) }
-            >
-              DELETAR
-            </Link>
+              <div className="buttons-div">
+                <Link
+                  to="/"
+                  className="buttons"
+                >
+                  VOLTAR
+                </Link>
+
+                <Link
+                  to={ `/movies/${id}/edit` }
+                  className="buttons"
+                >
+                  EDITAR
+                </Link>
+
+                <Link
+                  to="/"
+                  className="buttons"
+                  onClick={ async () => movieAPI.deleteMovie(id) }
+                >
+                  DELETAR
+                </Link>
+              </div>
+            </div>
           </div>)
     );
   }

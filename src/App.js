@@ -6,15 +6,40 @@ import { EditMovie, MovieDetails, MovieList, NewMovie, NotFound } from './pages/
 function App() {
   return (
     <Router>
-      <div>Movie Card Library CRUD</div>
-      <Switch>
-        <Route path="/movies/new" component={ NewMovie } />
-        <Route path="/movies/:id/edit" component={ EditMovie } />
-        <Route path="/movies/:id" component={ MovieDetails } />
-        <Route exact path="/" component={ MovieList } />
-        <Route path="/" component={ NotFound } />
-      </Switch>
-      <Link to="/movies/new">ADICIONAR CARTÃO</Link>
+      <header
+        className="header"
+      >
+        <div
+          className="header-child child-1"
+        >
+          Movie
+          <br />
+          Card
+          <br />
+          Library
+        </div>
+        <div className="header-child child-2">
+          <span>CRUD</span>
+        </div>
+      </header>
+
+      <Link
+        to="/movies/new"
+        className="add-movie"
+      >
+        ADICIONAR CARTÃO
+      </Link>
+
+      <main>
+        <Switch>
+          <Route path="/movies/new" component={ NewMovie } />
+          <Route path="/movies/:id/edit" component={ EditMovie } />
+          <Route path="/movies/:id" component={ MovieDetails } />
+          <Route exact path="/" component={ MovieList } />
+          <Route path="/" component={ NotFound } />
+        </Switch>
+      </main>
+
     </Router>
   );
 }
