@@ -23,7 +23,6 @@ class MovieDetails extends Component {
   async fetchMovie() {
     const { match: { params: id } } = this.props;
     const movieData = await movieAPI.getMovie(parseInt(id.id, 10));
-    console.log(movieData);
     this.setState({
       movie: movieData,
       status: 'carregado',
@@ -31,8 +30,7 @@ class MovieDetails extends Component {
   }
 
   render() {
-    const { movie, status } = this.state; // desustruturar undefined
-
+    const { movie, status } = this.state;
     if (status === 'carregando') {
       return <Loading />;
     }
