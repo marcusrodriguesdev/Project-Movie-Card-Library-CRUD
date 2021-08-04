@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Proptypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import * as movieAPI from '../services/movieAPI';
 import Loading from '../components/Loading';
 
@@ -32,13 +32,11 @@ class MovieDetails extends Component {
   }
 
   render() {
-    // Change the condition to check the state
-    // if (true) return <Loading />;
     const { movie } = this.state;
     const { title, storyline, imagePath, genre, rating, subtitle, id } = movie;
     const { loading } = this.state;
     const more = (
-      <div data-testid="movie-details">
+      <div>
         <img alt="Movie Cover" src={ `../${imagePath}` } />
         <p>{`Title${title}`}</p>
         <p>{ `Subtitle: ${subtitle}` }</p>
@@ -57,10 +55,10 @@ class MovieDetails extends Component {
   }
 }
 
-MovieDetails.propTypes = ({
-  match: Proptypes.shape,
-  params: Proptypes.shape,
-  id: Proptypes.string,
-}).isRequired;
+MovieDetails.propTypes = {
+  match: PropTypes.shape,
+  params: PropTypes.shape,
+  id: PropTypes.string,
+}.isRequired;
 
 export default MovieDetails;
