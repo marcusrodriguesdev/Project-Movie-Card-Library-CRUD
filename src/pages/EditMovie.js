@@ -24,11 +24,8 @@ class EditMovie extends Component {
     this.setStateMovie(objMovie);
   }
 
-  async handleSubmit(updatedMovie) {
-    this.setState({ movie: updatedMovie });
-    const { movie } = this.state;
-    const promise = await updateMovie(movie);
-    console.log(promise);
+  handleSubmit(updatedMovie) {
+    updateMovie(updatedMovie);
     this.setState({ shouldRedirect: true });
   }
 
