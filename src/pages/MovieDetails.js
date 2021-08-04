@@ -7,10 +7,10 @@ class MovieDetails extends Component {
   constructor() {
     super();
 
-    this.state={
+    this.state = {
       movie: {},
       loading: true,
-    }
+    };
   }
 
   componentDidMount() {
@@ -18,27 +18,31 @@ class MovieDetails extends Component {
   }
 
   fetchMovie = async () => {
-    const { id } = this.props.match.params; 
+    const { match } = this.props;
+    const { params } = match;
+    const { id } = params;
     const movie = await movieAPI.getMovie(id);
     this.setState({
       movie,
       loading: false,
-    })
+    });
   }
+
   render() {
-    const { id, title, storyline, imagePath, genre, rating, subtitle } = this.state.movie;
+    const { movie } = this.state;
+    const { id, title, storyline, imagePath, genre, rating, subtitle } = movie;
     const { loading } = this.state;
-    if (loading === true) return <Loading />
+    if (loading === true) return <Loading />;
     return (
-        <div data-testid="movie-details">
-          <img alt="Movie Cover" src={ `../${imagePath}` } />
-          <p>{ `Title: ${title}`}</p>
-          <p>{ `Subtitle: ${subtitle}` }</p>
-          <p>{ `Storyline: ${storyline}` }</p>
-          <p>{ `Genre: ${genre}` }</p>
-          <p>{ `Rating: ${rating}` }</p>
-          <Link to="/">VOLTAR</Link>
-          <Link to={`/movies/${id}/edit`}>EDITAR</Link>
+      <div data-testid="movie-details">
+        <img alt="Movie Cover" src={ `../${imagePath}` } />
+        <p>{ `Title: ${title}`}</p>
+        <p>{ `Subtitle: ${subtitle}` }</p>
+        <p>{ `Storyline: ${storyline}` }</p>
+        <p>{ `Genre: ${genre}` }</p>
+        <p>{ `Rating: ${rating}` }</p>
+        <Link to="/">VOLTAR</Link>
+        <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
       </div>
     );
   }
