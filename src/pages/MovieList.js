@@ -15,7 +15,7 @@ class MovieList extends Component {
   async componentDidMount() {
     // movieAPI returns a promise
     const apiMoviesChecker = await movieAPI.getMovies();
-    console.log(apiMoviesChecker);
+    // console.log(apiMoviesChecker);
     //* Had to use promise so EsLint wouldn't complain :(
     await new Promise(() => this.setState({
       movies: apiMoviesChecker,

@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 class MovieForm extends React.Component {
   constructor(props) {
     super(props);
+    // this.state is the movie to be edited
+    // console.log(this.props) = {movie: {…}, onSubmit: ƒ}
     this.state = { ...props.movie };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -15,6 +17,22 @@ class MovieForm extends React.Component {
 
   updateMovie(field, newValue) {
     this.setState({ [field]: newValue });
+    // console.clear();
+    // console.log(this.state);
+    // console.log(`This function is called in theonChange of every Input.
+    // Each input has as value: one of the properties of the state { ...props.movie }.
+    // Meaning the spread elements from props.movie: {title, subtitle, storyline,
+    //   rating, imagePath, bookmarked, genre}.
+    // In MovieForm this function: updateMovie has:
+    // The first param receiving the value of the input: which is attributed to the
+    //   element it recieves.
+    // Ex.: title = Final Fantasy
+    // The second param getting the event.target.value = meaning all the modifications
+    //   changes its own value
+    // OBS.: This movie object comes from movieData that is first imported in movieAPI,
+    //   passed to:
+    //   MovieList -> MovieCard -> MovieDetails -> EditMovie than MovieForm
+    // ${field} ${newValue}`);
   }
 
   renderTitleInput() {
@@ -164,11 +182,25 @@ class MovieForm extends React.Component {
   }
 }
 
+// More detailed check:
 MovieForm.propTypes = {
-  movie: PropTypes.objectOf(PropTypes.movie)
-    .isRequired,
-  onSubmit: PropTypes.func
-    .isRequired,
+  onSubmit: PropTypes.func.isRequired,
+  movie: PropTypes.shape({
+    title: PropTypes.string,
+    subtitle: PropTypes.string,
+    storyline: PropTypes.string,
+    rating: PropTypes.number,
+    imagePath: PropTypes.string,
+    bookmarked: PropTypes.bool,
+    genre: PropTypes.string,
+  }).isRequired,
 };
+
+// MovieForm.propTypes = {
+//   movie: PropTypes.objectOf(PropTypes.movie)
+//     .isRequired,
+//   onSubmit: PropTypes.func
+//     .isRequired,
+// };
 
 export default MovieForm;
