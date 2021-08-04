@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class MovieForm extends React.Component {
   constructor(props) {
@@ -10,6 +11,7 @@ class MovieForm extends React.Component {
   handleSubmit() {
     const { onSubmit } = this.props;
     onSubmit(this.state);
+    // console.log(this.props)
   }
 
   updateMovie(field, newValue) {
@@ -164,3 +166,18 @@ class MovieForm extends React.Component {
 }
 
 export default MovieForm;
+
+MovieForm.propTypes = {
+  movie: PropTypes.shape({
+    bookmarked: PropTypes.bool.isRequired,
+    genre: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
+    imagePath: PropTypes.string.isRequired,
+    rating: PropTypes.number.isRequired,
+    storyline: PropTypes.string.isRequired,
+    subtitle: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+
+  }).isRequired,
+  onSubmit: PropTypes.func.isRequired,
+};
