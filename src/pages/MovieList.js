@@ -15,11 +15,10 @@ class MovieList extends Component {
   }
 
   componentDidMount() {
-    console.log('componente montado');
     this.fetchGetMovies();
   }
 
-  // simulando a requisição de uma API
+  // simulando a requisição de uma API, trabalhando com uma função assíncrona, desta forma só haverá a atribuição em 'object' quando minha função der uma resposta, que vai levar um tempinho até isso acontecer
   fetchGetMovies = async () => {
     const object = await movieAPI.getMovies();
     this.setState({
@@ -28,24 +27,8 @@ class MovieList extends Component {
     });
   }
 
-  toLoad = () => {
-    const { loading } = this.state;
-    if (loading === true) {
-      console.log('carregando...');
-      return (
-        <div>
-          <Loading />
-        </div>
-      );
-    }
-  }
-
   render() {
-    console.log('componente renderizado');
     const { movies, loading } = this.state;
-
-    // Render Loading here if the request is still happening
-    // this.toLoad();
 
     return (
       <div data-testid="movie-list">
