@@ -18,13 +18,14 @@ class EditMovie extends Component {
     if (shouldRedirect) {
       // Redirect
     }
-
+    
     if (status === 'loading') {
       // render Loading
     }
 
     return (
       <div data-testid="edit-movie">
+        <p>Hello</p>
         <MovieForm movie={ movie } onSubmit={ this.handleSubmit } />
       </div>
     );
