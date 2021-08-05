@@ -21,7 +21,9 @@ function App() {
         <Route path="*" component={ NotFound } />
       </Switch>
       <br />
-      <Link to="/movies/new">ADICIONAR CARTÃO</Link>
+      <footer>
+        <Link to="/movies/new">ADICIONAR CARTÃO</Link>
+      </footer>
     </BrowserRouter>
   );
 }
