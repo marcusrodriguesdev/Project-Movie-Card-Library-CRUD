@@ -19,7 +19,6 @@ class MovieList extends Component {
   async componentDidMount() {
     const { getMovies } = movieAPI;
     const prom = await getMovies();
-    console.log(prom);
     this.LoadingAndGettingMovies(prom);
   }
 
