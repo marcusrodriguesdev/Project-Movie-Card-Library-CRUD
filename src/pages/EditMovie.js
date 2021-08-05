@@ -48,7 +48,10 @@ class EditMovie extends Component {
           : null}
         {isLoading
           ? <Loading />
-          : <MovieForm movie={ movie } onSubmit={ this.handleSubmit } />}
+          : (
+            <div className="form">
+              <MovieForm movie={ movie } onSubmit={ this.handleSubmit } />
+            </div>) }
       </div>
     );
   }

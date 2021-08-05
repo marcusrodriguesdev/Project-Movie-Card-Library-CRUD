@@ -210,4 +210,67 @@ border-left: 1px; */
   }
 }
 
+.form {
+  align-content: center;
+  align-items: center;
+  border-radius: 30px;
+  box-shadow: 1px 1px 17px 3px #050505;
+  display: flex;
+  flex-direction: column;
+
+  /* flex-wrap: nowrap; */
+  justify-content: flex-start;
+  margin: 10px;
+  padding: 0 20px 10px;
+  width: 450px;
+}
+
+.form input, textarea, select, button, label {
+  align-content: center;
+  align-items: center;
+  border-radius: 30px;
+  box-shadow: 1px 1px 17px 10px black;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  margin: 8px;
+  padding: 3px;
+  text-align: center;
+  width: 450px;
+}
+
+.form textarea {
+  border-radius: 5px;
+  height: 150px;
+  width: 400px;
+}
+
+.form label {
+  border-radius: 20px;
+  box-shadow: inset -1px 0 19px 10px black;
+  color: whitesmoke;
+  padding: 10px;
+}
+
+.form button {
+  border-radius: 20px;
+  box-shadow: inset -1px 0 19px 10px black;
+  color: black;
+  margin: auto;
+  padding: 10px;
+}
+
+.form select {
+  width: 90px;
+}
+
+.form .movie_rating {
+  width: 40px;
+}
+
 /* source: https://loading.io/css/ /\/\/\ */
+.movie-card-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
