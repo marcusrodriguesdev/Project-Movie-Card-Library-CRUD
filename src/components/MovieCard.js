@@ -7,10 +7,14 @@ class MovieCard extends React.Component {
     const { movie } = this.props;
 
     return (
-      <div data-testid="movie-card">
+      <div data-testid="movie-card" className="movie-card-div">
+        <img src={ movie.imagePath } alt="" />
         <p>{movie.title}</p>
-        <p>{movie.storyline}</p>
-        <Link to={ `/movies/${movie.id}` }>VER DETALHES</Link>
+        <p>{ movie.subtitle }</p>
+        <p>{ movie.genre }</p>
+        <p className="storyline">{movie.storyline}</p>
+        <p>{ movie.rating }</p>
+        <Link to={ `/movies/${movie.id}` } className="details-link">VER DETALHES</Link>
       </div>
     );
   }
@@ -21,6 +25,7 @@ MovieCard.propTypes = {
     id: PropTypes.number,
     title: PropTypes.string,
     subtitle: PropTypes.string,
+    genre: PropTypes.string,
     storyline: PropTypes.string,
     rating: PropTypes.number,
     imagePath: PropTypes.string,

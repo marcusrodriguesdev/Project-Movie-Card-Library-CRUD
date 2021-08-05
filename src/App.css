@@ -1,5 +1,104 @@
 body {
-  background-color: whitesmoke;
+  background-color: #303030;
   box-sizing: border-box;
 }
 
+.app-header {
+  align-items: center;
+  background-color: rgb(6, 6, 54);
+  color: white;
+  display: flex;
+  font-size: 2.5em;
+  font-weight: 800;
+  height: 10vh;
+  justify-content: center;
+  text-align: center;
+}
+
+.movie-list-div {
+  background-color: #303030;
+  color: antiquewhite;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 2em;
+}
+
+.movie-card-div {
+  align-items: center;
+  background-color: rgba(13, 33, 83, 0.322);
+  border: 1px solid white;
+  border-radius: 1.5em;
+  display: flex;
+  flex-direction: column;
+  height: 31em;
+  justify-content: space-around;
+  margin: 0.5em 0.75em;
+  padding: 0.5em;
+  width: 30%;
+}
+
+.movie-card-div img {
+  align-self: center;
+  height: auto;
+  max-height: 500px;
+  max-width: 300px;
+  width: 100%;
+}
+
+.movie-card-div .storyline {
+  text-align: center;
+}
+
+.movie-card-div .details-link:visited {
+  color: inherit;
+}
+
+.movie-details-div {
+  align-items: center;
+  background-color: rgba(13, 33, 83, 0.322);
+  border: 1px solid white;
+  color: antiquewhite;
+  display: flex;
+  flex-direction: column;
+  margin: 1em auto;
+  padding: 0.5em;
+  width: 40em;
+}
+
+.movie-details-div img {
+  align-self: center;
+  height: auto;
+  max-height: 500px;
+  max-width: 600px;
+  width: 100%;
+}
+
+.movie-details-div .btns-div {
+  display: flex;
+  justify-content: space-around;
+  width: 50%;
+}
+
+.movie-form-div {
+  display: flex;
+  height: 20em;
+  justify-content: center;
+  margin-top: 2em;
+}
+
+.movie-form-div form {
+  align-items: center;
+  background-color: rgba(13, 33, 83, 0.322);
+  border: 1px solid white;
+  border-radius: 1.5em;
+  color: antiquewhite;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-around;
+  padding: 1em;
+}
+
+.add-movie:visited {
+  color: initial;
+}

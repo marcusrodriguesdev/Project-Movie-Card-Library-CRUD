@@ -12,7 +12,7 @@ import './App.css';
 function App() {
   return (
     <BrowserRouter>
-      <div>Movie Card Library CRUD</div>
+      <div className="app-header">Movie Card Library CRUD</div>
       <Switch>
         <Route exact path="/movies/new" component={ NewMovie } />
         <Route exact path="/movies/:id/edit" component={ EditMovie } />
@@ -21,7 +21,7 @@ function App() {
         <Route path="*" component={ NotFound } />
       </Switch>
       <br />
-      <Link to="/movies/new">ADICIONAR CARTÃO</Link>
+      <Link to="/movies/new" className="add-movie">ADICIONAR CARTÃO</Link>
     </BrowserRouter>
   );
 }
