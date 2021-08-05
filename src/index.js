@@ -3,8 +3,16 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+// import Header from './components/Header';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(
+<dir className="after-body">
+  <header className="movie-card-header">
+        <h1 className="page-title">Movie Cards Library CRUD</h1>
+      </header>
+  <App />
+  </dir>
+  , document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

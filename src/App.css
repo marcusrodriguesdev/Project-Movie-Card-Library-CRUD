@@ -18,6 +18,24 @@ body {
   /* box-shadow: inset 1px 1px 3px 20px white; */
 }
 
+.root {
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+}
+
+.after-body {
+  align-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: flex-start;
+  margin-top: 0;
+  padding: 0;
+  width: 100%;
+}
+
 .movie-card-header {
   align-items: center;
   background-color: #050505;
@@ -27,10 +45,17 @@ body {
 }
 
 .page-title {
+  align-content: center;
   color: #babdc7;
+  display: flex;
+  flex-direction: column;
   font-size: 28px;
   font-weight: 500;
+  height: 50px;
+  justify-content: center;
+  margin-top: 0;
   text-align: center;
+  width: 100%;
 }
 
 .movie-list-menu {

@@ -36,7 +36,10 @@ class MovieDetails extends Component {
     return (
       <div data-testid="movie-details">
         {loading
-          ? <Loading />
+          ? (
+            <div className="movie-list-menu">
+              <Loading />
+            </div>)
           : (
             <div className="movie-list-menu">
               <div className="movie-card-details">
