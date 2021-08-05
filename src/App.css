@@ -1,0 +1,188 @@
+html {
+  background-size: cover;
+  height: 120%;
+}
+
+body {
+  background-color: #414b66;
+  background-size: cover;
+  box-shadow: inset 1px 1px 15px 9px black;
+
+  /* box-sizing: border-box; */
+  display: flex;
+  height: 120%;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+
+  /* box-shadow: inset 1px 1px 3px 20px white; */
+}
+
+.movie-card-header {
+  align-items: center;
+  background-color: #050505;
+  display: block;
+  justify-content: center;
+  width: 100%;
+}
+
+.page-title {
+  color: #babdc7;
+  font-size: 28px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.movie-list-menu {
+  align-content: space-around;
+  background-color: #414b6600;
+  display: flex;
+
+  /* flex-direction: row; */
+  flex-flow: row wrap;
+
+  /* flex-wrap: wrap; */
+  justify-content: space-around;
+}
+
+
+.movie-card-menu {
+  background-color: rgba(255, 255, 255, 0.637);
+  border: solid black 10px;
+  border-radius: 52px;
+  box-shadow: #000000bf 13px 10px 8px 0;
+  margin: 20px;
+  transition-duration: 600ms;
+  width: 200px;
+}
+
+.movie-card-menu:hover {
+
+  /* source https://codepen.io/guilherme-giacomini-teixeira/pen/YzNqrrd?editors=0110 */
+  transform: scale(1.03);
+
+  /* transform: translateX(-1%) translateY(-1%); */
+}
+
+.movie-card-menu img {
+  border-radius: 40px 40px 0 0;
+  margin: -1px -1px 0;
+  width: 101%;
+}
+
+.movie-card-menu-text {
+  align-content: center;
+  align-items: flex-start;
+  display: flex;
+  flex-flow: row wrap;
+
+  /* flex-direction: row;
+  flex-wrap: wrap; */
+  font-size: 10px;
+  justify-content: space-around;
+  margin: 5px;
+  padding: 5px 8px 10px;
+}
+
+.movie-card-menu-text p {
+  margin: 0 5px 5px;
+}
+
+.link {
+  align-content: center;
+  color: black;
+
+  /* font-style: oblique; */
+  font: initial;
+  font-size: 9px;
+  text-decoration: solid;
+}
+
+.movie-card-details {
+  background-color: rgba(255, 255, 255, 0.637);
+  border: solid black 10px;
+  border-radius: 52px;
+  box-shadow: #000000bf 13px 10px 8px 0;
+  margin: 20px;
+  transition-duration: 600ms;
+
+  /* padding: -5px; */
+  width: 600px;
+}
+
+.movie-card-details img {
+
+  /* border: solid black;
+border-top: 1px;
+border-right: 1px;
+border-left: 1px; */
+  border-radius: 40px 40px 0 0;
+  margin: -1px -1px 0;
+  width: 101%;
+}
+
+.movie-card-details-text {
+  align-content: center;
+  align-items: flex-start;
+  display: flex;
+  flex-flow: row wrap;
+
+  /* flex-direction: row;
+  flex-wrap: wrap; */
+  font-size: 12px;
+  justify-content: space-around;
+  padding: 18px;
+}
+
+.movie-card-details-text a, .movie-card-menu-text a {
+  align-content: center;
+  align-items: flex-start;
+  border-radius: 15px;
+  box-shadow: 1px 3px 4px 1px #000000ab;
+  display: flex;
+  flex-flow: row wrap;
+
+  /* flex-direction: row;
+  flex-wrap: wrap; */
+  font-size: 14px;
+  justify-content: space-around;
+  padding: 8px;
+}
+
+.movie-card-menu-text p:nth-child( 3 ) {
+  height: 90px;
+}
+
+/* source: https://loading.io/css/ \/\/\/ */
+.loading {
+  display: inline-block;
+  font-size: 1px;
+  height: 80px;
+  margin: 100px;
+  width: 80px;
+}
+
+.loading:after {
+  animation: loading 1.2s linear infinite;
+  border: 6px solid white;
+  border-color: white transparent;
+  border-radius: 50%;
+  content: ' ';
+  display: block;
+  height: 64px;
+  margin: 8px;
+  width: 64px;
+}
+
+@keyframes loading {
+
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* source: https://loading.io/css/ /\/\/\ */
