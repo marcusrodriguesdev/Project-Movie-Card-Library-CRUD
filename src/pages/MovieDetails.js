@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
 
@@ -59,3 +60,9 @@ class MovieDetails extends Component {
 }
 
 export default MovieDetails;
+
+MovieCard.propTypes = {
+  match: PropTypes.objectOf(PropTypes.number).isRequired,
+  params: PropTypes.objectOf(PropTypes.number).isRequired,
+  id: PropTypes.number.isRequired,
+};

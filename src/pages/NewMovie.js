@@ -7,7 +7,7 @@ class NewMovie extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleSubmit(newMovie) {
+  handleSubmit() {
   }
 
   render() {
