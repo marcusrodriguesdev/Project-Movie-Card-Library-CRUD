@@ -61,8 +61,8 @@ class MovieDetails extends Component {
 
 export default MovieDetails;
 
-MovieCard.propTypes = {
-  match: PropTypes.objectOf(PropTypes.number).isRequired,
-  params: PropTypes.objectOf(PropTypes.number).isRequired,
+MovieDetails.propTypes = {
+  match: PropTypes.objectOf(PropTypes.string).isRequired,
+  params: PropTypes.objectOf(PropTypes.string).isRequired,
   id: PropTypes.number.isRequired,
 };
