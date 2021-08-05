@@ -29,7 +29,7 @@ class MovieDetails extends Component {
   }
 
   render() {
-    // console.log(this.props.match.params);
+    console.log(this.props);
 
     const { movie, loading } = this.state;
     const { id, title, storyline, imagePath, genre, rating, subtitle } = movie;
