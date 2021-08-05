@@ -29,7 +29,7 @@ class MovieDetails extends Component {
   toLoad() {
     const { loading } = this.state;
     if (loading === true) {
-      return(
+      return (
         <div>
           <Loading />
         </div>
@@ -42,17 +42,22 @@ class MovieDetails extends Component {
     // if (true) return <Loading />;
     this.toLoad();
 
-    const { movie } = this.state;
+    const { movie, loading } = this.state;
     const { title, storyline, imagePath, genre, rating, subtitle } = movie;
 
     return (
       <div data-testid="movie-details">
-        <h1>Detalhes: </h1>
-        <img alt="Movie Cover" src={ `../${imagePath}` } />
-        <p>{ `Subtitle: ${subtitle}` }</p>
-        <p>{ `Storyline: ${storyline}` }</p>
-        <p>{ `Genre: ${genre}` }</p>
-        <p>{ `Rating: ${rating}` }</p>
+        {
+          loading ? <Loading /> :
+          <div>
+            <h1>Detalhes: </h1>
+            <img alt="Movie Cover" src={`../${imagePath}`} />
+            <p>{`Subtitle: ${subtitle}`}</p>
+            <p>{`Storyline: ${storyline}`}</p>
+            <p>{`Genre: ${genre}`}</p>
+            <p>{`Rating: ${rating}`}</p>
+          </div>
+        }
       </div>
     );
   }
