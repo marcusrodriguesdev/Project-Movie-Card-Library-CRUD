@@ -3,31 +3,6 @@ import { Link } from 'react-router-dom';
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
 
-// Faça uma requisição para buscar o filme que deverá
-// ser renderizado dentro de Movie Details
-// MovieDetails se comporta de forma muito semelhante
-// ao MovieList. Ao ser montado,
-// deve fazer uma requisição utilizando a função
-// getMovie, se atente para o nome da
-// função que é muito semelhante ao de outra função
-// que já utilizamos, a getMovies,
-// do módulo movieAPI, passando o id do filme.
-// O componente Loading deve ser
-// renderizado enquanto a requisição estiver em
-// curso. Após terminar
-// deve-se renderizar um card com mais detalhes
-// sobre o filme, contendo:
-
-// Uma <img> com a imagem do filme e alt='Movie Cover';
-// Título;
-// Subtítulo;
-// Sinopse;
-// Gênero;
-// Avaliação;
-// um link com o texto "EDITAR"
-// apontando para a rota /movies/:id/edit e
-// um link apontando para a rota raiz (/) com o texto "VOLTAR".
-
 class MovieDetails extends Component {
   constructor(props) {
     super(props);
@@ -39,8 +14,6 @@ class MovieDetails extends Component {
 
     this.pegaFilme = this.pegaFilme.bind(this);
   }
-  // Change the condition to check the state
-  // if (true) return <Loading />;
 
   componentDidMount() {
     this.pegaFilme();

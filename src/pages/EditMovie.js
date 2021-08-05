@@ -1,27 +1,7 @@
 import React, { Component } from 'react';
-
-import { MovieForm } from '../components';
-import * as movieAPI from '../services/movieAPI';
-import { Loading } from '../components';
 import { Redirect } from 'react-router-dom';
-
-// Ao ser montada, a página de edição do filme 
-// deve fazer uma requisição pra buscar o filme
-// que será editado
-// e deve, 
-// ao ter seu formulário 
-// submetido, atualizar o filme e 
-// Será validado se EditMovie exibe o texto 
-// "Carregando..." enquanto estiver fazendo 
-// a requisição
-// Será validado se EditMovie contém um formulário
-// preenchido com o título, subtítulo, sinopse,
-// caminho da imagem e gênero do filme selecionado
-// Será validado se, ao clicar no botão de submit, 
-// uma requisição para API é feita e o filme 
-// selecionado é atualizado. Após a conclusão
-// da atualização a pessoa usuária deve ser 
-// redirecionada para a página inicial
+import { MovieForm, Loading } from '../components';
+import * as movieAPI from '../services/movieAPI';
 
 class EditMovie extends Component {
   constructor(props) {
@@ -41,9 +21,9 @@ class EditMovie extends Component {
     this.pegaFilmeParaEditar();
   }
 
-  handleSubmit(updatedMovie) { //tem a com o form 
+  handleSubmit(updatedMovie) {
     // console.log(updatedMovie);
-    movieAPI.updateMovie(updatedMovie); //api
+    movieAPI.updateMovie(updatedMovie);
     this.setState({
       shouldRedirect: true,
     });
@@ -59,7 +39,8 @@ class EditMovie extends Component {
           loading: false,
           movie: filmeParaEditar,
         });
-      })
+      },
+    );
   }
 
   render() {
