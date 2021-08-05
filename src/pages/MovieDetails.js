@@ -26,22 +26,7 @@ class MovieDetails extends Component {
     });
   }
 
-  toLoad() {
-    const { loading } = this.state;
-    if (loading === true) {
-      return (
-        <div>
-          <Loading />
-        </div>
-      )
-    }
-  }
-
   render() {
-    // Change the condition to check the state
-    // if (true) return <Loading />;
-    this.toLoad();
-
     const { movie, loading } = this.state;
     const { title, storyline, imagePath, genre, rating, subtitle } = movie;
 
