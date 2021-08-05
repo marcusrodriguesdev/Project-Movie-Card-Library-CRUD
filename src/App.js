@@ -22,9 +22,14 @@ function App() {
           <NewMovie />
         </Route>
 
-        <Route exact path="/movies/:id/edit">
-          <EditMovie />
-        </Route>
+        <Route
+          exact
+          path="/movies/:id/edit"
+          render={
+            (props) => (
+              <EditMovie { ...props } />)
+          }
+        />
 
         <Route path="*">
           <NotFound />
