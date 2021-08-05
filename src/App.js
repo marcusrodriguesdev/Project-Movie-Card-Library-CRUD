@@ -7,15 +7,30 @@ function App() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path="/movies/new" render={ () => <NewMovie /> } />
-        <Route exact path="/movies/:id/edit" render={ () => <EditMovie /> } />
+        <Route
+          exact
+          path="/movies/new"
+          render={ () => <NewMovie /> }
+        />
+        <Route
+          exact
+          path="/movies/:id/edit"
+          render={ (props) => <EditMovie { ...props } /> }
+        />
         <Route
           exact
           path="/movies/:id"
           render={ (props) => <MovieDetails { ...props } /> }
         />
-        <Route exact path="/" render={ () => <MovieList /> } />
-        <Route path="" component={ NotFound } />
+        <Route
+          exact
+          path="/"
+          render={ () => <MovieList /> }
+        />
+        <Route
+          path=""
+          component={ NotFound }
+        />
       </Switch>
     </BrowserRouter>
     // foi consultado o link: https://imasters.com.br/front-end/gerenciando-rotas-com-react-router, para inplementar a rota que renderiza o componente NotFound.
