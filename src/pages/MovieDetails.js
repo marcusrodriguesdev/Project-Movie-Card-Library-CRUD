@@ -52,22 +52,16 @@ class MovieDetails extends Component {
         {loading ? (
           <Loading />
         ) : (
-          <BrowserRouter>
-            <div>
-              <img alt="Movie Cover" src={ `../${imagePath}` } />
-              <h1>{title}</h1>
-              <p>{`Subtitle: ${subtitle}`}</p>
-              <p>{`Storyline: ${storyline}`}</p>
-              <p>{`Genre: ${genre}`}</p>
-              <p>{`Rating: ${rating}`}</p>
-              <Link to={ `/movies/${id}/edit` }>
-                EDITAR
-              </Link>
-              <Link to="/">
-                VOLTAR
-              </Link>
-            </div>
-          </BrowserRouter>
+          <div>
+            <img alt="Movie Cover" src={ `../${imagePath}` } />
+            <h1>{title}</h1>
+            <p>{`Subtitle: ${subtitle}`}</p>
+            <p>{`Storyline: ${storyline}`}</p>
+            <p>{`Genre: ${genre}`}</p>
+            <p>{`Rating: ${rating}`}</p>
+            <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
+            <Link to="/">VOLTAR</Link>
+          </div>
         )}
       </div>
     );
