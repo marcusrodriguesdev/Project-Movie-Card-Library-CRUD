@@ -1,0 +1,110 @@
+.main-form {
+  margin: auto;
+  width: 70%;
+  height: 100vh;
+  display: flex;
+  flex-flow: column;  
+  align-items: center;
+  color: white;
+  
+}
+
+.main-form label{
+  display: flex;
+  flex-direction: column-reverse;
+  font-size: 20px;
+  text-align: center;
+  margin-top: 5px;
+}
+
+.validate{
+  text-align: center;
+  display: flex;
+  width: 100%;
+}
+
+.form-subtitle {
+  text-align: center;
+  display: flex;
+  width: 100%;
+}
+
+.form-image {
+  text-align: center;
+  display: flex;
+  width: 100%;
+}
+
+.form-storyline {
+  
+  text-align: center;
+  display: flex;
+  width: 100%;
+}
+
+.form-genre {
+  margin-top: 20px;
+  display: flex;
+  width: 100%;
+}
+
+.form-avaliation {
+  width: 100%;
+  margin-top: 20px;
+  font-size: 16px;
+
+}
+
+.form-button {
+  transition: 0.5s;
+  background-color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  color: rgb(0, 0, 0);
+  padding: 10px 10px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 50px;
+}
+
+.form-button:hover {
+  transition: 0.5s;
+  background-color: #0cff04;
+  border: none;
+  border-radius: 15px;
+  color: rgb(255, 255, 255);
+  padding: 10px 10px;
+  box-shadow: 0px 0px 1px 1px black;
+}
+
+.error {
+  animation: slide 3s ease-in 1s infinite reverse ;
+  color: white;
+  width: 100vw;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  text-align: center;
+}
+
+@keyframes slide {
+  0% {
+    transition: 0.5s;
+    font-size: 50px;
+    color: aqua;
+  }
+  50%{
+    transition: 0.5s;
+    font-size: 55px;
+    color: rgb(255, 255, 255);
+  }
+  100%{
+    transition: 0.5s;
+    font-size: 50px;
+    color: rgb(255, 87, 87);
+  }
+}
