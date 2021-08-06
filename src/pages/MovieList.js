@@ -10,7 +10,7 @@ class MovieList extends Component {
     super(props);
 
     this.state = {
-      loading: false,
+      loading: true,
       movies: [],
     };
   }
@@ -20,12 +20,11 @@ class MovieList extends Component {
   }
 
   async fetchAPI() {
-    this.setState({ loading: true });
     const data = await movieAPI.getMovies();
     this.setState(
       {
         loading: false,
-        movies: [...data],
+        movies: data,
       },
     );
   }

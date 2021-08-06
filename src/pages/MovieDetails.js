@@ -9,7 +9,7 @@ class MovieDetails extends Component {
     super(props);
 
     this.state = {
-      loading: false,
+      loading: true,
       movie: {},
     };
 
@@ -21,9 +21,7 @@ class MovieDetails extends Component {
   }
 
   async fetchAPI() {
-    const { match: { params } } = this.props;
-    const { id } = params;
-    this.setState({ loading: true });
+    const { match: { params: { id } } } = this.props;
     const data = await movieAPI.getMovie(id);
     this.setState(
       {
@@ -43,7 +41,7 @@ class MovieDetails extends Component {
     const { movie, loading } = this.state;
     const { id, title, storyline, imagePath, genre, rating, subtitle } = movie;
 
-    if (loading === true) return <Loading />;
+    if (loading) return <Loading />;
 
     return (
       <div data-testid="movie-details">
