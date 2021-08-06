@@ -8,8 +8,8 @@ class MovieDetails extends Component {
   constructor(props) {
     super(props);
 
-    this.setState = {
-      movie: {},
+    this.state = {
+      movieId: {},
       loading: true,
     };
   }
@@ -19,23 +19,24 @@ class MovieDetails extends Component {
   }
 
   fetchMovie = async () => {
-    const { match: { param: { id } } } = this.props;
-    const movie = await movieAPI.getMovie(parseInt(id, 10));
+    const { match: { params: { id } } } = this.props;
+    const movie = await movieAPI.getMovie(id);
+    console.log(movie);
     this.setState({
       loading: false,
-      movie,
+      movieId: movie,
     });
   }
 
   render() {
-    const { movie, loading, id } = this.state;
-    const { title, storyline, imagePath, genre, rating, subtitle } = movie;
+    const { movieId, loading } = this.state;
 
     if (loading) {
       return (
         <Loading />
       );
     }
+    const { title, storyline, imagePath, genre, rating, subtitle, id } = movieId;
 
     return (
       <div data-testid="movie-details">
@@ -45,7 +46,7 @@ class MovieDetails extends Component {
         <p>{ `Storyline: ${storyline}` }</p>
         <p>{ `Genre: ${genre}` }</p>
         <p>{ `Rating: ${rating}` }</p>
-        <Link exact to="/">VOLTAR</Link>
+        <Link to="/">VOLTAR</Link>
         <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
       </div>
     );
@@ -54,7 +55,7 @@ class MovieDetails extends Component {
 
 MovieDetails.propTypes = {
   match: PropTypes.shape({
-    param: PropTypes.shape({
+    params: PropTypes.shape({
       id: PropTypes.string,
     }),
   }).isRequired,
