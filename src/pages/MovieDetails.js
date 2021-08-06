@@ -55,7 +55,7 @@ class MovieDetails extends Component {
           <BrowserRouter>
             <div>
               <img alt="Movie Cover" src={ `../${imagePath}` } />
-              <span>{title}</span>
+              <h1>{title}</h1>
               <p>{`Subtitle: ${subtitle}`}</p>
               <p>{`Storyline: ${storyline}`}</p>
               <p>{`Genre: ${genre}`}</p>

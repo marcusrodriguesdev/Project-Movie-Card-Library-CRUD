@@ -10,7 +10,9 @@ import './App.css';
 function App() {
   return (
     <Router>
-      <div>Movie Card Library CRUD</div>
+      <div>
+        Movie Card Library CRUD
+      </div>
       <Switch>
         <Route exact path="/" component={ MovieList } />
         <Route exact path="/movies/new" component={ NewMovie } />
@@ -19,7 +21,11 @@ function App() {
           path="/movies/:id"
           render={ (props) => <MovieDetails { ...props } /> }
         />
-        <Route exact path="/movies/:id/edit" component={ EditMovie } />
+        <Route
+          exact
+          path="/movies/:id/edit"
+          render={ (props) => <EditMovie { ...props } /> }
+        />
         <Route path="/" component={ NotFound } />
       </Switch>
     </Router>
