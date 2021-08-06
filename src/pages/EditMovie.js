@@ -20,6 +20,7 @@ class EditMovie extends Component {
     // console.log(id) // = id of the edited movie;
     movieAPI.getMovie(id)
       .then((movieGotById) => {
+        console.log(movieGotById);
         this.setState({
           movie: movieGotById,
           isLoading: false,

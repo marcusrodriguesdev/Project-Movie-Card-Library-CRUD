@@ -70,8 +70,17 @@ body {
   justify-content: space-around;
 }
 
+.add-card {
+  align-items: center;
+  color: black;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  text-decoration: wavy;
+  text-shadow: -1px 3px 7px black;
+}
 
-.movie-card-menu {
+.movie-card-menu, .add-card {
   background-color: rgba(255, 255, 255, 0.637);
   border: solid black 10px;
   border-radius: 52px;
@@ -81,7 +90,7 @@ body {
   width: 200px;
 }
 
-.movie-card-menu:hover {
+.add-card:hover, .movie-card-menu:hover {
 
   /* source https://codepen.io/guilherme-giacomini-teixeira/pen/YzNqrrd?editors=0110 */
   transform: scale(1.03);
