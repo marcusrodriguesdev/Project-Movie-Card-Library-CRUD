@@ -11,6 +11,7 @@ class MovieDetails extends Component {
       isLoading: true,
       movie: null,
     };
+    this.movieDel = this.movieDel.bind(this);
   }
 
   componentDidMount() {
@@ -25,6 +26,11 @@ class MovieDetails extends Component {
       movie,
       isLoading: !isLoading,
     });
+  }
+
+  movieDel() {
+    const { match: { params: { id } } } = this.props;
+    movieAPI.deleteMovie(id);
   }
 
   render() {
@@ -53,6 +59,11 @@ class MovieDetails extends Component {
         <button type="button">
           <Link to={ `${id}/edit` }>
             EDITAR
+          </Link>
+        </button>
+        <button type="button" onClick={ this.movieDel }>
+          <Link to="../">
+            DELETAR
           </Link>
         </button>
       </div>

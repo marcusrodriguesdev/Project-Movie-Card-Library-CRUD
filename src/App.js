@@ -10,6 +10,10 @@ function App() {
           <MovieList />
         </Route>
 
+        <Route exact path="/movies/new">
+          <NewMovie />
+        </Route>
+
         <Route
           exact
           path="/movies/:id"
@@ -17,10 +21,6 @@ function App() {
             <MovieDetails { ...props } />
           ) }
         />
-
-        <Route path="/movies/new">
-          <NewMovie />
-        </Route>
 
         <Route
           exact
