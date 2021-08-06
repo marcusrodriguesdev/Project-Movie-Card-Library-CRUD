@@ -11,6 +11,8 @@ class EditMovie extends Component {
   }
 
   handleSubmit(updatedMovie) {
+    const a = updatedMovie;
+    return a;
   }
 
   render() {
@@ -21,6 +23,7 @@ class EditMovie extends Component {
 
     if (status === 'loading') {
       // render Loading
+      this.handleSubmit(movieAPI);
     }
 
     return (
