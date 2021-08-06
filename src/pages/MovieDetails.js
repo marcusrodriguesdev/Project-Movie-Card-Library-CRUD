@@ -44,16 +44,20 @@ class MovieDetails extends Component {
     if (loading) return <Loading />;
 
     return (
-      <div data-testid="movie-details">
-        <img alt="Movie Cover" src={ `../${imagePath}` } />
-        <p>{ `title: ${title}` }</p>
-        <p>{ `Subtitle: ${subtitle}` }</p>
-        <p>{ `Storyline: ${storyline}` }</p>
-        <p>{ `Genre: ${genre}` }</p>
-        <p>{ `Rating: ${rating}` }</p>
-        <Link to="/">VOLTAR</Link>
-        <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
-        <Link to="/" onClick={ this.delete }>DELETAR</Link>
+      <div className="movie-details" data-testid="movie-details">
+        <img alt="Movie Cover" className="movie-card-image" src={ `../${imagePath}` } />
+        <div className="movie-card-body">
+          <h4 className="movie-card-title">{title}</h4>
+          <h5 className="movie-card-subtitle">{subtitle}</h5>
+          <p className="movie-card-storyline">{storyline}</p>
+          <p>{ `Genre: ${genre}` }</p>
+        </div>
+        <div className="movie-card-rating">
+          <span className="rating">{rating}</span>
+        </div>
+        <Link className="link" to="/">VOLTAR</Link>
+        <Link className="link" to={ `/movies/${id}/edit` }>EDITAR</Link>
+        <Link className="link" to="/" onClick={ this.delete }>DELETAR</Link>
       </div>
     );
   }
