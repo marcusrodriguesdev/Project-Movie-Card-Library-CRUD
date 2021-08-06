@@ -22,6 +22,10 @@ class MovieDetails extends Component {
     });
   }
 
+  handleDelete = (id) => {
+    movieAPI.deleteMovie(id);
+  }
+
   render() {
     // Change the condition to check the state
     // if (true) return <Loading />;
@@ -44,7 +48,10 @@ class MovieDetails extends Component {
         <p>{ `Genre: ${genre}` }</p>
         <p>{ `Rating: ${rating}` }</p>
         <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
+        <br />
         <Link to="/">VOLTAR</Link>
+        <br />
+        <Link to="/" onClick={ () => { this.handleDelete(id); } }>DELETAR</Link>
       </div>
     );
   }
