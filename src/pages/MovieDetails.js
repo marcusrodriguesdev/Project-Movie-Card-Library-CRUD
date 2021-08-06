@@ -47,14 +47,9 @@ class MovieDetails extends Component {
 
 MovieDetails.propTypes = {
   match: PropTypes.shape({
-    isExact: PropTypes.bool,
     params: PropTypes.shape({
       id: PropTypes.string,
-      newentry: PropTypes.string,
     }),
-    path: PropTypes.string,
-    url: PropTypes.string,
-    newentry: PropTypes.string,
   }).isRequired,
 };
 
