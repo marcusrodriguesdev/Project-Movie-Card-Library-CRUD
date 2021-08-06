@@ -2,6 +2,7 @@ import React from 'react';
 import {
   BrowserRouter,
   BrowserRouter as Router,
+  Link,
   Route,
 } from 'react-router-dom';
 import './App.css';
@@ -23,6 +24,7 @@ function App() {
         <Route path="/movies/new" component={ NewMovie } />
         <Route path="/movies/:id/edit" component={ EditMovie } />
         <Route path="" component={ NotFound } />
+        <Link to="/movies/new">ADICIONAR CARTÃO</Link>
       </switch>
     </BrowserRouter>
   );
