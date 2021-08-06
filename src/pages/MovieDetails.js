@@ -11,6 +11,7 @@ class MovieDetails extends Component {
       movie: {},
       loading: true,
     };
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount() {
@@ -26,6 +27,13 @@ class MovieDetails extends Component {
           loading: false,
         });
       });
+  }
+
+  async handleSubmit() {
+    const { match: { params: { id } } } = this.props;
+    const movieId = id;
+    console.log(movieId);
+    await movieAPI.deleteMovie(movieId);
   }
 
   render() {
@@ -52,6 +60,9 @@ class MovieDetails extends Component {
                   <p>{ `Rating: ${rating}` }</p>
                   <Link className="link" to="/">VOLTAR</Link>
                   <Link className="link" to={ `/movies/${movie.id}/edit` }>EDITAR</Link>
+                  <Link onClick={ this.handleSubmit } className="link" to="/">
+                    DELETAR
+                  </Link>
                 </div>
               </div>
             </div>)}
