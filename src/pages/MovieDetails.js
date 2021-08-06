@@ -39,7 +39,6 @@ class MovieDetails extends Component {
   async purgeMovie(id) {
     const purge = await movieAPI.deleteMovie(id);
     this.setState(purge);
-
   }
 
   render() {
