@@ -175,6 +175,7 @@ MovieForm.propTypes = {
     genre: PropTypes.string.isRequired,
     bookmarked: PropTypes.bool.isRequired,
   }).isRequired,
+  onSubmit: PropTypes.func.isRequired,
 };
 
 export default MovieForm;
