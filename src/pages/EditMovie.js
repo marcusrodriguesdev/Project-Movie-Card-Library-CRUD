@@ -43,21 +43,20 @@ class EditMovie extends Component {
     const { loading, shouldRedirect, movie } = this.state;
     if (shouldRedirect) {
       // Redirect - source: https://pt.stackoverflow.com/a/369899
-      return <Redirect to="/" />
+      return <Redirect to="/" />;
     }
 
     return (
       <div data-testid="edit-movie">
         {
-          loading ? <Loading />
-          : <MovieForm movie={ movie } onSubmit={ this.handleSubmit } />
+          loading ? <Loading /> : <MovieForm movie={ movie } onSubmit={ this.handleSubmit } />
         }
       </div>
     );
   }
 }
 
-EditMovie.propType = {
+EditMovie.propTypes = {
   match: PropTypes.any.isRequired,
 };
 
