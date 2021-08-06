@@ -10,6 +10,7 @@ class MovieDetails extends Component {
     super();
 
     this.handleClick = this.handleClick.bind(this);
+    this.deleteClick = this.deleteClick.bind(this);
 
     this.state = { redirect: false };
   }
@@ -22,6 +23,15 @@ class MovieDetails extends Component {
 
   handleClick(e) {
     e.preventDefault();
+    this.setState({ redirect: true });
+  }
+
+  deleteClick(e) {
+    e.preventDefault();
+
+    const s = this.state;
+    const { id } = s.movie;
+    movieAPI.deleteMovie(id);
     this.setState({ redirect: true });
   }
 
@@ -45,6 +55,7 @@ class MovieDetails extends Component {
           <p>{ `Genre: ${genre}` }</p>
           <p>{ `Rating: ${rating}` }</p>
           <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
+          <Link to="/" onClick={ this.deleteClick }>DELETAR</Link>
         </div>);
     } else { JSX = <Loading />; }
 
