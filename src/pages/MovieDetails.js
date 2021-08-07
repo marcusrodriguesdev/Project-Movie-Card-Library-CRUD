@@ -7,17 +7,14 @@ import { Loading } from '../components';
 class MovieDetails extends Component {
   constructor(props) {
     super(props);
-    const { match } = this.props;
-    const { id } = match.params;
     this.state = {
       movie: '',
-      id,
     };
   }
 
-  async componentDidMount() {
-    const { id } = this.state;
-    await getMovie(id).then((movie) => this.setState({
+  componentDidMount() {
+    const { match: { params: { id } } } = this.props;
+    getMovie(id).then((movie) => this.setState({
       movie,
     }));
   }
@@ -27,7 +24,7 @@ class MovieDetails extends Component {
     const { title, storyline, imagePath, genre, rating, subtitle, id } = movie;
 
     return (
-      !storyline
+      !movie
         ? <Loading />
         : (
           <div data-testid="movie-details">

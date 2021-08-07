@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { Loading } from '../components';
 import MovieCard from '../components/MovieCard';
 
@@ -9,32 +10,31 @@ class MovieList extends Component {
     super();
 
     this.state = {
-      loading: true,
-      movies: [],
+      movies: '',
     };
     this.handleState = this.handleState.bind(this);
   }
 
-  async componentDidMount() {
-    const response = await getMovies();
-    this.handleState(response);
+  componentDidMount() {
+    getMovies()
+      .then((movies) => this.handleState(movies));
   }
 
   handleState(movieArray) {
     this.setState({
       movies: movieArray,
-      loading: false,
     });
   }
 
   render() {
-    const { movies, loading } = this.state;
-
+    const { movies } = this.state;
+    if (!movies) {
+      return <Loading />;
+    }
     return (
       <div data-testid="movie-list" className="movie-list">
-        {loading
-          ? <Loading />
-          : movies.map((movie) => <MovieCard key={ movie.title } movie={ movie } />)}
+        {movies.map((movie) => <MovieCard key={ movie.title } movie={ movie } />)}
+        <Link to="/movies/new">ADICIONAR CARTÃO</Link>
       </div>
     );
   }
