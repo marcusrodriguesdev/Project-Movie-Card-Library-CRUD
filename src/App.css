@@ -2,11 +2,18 @@
 
 * {
   box-sizing: border-box;
-  margin: 0;
-  color: white;
+  margin: 0;  
 }
 
-.header-title {
+html, body {  
+  margin: 0;
+  background: black;
+  font-family: 'Montserrat', helvetica, arial, sans-serif;
+  font-size: 14px;
+  font-weight: 400;  
+}
+
+.header-title {  
   text-align: center;
   margin: 2em;
   font-size: 3em;
@@ -14,53 +21,73 @@
   font-weight: 400;
 }
 
+
+
+.header-subtitle {
+  text-align: center;  
+  font-size: 1em;
+  color: #757575;
+  font-weight: 400;  
+}
+
 .movie-img {
-  border-radius: 20px;
-  box-shadow: 0px 0px 150px -45px rgba(255, 51, 0, 0.5);
-  position: relative;  
-  box-shadow: 0 0 20px -10px rgba(0,0,0,0.5);
+  z-index: 0;  
+  position: absolute;    
+  width: 100%;  
+  opacity: 1;
+  transition: all 0.4s;
 }
 
 .movie-img:hover {
-  box-shadow: 0px 0px 120px -55px rgba(255, 51, 0, 0.5);  
+  z-index: -1;
+  opacity: 0.1;
+  transition: all 0.4s;        
 }
 
-html, body {
-  margin: 0;
-  background: black;
-  font-family: 'Montserrat', helvetica, arial, sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-}
-
-.movie-card {  
+.movie-card {
+  position: sticky;
   display: flex;
-  flex-flow: column nowrap;
-  justify-content: center;
-  padding: 1em;
-  width: 50em;
-  margin: 0.5em auto; 
+  flex-flow: row wrap;  
+  width: 50em;    
+  margin: 2em; 
   overflow: hidden;
-  border-radius: 20px;
-  transition: all 0.4s;
-}
-
-.movie-card:hover   {
-  transform: scale(1.02);
-  transition: all 0.4s;
-}
-
-.info {  
-  width: 100%;
-  height: 100%;
-  background-blend-mode: multiply;
-  z-index: 2;
   border-radius: 10px;
+  box-shadow: 0 0 20px -10px rgba(0,0,0,0.5);
+  transition: 0.4s;  
+}
+
+.movie-card:hover {      
+  transform: scale(1.02);
+  box-shadow: 0px 0px 120px -55px rgba(74, 151, 253, 0.801);
+  transition: 0.4s; 
+}
+
+.info {
+  position: relative;  
+  height: 100%;
+  background-blend-mode: multiply; 
+  border-radius: 10px;
+  opacity: 0;  
+  transition: 0.4s; 
+}
+
+.info:hover {
+  opacity: 1;  
+  transition: 0.4s;    
 }
 
 .movie-header {  
-  padding: 1em;  
-  height: 10%;
+  padding: 0em 1em;  
+  height: 1%;
+}
+
+.movie-title {
+  display: flex;
+  flex-flow: column wrap;
+  align-content: flex-start;
+  margin: 0em 0.5em;
+  margin-bottom: 1em;
+
 }
 
 h1 {
@@ -68,17 +95,17 @@ h1 {
   font-weight: 400;
 }
 
-h4 {
+h2 {
   color: #9ac7fa;
   font-weight: 400;
 }
 
 .rate {
   display: inline-block;
-  margin: 1em 2em;
+  margin: 1em 0em;
   color: #fff;
-  padding: 5px;
-  border-radius: 5px;
+  padding: 10px;
+  border-radius: 10px;
   border: 1px solid rgba(255,255,255,0.13);
 }
 
@@ -87,27 +114,40 @@ h4 {
   flex-flow: column wrap;
   width: 3em;  
   color: #cee4fd;
-  margin-left: 10px;
-  border: 1px solid rgba(255,255,255,0.13);
+  margin-left: 10px;  
+  text-transform: capitalize;
 }
 
 
-.movie-desc {
-  padding: 25px;
-  height: 50%;
+.movie-desc :first-child {   
+  padding: 0em 1.5em;
+  font-size: 1.2em;
+  padding-right: 12em;
+  color: #757575;
 }
 
 .text {
   color: #cfd6e1;
 }
 
-.blur-back {
-  position: absolute;
-  top: 0;
-  z-index: 1;
-  height: 100%; right: 0;
-  background-size: cover;
-  border-radius: 11px;
+
+.show-details :first-child {  
+  display: block;
+  text-align: center;    
+  padding: 10px;  
+  margin: 2em 0em;  
+  width: 10em;
+  color: white;  
+  margin-left: 45em;
+  text-decoration: none;
+  border: 1px solid rgba(255,255,255,0.13);
+  border-radius: 10px;
+  font-size: 12px;  
+}
+
+.details-link {
+  z-index: 6;
+  cursor: pointer;
 }
 
 @media screen and (min-width: 768px) {
@@ -124,11 +164,6 @@ h4 {
   background: linear-gradient(to right, #0d0d0c 50%, transparent 100%);
 }
 
-.blur-back {
-  width: 80%;
-  background-position: -100% 10% !important;  
-}
-
 @media screen and (max-width: 768px) {
   .movie_card{
     width: 95%;
@@ -136,11 +171,6 @@ h4 {
     min-height: 350px;
     height: auto;
   }
-}
-
-.blur-back{
-  width: 100%;
-  background-position: 50% 50% !important;  
 }
 
 .movie-header{
@@ -152,7 +182,7 @@ h4 {
   width: 100%;
 }
 
-.info-section{
+.info {
   background: linear-gradient(to top, rgb(20, 20, 19) 50%, transparent 100%);
   display: inline-grid;
 }

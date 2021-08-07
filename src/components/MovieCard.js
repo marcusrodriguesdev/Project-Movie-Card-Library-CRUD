@@ -13,20 +13,23 @@ class MovieCard extends React.Component {
     const { title, storyline, imagePath, genre, rating, subtitle, id } = movie;
     return (
       <div className="movie-card" data-testid="movie-card">
+        <img className="movie-img" alt="Movie Cover" src={ `../${imagePath}` } />
         <div className="info">
           <div className="movie-header">
-            <h1>{ title }</h1>
-            <h2>{ `Subtitle: ${subtitle}` }</h2>
-            <img className="movie-img" alt="Movie Cover" src={ `../${imagePath}` } />
+            <div className="movie-title">
+              <h1>{ title }</h1>
+              <h2>{ `${subtitle}` }</h2>
+            </div>
             <h3 className="type">{ genre }</h3>
+            <h4 className="rate">{ `Rating: ${rating}` }</h4>
           </div>
           <div className="movie-desc">
             <p className="text">{ storyline }</p>
           </div>
-          <h4 className="rate">{ `Rating: ${rating}` }</h4>
-          <Link to={ `movies/${id}` }>VER DETALHES</Link>
+          <div className="show-details">
+            <Link className="details-link" to={ `movies/${id}` }>VER DETALHES</Link>
+          </div>
         </div>
-        <div className="blur-back bright-back" />
       </div>
     );
   }
