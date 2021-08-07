@@ -40,17 +40,17 @@ class MovieDetails extends Component {
       <div data-testid="movie-details">
         {
           loading ? <Loading />
-          : <div>
-              <h1>Detalhes: </h1>
-              <img alt="Movie Cover" src={ `../${imagePath}` } />
-              <p>{ `Title: ${title}` }</p>
-              <p>{ `Subtitle: ${subtitle}` }</p>
-              <p>{ `Storyline: ${storyline}` }</p>
-              <p>{ `Genre: ${genre}` }</p>
-              <p>{ `Rating: ${rating}` }</p>
-              <p><Link to={ `/movies/${id}/edit` }>EDITAR</Link></p>
-              <p><Link to="/">VOLTAR</Link></p>
-            </div>
+            : <div>
+                <h1>Detalhes:</h1>
+                <img alt="Movie Cover" src={ `../${imagePath}` } />
+                <p>{ `Title: ${title}` }</p>
+                <p>{ `Subtitle: ${subtitle}` }</p>
+                <p>{ `Storyline: ${storyline}` }</p>
+                <p>{ `Genre: ${genre}` }</p>
+                <p>{ `Rating: ${rating}` }</p>
+                <p><Link to={ `/movies/${id}/edit` }>EDITAR</Link></p>
+                <p><Link to="/">VOLTAR</Link></p>
+              </div>
         }
       </div>
     );
@@ -58,7 +58,10 @@ class MovieDetails extends Component {
 }
 
 MovieDetails.propTypes = {
-  match: PropTypes.any.isRequired,
+  match: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]).isRequired,
 };
 
 export default MovieDetails;
