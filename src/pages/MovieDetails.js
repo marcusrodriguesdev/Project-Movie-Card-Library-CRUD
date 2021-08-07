@@ -38,8 +38,8 @@ class MovieDetails extends Component {
 
     return (
       <div data-testid="movie-details">
-        {
-          loading ? <Loading /> : <div>
+        {loading ? <Loading />
+          : <div>
               <h1>Detalhes:</h1>
               <img alt="Movie Cover" src={ `../${imagePath}` } />
               <p>{ `Title: ${title}` }</p>
@@ -48,8 +48,8 @@ class MovieDetails extends Component {
               <p>{ `Genre: ${genre}` }</p>
               <p>{ `Rating: ${rating}` }</p>
               <p><Link to={ `/movies/${id}/edit` }>EDITAR</Link></p>
-              <p><Link to="/">VOLTAR</Link></p></div>
-        }
+              <p><Link to="/">VOLTAR</Link></p>
+            </div>}
       </div>
     );
   }
