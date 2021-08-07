@@ -3,3 +3,27 @@ body {
   box-sizing: border-box;
 }
 
+.card {
+  align-items: center;
+  border: 2px black solid;
+  border-radius: 10px;
+  display: flex;
+  flex: 1 1 0;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 10px;
+  max-width: 35%;
+  min-width: 40%;
+}
+
+.movie-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 10px;
+  min-width: 35%;
+}
+
+.image {
+  max-width: 80%;
+}
