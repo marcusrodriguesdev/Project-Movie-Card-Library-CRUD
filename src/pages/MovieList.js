@@ -33,13 +33,14 @@ class MovieList extends Component {
     const { movies, loading } = this.state;
 
     return (
-      <div data-testid="movie-list">
-        {/* como visto na documentação (https://pt-br.reactjs.org/docs/conditional-rendering.html) */}        
+      <div>
+        {/* como visto na documentação (https://pt-br.reactjs.org/docs/conditional-rendering.html) */}
         {loading ? <Loading />
-          : <div>
+          : (
+            <div data-testid="movie-list">
               <Link to="/movies/new">ADICIONAR CARTÃO</Link>
-              { movies.map((movie) => <MovieCard key={ movie.title } movie={ movie } />) }
-            </div>}
+              {movies.map((movie) => <MovieCard key={movie.title} movie={movie} />)}
+            </div>)}
       </div>
     );
   }
