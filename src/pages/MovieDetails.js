@@ -31,25 +31,24 @@ class MovieDetails extends Component {
   }
 
   render() {
-    console.log(this.props);
-
     const { movie, loading } = this.state;
     const { id, title, storyline, imagePath, genre, rating, subtitle } = movie;
 
     return (
-      <div data-testid="movie-details">
+      <div>
         {loading ? <Loading />
-          : <div>
+          : (
+            <div data-testid="movie-details">
               <h1>Detalhes:</h1>
-              <img alt="Movie Cover" src={ `../${imagePath}` } />
-              <p>{ `Title: ${title}` }</p>
-              <p>{ `Subtitle: ${subtitle}` }</p>
-              <p>{ `Storyline: ${storyline}` }</p>
-              <p>{ `Genre: ${genre}` }</p>
-              <p>{ `Rating: ${rating}` }</p>
-              <p><Link to={ `/movies/${id}/edit` }>EDITAR</Link></p>
+              <img alt="Movie Cover" src={`../${imagePath}`} />
+              <p>{`Title: ${title}`}</p>
+              <p>{`Subtitle: ${subtitle}`}</p>
+              <p>{`Storyline: ${storyline}`}</p>
+              <p>{`Genre: ${genre}`}</p>
+              <p>{`Rating: ${rating}`}</p>
+              <p><Link to={`/movies/${id}/edit`}>EDITAR</Link></p>
               <p><Link to="/">VOLTAR</Link></p>
-            </div>}
+            </div>)}
       </div>
     );
   }
