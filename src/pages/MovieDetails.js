@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { getMovie } from '../services/movieAPI';
+import { deleteMovie, getMovie } from '../services/movieAPI';
 import { Loading } from '../components';
 
 class MovieDetails extends Component {
@@ -34,8 +34,9 @@ class MovieDetails extends Component {
             <p>{`Storyline: ${storyline}`}</p>
             <p>{`Genre: ${genre}`}</p>
             <p>{`Rating: ${rating}`}</p>
-            <Link to={ `/movies/${id}/edit` }>EDITAR </Link>
+            <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
             <Link to="/"> VOLTAR </Link>
+            <Link onClick={ () => deleteMovie(id) } to="/">DELETAR</Link>
           </div>
         )
     );
