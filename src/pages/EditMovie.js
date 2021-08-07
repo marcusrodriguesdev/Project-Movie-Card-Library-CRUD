@@ -28,6 +28,7 @@ class EditMovie extends Component {
 
   async getMovie() {
     const { match } = this.props;
+    console.log(typeof match);
     const { id } = match.params;
     const movie = await movieAPI.getMovie(id);
     this.setState({
@@ -55,9 +56,11 @@ class EditMovie extends Component {
 }
 
 EditMovie.propTypes = {
-  match: PropTypes.object,
-  id: PropTypes.number,
-  params: PropTypes.string,
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.number,
+    }),
+  }).isRequired,
 };
 
 export default EditMovie;

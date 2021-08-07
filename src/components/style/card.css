@@ -3,6 +3,42 @@ body {
 }
 .main-content {
   display: flex;
+  flex-flow: wrap;
+}
+/* tela de movies */
+.pai {
+  display: flex;
+  flex-direction: column;
+}
+
+.list-movie-content {
+  justify-content: center;
+  display: flex;
+  flex-flow: wrap;
+  width: 100vw;
+}
+
+.add-button {
+  transition: 0.5s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  text-transform: uppercase;
+  text-align: center;
+  background-color: rgb(33, 76, 126);
+  border-radius: 5px;
+  width: 10% ;
+  height:3em;
+}
+
+.add-button:hover,:visited, a {
+  color: #201e1e;
+  text-decoration: none;
+  cursor: pointer;
+  transition: 0.5s;
+  border-radius: 20px;
+  text-decoration: none;
 }
 
 .card-movie {
@@ -11,7 +47,7 @@ body {
   transform: scale(0.9);
   border-radius: 15px;
   background-color: #e6e6e6;
-  width: 400px;
+  width: 350px;
   filter: blur(0.4px);
 }
 
@@ -101,13 +137,6 @@ body {
   object-position: center;
   box-shadow: 0.1px 5px 5px black;
 }
-
-/* .main-image:hover {
-  transform: scale(100%);
-  transition: 0.5s;
-  box-shadow: 0.1px 10px 10px black;
-} */
-
 
 .main-text {
   display: flex;
