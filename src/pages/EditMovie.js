@@ -49,7 +49,8 @@ class EditMovie extends Component {
     return (
       <div data-testid="edit-movie">
         {
-          loading ? <Loading /> : <MovieForm movie={ movie } onSubmit={ this.handleSubmit } />
+          loading ? <Loading />
+            : <MovieForm movie={ movie } onSubmit={ this.handleSubmit } />
         }
       </div>
     );
@@ -57,7 +58,10 @@ class EditMovie extends Component {
 }
 
 EditMovie.propTypes = {
-  match: PropTypes.any.isRequired,
+  match: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]).isRequired,
 };
 
 export default EditMovie;
