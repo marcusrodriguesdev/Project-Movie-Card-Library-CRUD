@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
 
@@ -34,6 +34,10 @@ class MovieDetails extends Component {
     );
   }
 
+  deleteThisMovie() {
+
+  }
+
   render() {
     // Change the condition to check the state
     // if (true) return <Loading />;
@@ -56,6 +60,13 @@ class MovieDetails extends Component {
         <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
         <p> </p>
         <Link to="/">VOLTAR</Link>
+        <p> </p>
+        <Link
+          to="/"
+          onClick={ () => movieAPI.deleteMovie(id) }
+        >
+          DELETAR
+        </Link>
       </div>
     );
   }
