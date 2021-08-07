@@ -15,7 +15,6 @@ class MovieCard extends React.Component {
         <div className="movie-card-rating">
           <Link to={ `/movies/${(movie.id)}` }>VER DETALHES</Link>
         </div>
-        Movie Card
       </div>
     );
   }
