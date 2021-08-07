@@ -19,9 +19,11 @@ class EditMovie extends Component {
       .then((infos) => this.setState({ movie: { ...infos }, status: 'loaded' }));
   }
 
-  async handleSubmit(updatedMovie) {
-    await movieAPI.updateMovie(updatedMovie);
-    this.setState((current) => ({ shouldRedirect: !(current.shouldRedirect) }));
+  handleSubmit(updatedMovie) {
+    movieAPI.updateMovie(updatedMovie)
+      .then(() => this.setState((current) => (
+        { shouldRedirect: !(current.shouldRedirect) }
+      )));
   }
 
   render() {
