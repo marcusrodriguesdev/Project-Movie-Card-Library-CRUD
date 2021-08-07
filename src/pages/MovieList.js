@@ -12,30 +12,24 @@ class MovieList extends Component {
     this.state = {
       movies: '',
     };
-    this.handleState = this.handleState.bind(this);
   }
 
   componentDidMount() {
     getMovies()
-      .then((movies) => this.handleState(movies));
-  }
-
-  handleState(movieArray) {
-    this.setState({
-      movies: movieArray,
-    });
+      .then((movies) => this.setState({ movies }));
   }
 
   render() {
     const { movies } = this.state;
-    if (!movies) {
-      return <Loading />;
-    }
     return (
-      <div data-testid="movie-list" className="movie-list">
-        {movies.map((movie) => <MovieCard key={ movie.title } movie={ movie } />)}
-        <Link to="/movies/new">ADICIONAR CARTÃO</Link>
-      </div>
+      !movies
+        ? <Loading />
+        : (
+          <div data-testid="movie-list" className="movie-list">
+            {movies.map((movie) => <MovieCard key={ movie.title } movie={ movie } />)}
+            <Link to="/movies/new">ADICIONAR CARTÃO</Link>
+          </div>
+        )
     );
   }
 }
