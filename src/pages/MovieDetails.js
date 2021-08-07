@@ -9,6 +9,7 @@ import { Loading } from '../components';
 class MovieDetails extends Component {
   constructor() {
     super();
+    this.handleDeleteClick = this.handleDeleteClick.bind(this);
     this.state = {
       movie: undefined,
     };
@@ -19,6 +20,12 @@ class MovieDetails extends Component {
     const { id } = match.params;
     movieAPI.getMovie(id)
       .then((infos) => this.setState({ movie: infos }));
+  }
+
+  handleDeleteClick() {
+    const { match } = this.props;
+    const { id } = match.params;
+    movieAPI.deleteMovie(id);
   }
 
   render() {
@@ -35,6 +42,7 @@ class MovieDetails extends Component {
           <p>{ `Rating: ${rating}` }</p>
           <Link to="/">VOLTAR</Link>
           <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
+          <Link to="/" onClick={ this.handleDeleteClick }>DELETAR</Link>
 
         </div>
       );
