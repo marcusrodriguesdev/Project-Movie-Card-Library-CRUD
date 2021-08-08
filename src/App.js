@@ -15,13 +15,13 @@ function App() {
         <Route exact path="/movies/new" render={ () => <NewMovie /> } />
         <Route
           exact
-          path="/movies/:id"
-          render={ (props) => <MovieDetails { ...props } /> }
+          path="/movies/:id/edit"
+          render={ (props) => <EditMovie { ...props } /> }
         />
         <Route
           exact
-          path="/movies/:id/edit"
-          render={ (props) => <EditMovie { ...props } /> }
+          path="/movies/:id"
+          render={ (props) => <MovieDetails { ...props } /> }
         />
         <Route path="/" component={ NotFound } />
       </Switch>
