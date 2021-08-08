@@ -10,6 +10,12 @@ body {
   font-size: 65px;
 }
 
+.link {
+  display: flex;
+  justify-content:space-around;
+  width: 500px;
+}
+
 
 .movie-card {
   background-color: white;
