@@ -4,7 +4,7 @@ import Loading from '../components/Loading';
 
 import * as movieAPI from '../services/movieAPI';
 
-console.log(movieAPI);
+// console.log(movieAPI);
 class MovieList extends Component {
   constructor() {
     super();
