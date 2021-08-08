@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
-import { Link } from 'react-router-dom';
 
 class MovieDetails extends Component {
   constructor() {
@@ -11,23 +12,30 @@ class MovieDetails extends Component {
       movie: [],
       exibir: 'carregando',
     };
+    this.requisitId = this.requisitId.bind(this);
   }
-async componentDidMount() {
-  const { match: { params: id } } = this.props;
-  const respons = await movieAPI.getMovie(parseInt(id.id,10))
+
+  async componentDidMount() {
+    this.requisitId();
+  }
+
+  async requisitId() {
+    const { match: { params: id } } = this.props;
+    const respons = await movieAPI.getMovie(id.id);
     this.setState({
       movie: respons,
       exibir: 'carregado',
-  })
- 
-}
+    });
+  }
+
   render() {
     // Change the condition to check the state
     // if (true) return <Loading />;
-      const { movie: { id,title, storyline, imagePath, genre, rating, subtitle } } = this.state;
-      const {exibir} = this.state;
-      if (exibir === 'carregando') {
-        return <Loading/>;
+    const { movie: { id, title, storyline, imagePath, genre, rating,
+      subtitle } } = this.state;
+    const { exibir } = this.state;
+    if (exibir === 'carregando') {
+      return <Loading />;
     }
 
     return (
@@ -39,12 +47,17 @@ async componentDidMount() {
         <p>{ `Genre: ${genre}` }</p>
         <p>{ `Rating: ${rating}` }</p>
         <div className="link">
-        <Link to={`/movies/${id}/edit `}>EDITAR</Link>
-        <Link to='/'>VOLTAR</Link>
+          <Link to="/">VOLTAR</Link>
+          <Link to={ `/movies/${id}/edit ` }>EDITAR</Link>
         </div>
       </div>
     );
   }
 }
+
+MovieDetails.propTypes = {
+  match: PropTypes.oneOfType([PropTypes.object])
+    .isRequired,
+};
 
 export default MovieDetails;
