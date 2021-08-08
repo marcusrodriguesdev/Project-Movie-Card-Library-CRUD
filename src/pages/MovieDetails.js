@@ -7,7 +7,9 @@ import { Loading } from '../components';
 class MovieDetails extends Component {
   constructor(props) {
     super(props);
-    const { match: { params: { id } } } = this.props;
+    const { match } = this.props;
+    const { params } = match;
+    const { id } = params;
 
     this.state = {
       movie: [],
