@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
 
@@ -9,6 +9,7 @@ class MovieDetails extends Component {
     super(props);
 
     this.carregafilmes = this.carregafilmes.bind(this);
+    this.deletar = this.deletar.bind(this);
 
     const { match } = this.props;
     const { params } = match;
@@ -26,14 +27,17 @@ class MovieDetails extends Component {
   }
 
   async carregafilmes() {
-    console.log('tentando encontrar');
     const { id } = this.state;
-    console.log(id);
     const movie = await movieAPI.getMovie(id);
     this.setState({
       movie,
       loading: false,
     });
+  }
+
+  async deletar() {
+    const { id } = this.state;
+    await movieAPI.deleteMovie(id);
   }
 
   render() {
@@ -42,7 +46,6 @@ class MovieDetails extends Component {
 
     const { movie, loading, id } = this.state;
     const { title, storyline, imagePath, genre, rating, subtitle } = movie;
-    console.log(movie);
     return (
       <main>
         <div data-testid="movie-details">
@@ -55,6 +58,8 @@ class MovieDetails extends Component {
         </div>
         <Link to={ `${id}/edit` }> EDITAR </Link>
         <Link to="/"> VOLTAR </Link>
+        <Link to="/" onClick={ this.deletar }>DELETAR</Link>
+        {/* <button type="button" onClick={ this.deletar }>DELETAR</button> */}
         <p>{loading ? <Loading /> : '' }</p>
       </main>
     );
@@ -70,4 +75,4 @@ MovieDetails.propTypes = {
   }).isRequired,
 };
 
-export default MovieDetails;
+export default withRouter(MovieDetails);
