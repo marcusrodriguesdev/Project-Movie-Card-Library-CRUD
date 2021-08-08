@@ -1,110 +1,110 @@
 .main-form {
-  margin: auto;
-  width: 70%;
-  height: 100vh;
-  display: flex;
-  flex-flow: column;  
   align-items: center;
   color: white;
-  
+  display: flex;
+  flex-flow: column;
+  height: 100vh;
+  margin: auto;
+  width: 70%;
 }
 
-.main-form label{
+.main-form label {
   display: flex;
   flex-direction: column-reverse;
   font-size: 20px;
-  text-align: center;
   margin-top: 5px;
+  text-align: center;
 }
 
-.validate{
-  text-align: center;
+.validate {
   display: flex;
+  text-align: center;
   width: 100%;
 }
 
 .form-subtitle {
-  text-align: center;
   display: flex;
+  text-align: center;
   width: 100%;
 }
 
 .form-image {
-  text-align: center;
   display: flex;
+  text-align: center;
   width: 100%;
 }
 
 .form-storyline {
-  
-  text-align: center;
   display: flex;
+  text-align: center;
   width: 100%;
 }
 
 .form-genre {
-  margin-top: 20px;
   display: flex;
+  margin-top: 20px;
   width: 100%;
 }
 
 .form-avaliation {
-  width: 100%;
-  margin-top: 20px;
   font-size: 16px;
-
+  margin-top: 20px;
+  width: 100%;
 }
 
 .form-button {
-  transition: 0.5s;
-  background-color: #ffffff;
+  background-color: white;
   border: none;
   border-radius: 5px;
-  color: rgb(0, 0, 0);
-  padding: 10px 10px;
+  color: black;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 50px;
+  padding: 10px;
   text-align: center;
   text-decoration: none;
-  font-size: 16px;
-  cursor: pointer;
-  margin-top: 50px;
+  transition: 0.5s;
 }
 
 .form-button:hover {
-  transition: 0.5s;
   background-color: #0cff04;
   border: none;
   border-radius: 15px;
-  color: rgb(255, 255, 255);
-  padding: 10px 10px;
-  box-shadow: 0px 0px 1px 1px black;
+  box-shadow: 1px black;
+  color: white;
+  padding: 10px;
+  transition: 0.5s;
 }
 
 .error {
-  animation: slide 3s ease-in 1s infinite reverse ;
+  animation: slide 3s ease-in 1s infinite reverse;
   color: white;
-  width: 100vw;
-  height: 90vh;
   display: flex;
   flex-direction: column;
+  height: 90vh;
   justify-content: center;
   overflow: hidden;
   text-align: center;
+  width: 100vw;
 }
 
 @keyframes slide {
+
   0% {
-    transition: 0.5s;
-    font-size: 50px;
     color: aqua;
-  }
-  50%{
-    transition: 0.5s;
-    font-size: 55px;
-    color: rgb(255, 255, 255);
-  }
-  100%{
-    transition: 0.5s;
     font-size: 50px;
+    transition: 0.5s;
+  }
+
+  50% {
+    color: white;
+    font-size: 55px;
+    transition: 0.5s;
+  }
+
+  100% {
     color: rgb(255, 87, 87);
+    font-size: 50px;
+    transition: 0.5s;
   }
 }

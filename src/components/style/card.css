@@ -1,10 +1,12 @@
 body {
   background-color: #252525;
 }
+
 .main-content {
   display: flex;
   flex-flow: wrap;
 }
+
 /* tela de movies */
 .pai {
   display: flex;
@@ -12,130 +14,123 @@ body {
 }
 
 .list-movie-content {
-  justify-content: center;
   display: flex;
   flex-flow: wrap;
+  justify-content: center;
   width: 100vw;
 }
 
 .add-button {
-  transition: 0.5s;
-  display: flex;
-  justify-content: center;
   align-items: center;
   align-self: center;
-  text-transform: uppercase;
-  text-align: center;
   background-color: rgb(33, 76, 126);
   border-radius: 5px;
-  width: 10% ;
-  height:3em;
+  display: flex;
+  height: 3em;
+  justify-content: center;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  width: 10%;
 }
 
-.add-button:hover,:visited, a {
-  color: #201e1e;
-  text-decoration: none;
-  cursor: pointer;
-  transition: 0.5s;
+.add-button:hover, :visited, a {
   border-radius: 20px;
+  color: #201e1e;
+  cursor: pointer;
   text-decoration: none;
+  transition: 0.5s;
 }
 
 .card-movie {
-  transition: 0.5s;
-  box-shadow: 0px 0px 5px black;
-  transform: scale(0.9);
-  border-radius: 15px;
   background-color: #e6e6e6;
-  width: 350px;
+  border-radius: 15px;
+  box-shadow: 5px black;
   filter: blur(0.4px);
+  transform: scale(0.9);
+  transition: 0.5s;
+  width: 350px;
 }
 
-.card-movie:hover { 
-  transition: 0.3s;
-  transform: scale(1);
+.card-movie:hover {
   box-shadow: 0.2px 50px 50px black;
-  filter: blur(0px);
   filter: brightness(110%);
+  transform: scale(1);
+  transition: 0.3s;
 }
 
 .main-card {
-  /* border: solid 1px rebeccapurple; */
-  height: 100%;
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  height: 100%;
 }
 
 .card-name {
-  font-weight: 900;
   color: #252525;
+  font-weight: 900;
 }
 
 .card-image {
-  width: 100%;
-  transform: scale(0.9);
   border-radius: 5px;
+  transform: scale(0.9);
+  width: 100%;
 }
 
-
 .card-info {
-  /* border: solid 1px rebeccapurple; */
-  flex-grow: 1;
-  text-align: center;
-  font-size: 20px;
   color: #464646;
+  flex-grow: 1;
+  font-size: 20px;
+  text-align: center;
   transform: scale(0.8);
 }
 
 .card-rating {
+  align-items: center;
   align-self: flex-end;
   background-color: beige;
+  border-radius: 100%;
   display: flex;
-  align-items: center;
+  height: 50px;
   justify-content: center;
   margin-right: 20px;
-  border-radius: 100%;
   width: 50px;
-  height: 50px;
 }
 
 .card-link {
-  /* border: solid 1px red; */
+  color: #252525;
   font-size: 20px;
-  text-decoration: none;
-  color:#252525;
   padding-bottom: 20px;
+  text-decoration: none;
 }
 
 .card-link:hover {
-  transition: 0.2s;
+  color: #606060;
   font-size: 20px;
-  text-decoration: none;
-  color:#606060;
   padding-bottom: 20px;
+  text-decoration: none;
+  transition: 0.2s;
 }
 
-
-.main-div { 
-  transform:scale(0.95);
-  overflow: hidden;
-  background-color:#464646;
+.main-div {
+  align-items: center;
+  background-color: #464646;
   color: #969696;
-  text-align: center;
-  width: 100vw;
-  height: 90vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  height: 90vh;
+  overflow: hidden;
+  text-align: center;
+  transform: scale(0.95);
+  width: 100vw;
 }
 
 .main-image {
-  width: 100vw;
+  box-shadow: 0.1px 5px 5px black;
   height: 50vh;
   object-fit: cover;
   object-position: center;
-  box-shadow: 0.1px 5px 5px black;
+  width: 100vw;
 }
 
 .main-text {
@@ -147,89 +142,89 @@ body {
 .main-buttons {
   display: flex;
   flex-grow: 1;
-  width: 100vw;
   justify-content: space-around;
+  width: 100vw;
 }
 
-.button-goback{
-  transition: 0.5s;
-  display: flex;
-  justify-content: center;
+.button-goback {
   align-items: center;
-  width: 3em;
-  height: 3em;
+  background-color: #2b7c85;
   border-radius: 5px;
-  background-color: #2B7C85;
-}
-
-.button-goback:hover{
-  transition: 0.5s;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 3em;
   height: 3em;
-  border-radius: 100px;
-  background-color: #3fccdb;
+  justify-content: center;
+  transition: 0.5s;
+  width: 3em;
 }
 
-.button-goback a{
+.button-goback:hover {
+  align-items: center;
+  background-color: #5885af;
+  border-radius: 100px;
+  display: flex;
+  height: 3em;
+  justify-content: center;
+  transition: 0.5s;
+  width: 3em;
+}
+
+.button-goback a {
+  color: white;
   font-size: 12px;
   text-decoration: none;
-  color: white;
 }
 
-.button-edit{
-  transition: 0.5s;
-  display: flex;
-  justify-content: center;
+.button-edit {
   align-items: center;
-  width: 3em;
-  height: 3em;
+  background-color: #41729f;
   border-radius: 5px;
-  background-color: #5885AF;
-}
-
-.button-edit:hover{
-  transition: 0.5s;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 3em;
   height: 3em;
-  border-radius: 100px;
-  background-color: #41729F;
+  justify-content: center;
+  transition: 0.5s;
+  width: 3em;
 }
 
-.button-edit a{
+.button-edit:hover {
+  align-items: center;
+  background-color: #41729f;
+  border-radius: 100px;
+  display: flex;
+  height: 3em;
+  justify-content: center;
+  transition: 0.5s;
+  width: 3em;
+}
+
+.button-edit a {
+  color: white;
   font-size: 12px;
   text-decoration: none;
-  color: white;
 }
 
 .loading-page {
+  align-items: center;
   animation: loadIng 1s linear infinite alternate;
-  /* position:absolute; */
-  /* text-align: center; */
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  /* background-color: red; */
-  width: 100vw;
   height: 90vh;
+  justify-content: center;
+  width: 100vw;
 }
 
 @keyframes loadIng {
-  0%{
-    font-size: 5em;
+
+  0% {
     color: white;
+    font-size: 5em;
   }
-  50%{
+
+  50% {
     color: rgb(70, 70, 70);
     font-size: 4.5em;
   }
-  100%{
+
+  100% {
     color: white;
     font-size: 5em;
   }
