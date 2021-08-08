@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-
+import { Route } from 'react-router-dom';
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
 
 class MovieDetails extends Component {
   render() {
     // Change the condition to check the state
-    // if (true) return <Loading />
+    // if (true) return <Loading /> 
 
     const { title, storyline, imagePath, genre, rating, subtitle } = {};
 

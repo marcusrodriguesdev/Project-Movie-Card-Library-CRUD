@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
+import { Route } from 'react-router-dom';
 import MovieCard from '../components/MovieCard';
+import MovieDetails from './MovieDetails';
+import NewMovie from './NewMovie';
+import EditMovie from './EditMovie';
+import NotFound from './NotFound';
 
-import * as movieAPI from '../services/movieAPI';
+// // import * as movieAPI from '../services/movieAPI';
 
 class MovieList extends Component {
   constructor() {
@@ -15,11 +20,14 @@ class MovieList extends Component {
   render() {
     const { movies } = this.state;
 
-    // Render Loading here if the request is still happening
-
     return (
       <div data-testid="movie-list">
+        {console.log('teste')}
         {movies.map((movie) => <MovieCard key={ movie.title } movie={ movie } />)}
+        <Route path="" component={ NotFound } />
+        <Route path="/movies/:id" component={ MovieDetails } />
+        <Route path="/movies/new" component={ NewMovie } />
+        <Route path="/movies/:id/edit" component={ EditMovie } />
       </div>
     );
   }
