@@ -1,5 +1,4 @@
 import React from 'react';
-<<<<<<< HEAD
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import './App.css';
 import MovieList from './pages/MovieList';
@@ -19,16 +18,7 @@ function App() {
         <Route path="*" component={ NotFound } />
       </Switch>
     </BrowserRouter>
-=======
-import { BrowserRouter as Router } from 'react-router-dom';
-import './App.css';
 
-function App() {
-  return (
-    <Router>
-      <div>Movie Card Library CRUD</div>
-    </Router>
->>>>>>> a2687db4de4d9c62df61db38bd5712821d7f5ce5
   );
 }
 
