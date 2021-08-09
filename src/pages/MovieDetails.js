@@ -8,7 +8,7 @@ class MovieDetails extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      movie: [],
+      movie: {},
       loading: true,
     };
   }
@@ -20,7 +20,7 @@ class MovieDetails extends Component {
   async getMovie() {
     const { match: { params: { id } } } = this.props;
     const movie = await movieAPI.getMovie(id);
-    console.log(movie);
+    // console.log(movie);
     this.setState({
       movie,
       loading: false,
@@ -49,6 +49,7 @@ class MovieDetails extends Component {
         <p>{ `Rating: ${rating}` }</p>
         <Link to="/">VOLTAR</Link>
         <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
+        <Link to="/" onClick={ () => movieAPI.deleteMovie(id) }>DELETAR</Link>
       </div>
     );
   }
@@ -57,7 +58,7 @@ class MovieDetails extends Component {
 MovieDetails.propTypes = {
   match: PropTypes.shape({
     params: PropTypes.shape({
-      id: PropTypes.number,
+      id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     }),
   }).isRequired,
 };
