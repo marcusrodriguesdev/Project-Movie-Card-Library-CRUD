@@ -1,4 +1,3 @@
-//  import { render } from 'enzyme';
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
@@ -9,23 +8,6 @@ import EditMovie from './pages/EditMovie';
 import NotFound from './pages/NotFound';
 
 class App extends React.Component {
-  /*  constructor(props) {
-    super(props);
-
-    this.state = {
-      countries: [],
-    };
-  }
-
-  async componentDidMount() {
-    console.log('Componente Montado');
-    const response = await fetch('http...');
-    const countries = await response.json();
-    this.setState({
-      countries,
-    });
-  }
-*/
   render() {
     return (
       <Router>
@@ -41,7 +23,5 @@ class App extends React.Component {
     );
   }
 }
-
-//  <Route exact path="/" render={ (props) => <MovieList { ...props } countries={ countries } /> } />
 
 export default App;
