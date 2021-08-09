@@ -21,7 +21,7 @@ class MovieCard extends React.Component {
           <div className="movie-header">
             <div className="movie-title">
               <h1>{ title }</h1>
-              <h2>{ `${subtitle}` }</h2>
+              <h2>{ subtitle }</h2>
               <h3 className="type">{ genre }</h3>
             </div>
           </div>

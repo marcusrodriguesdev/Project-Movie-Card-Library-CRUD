@@ -154,6 +154,82 @@ h2 {
   width: 10em;
 }
 
+.add-card-text {
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 10px;
+  box-shadow: 0 0 20px -10px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-flow: column nowrap;
+  font-size: 20px;
+  font-weight: 800;
+  justify-content: center;
+  margin: 10em;
+  margin-left: 12em;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.add-card-text:hover {
+  box-shadow: 0 0 120px -5px rgba(74, 151, 253, 0.801);
+  transform: scale(1.02);
+  transition: 0.2s;
+}
+
+.movie-buttons {
+  margin-top: 10em;
+  text-decoration: none;
+}
+
+.edit-movie {
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 10px;
+  box-shadow: 0 0 20px -10px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-flow: row wrap;
+  font-size: 20px;
+  font-weight: 800;
+  justify-content: center;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  transition: 0.2s;
+
+}
+
+.back {
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 10px;
+  box-shadow: 0 0 20px -10px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-flow: row wrap;
+  font-size: 20px;
+  font-weight: 800;
+  justify-content: center;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  transition: 0.2s;
+
+}
+
+.del {
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 10px;
+  box-shadow: 0 0 20px -10px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-flow: row wrap;
+  font-size: 20px;
+  font-weight: 800;
+  justify-content: center;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+
 @media screen and ( min-width : 768px ) {
 
   .movie_header {

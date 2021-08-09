@@ -42,16 +42,26 @@ class MovieDetails extends Component {
     if (deleteMovie) return <Redirect to="/" />;
     if (shouldRedirect) return <Redirect exact to="/" />;
     return (
-      <div data-testid="movie-details">
-        <img alt="Movie Cover" src={ `../${imagePath}` } />
-        <h2>{ `Title: ${title}`}</h2>
-        <p>{ `Subtitle: ${subtitle}` }</p>
-        <p>{ `Storyline: ${storyline}` }</p>
-        <p>{ `Genre: ${genre}` }</p>
-        <p>{ `Rating: ${rating}` }</p>
-        <Link to={ `${id}/edit` }>EDITAR</Link>
-        <Link to="/">VOLTAR</Link>
-        <Link onClick={ this.handleDeleteMovie } to="/">DELETAR</Link>
+      <div data-testid="movie-details" className="movie-card">
+        <img className="movie-img" alt="Movie Cover" src={ `../${imagePath}` } />
+        <div className="info">
+          <div className="movie-header">
+            <div className="movie-title">
+              <h1>{ title }</h1>
+              <h2>{ subtitle }</h2>
+              <h3 className="type">{ genre }</h3>
+            </div>
+          </div>
+          <div className="movie-desc">
+            <p className="text">{ storyline }</p>
+            <h4 className="rate">{ `Rating: ${rating}` }</h4>
+          </div>
+          <div className="movie-buttons">
+            <Link className="edit-movie" to={ `${id}/edit` }>EDITAR</Link>
+            <Link className="back" to="/">VOLTAR</Link>
+            <Link className="del" onClick={ this.handleDeleteMovie } to="/">DELETAR</Link>
+          </div>
+        </div>
       </div>
     );
   }
