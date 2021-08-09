@@ -64,7 +64,7 @@ export default EditMovie;
 EditMovie.propTypes = {
   match: PropTypes.shape({
     params: PropTypes.shape({
-      id: PropTypes.number.isRequired,
+      id: PropTypes.string.isRequired,
     }).isRequired,
   }).isRequired,
 };
