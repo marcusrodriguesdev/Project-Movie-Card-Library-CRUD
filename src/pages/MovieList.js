@@ -13,11 +13,18 @@ class MovieList extends Component {
     };
   }
 
-  async componentDidMount() {
-    const response = await movieAPI.getMovies();
-    this.setState({
-      movies: response
-    });
+  // async componentDidMount() {
+  //   const response = await movieAPI.getMovies();
+  //   this.setState({
+  //     movies: response,
+  //   });
+  // }
+
+  componentDidMount() {
+    movieAPI.getMovies()
+      .then((response) => {
+        this.setState({ movies: response });
+      });
   }
 
   render() {
