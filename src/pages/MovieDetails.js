@@ -6,7 +6,7 @@ import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
 
 class MovieDetails extends Component {
-  constructor () {
+  constructor() {
     super();
 
     this.state = {
@@ -28,7 +28,6 @@ class MovieDetails extends Component {
   }
 
   render() {
-
     const { movie } = this.state;
     const { title, storyline, imagePath, genre, rating, subtitle } = movie;
     const { loading } = this.state;

@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { MovieList, MovieDetails, NewMovie, EditMovie, NotFound } from './pages';
+import { MovieList, MovieDetails, EditMovie, NewMovie, NotFound } from './pages';
 
 class App extends React.Component {
   render() {
@@ -10,7 +10,7 @@ class App extends React.Component {
           <Route path="/movies/new" component={ NewMovie } />
           <Route
             path="/movies/:id/edit"
-            render={ (routeProps) => <EditMovies { ...routeProps } /> }
+            render={ (routeProps) => <EditMovie { ...routeProps } /> }
           />
           <Route exact path="/movies/:id" component={ MovieDetails } />
           <Route path="/movies/:id/edit" component={ EditMovie } />
