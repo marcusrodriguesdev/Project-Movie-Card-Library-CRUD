@@ -29,8 +29,7 @@ class EditMovie extends Component {
   }
 
   async getMovie() {
-    const { props } = this.props;
-    const { id } = props.match.params;
+    const { match: { params: { id } } } = this.props;
     this.setState({ isLoading: true }, async () => {
       await movieAPI.getMovie(id)
         .then((response) => {
@@ -63,11 +62,9 @@ class EditMovie extends Component {
 export default EditMovie;
 
 EditMovie.propTypes = {
-  props: PropTypes.arrayOf({
-    match: PropTypes.shape({
-      params: PropTypes.shape({
-        id: PropTypes.number.isRequired,
-      }).isRequired,
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.number.isRequired,
     }).isRequired,
   }).isRequired,
 };

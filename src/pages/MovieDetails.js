@@ -19,8 +19,7 @@ class MovieDetails extends Component {
   }
 
   async getMovie() {
-    const { props } = this.props;
-    const { id } = props.match.params;
+    const { match: { params: { id } } } = this.props;
     this.setState({ isLoading: true }, async () => {
       await movieAPI.getMovie(id)
         .then((response) => {
@@ -34,8 +33,7 @@ class MovieDetails extends Component {
   render() {
     const { isLoading, movie } = this.state;
     const { title, storyline, imagePath, genre, rating, subtitle } = movie;
-    const { props } = this.props;
-    const { id } = props.match.params;
+    const { match: { params: { id } } } = this.props;
 
     if (isLoading) {
       return <Loading />;
@@ -59,11 +57,9 @@ class MovieDetails extends Component {
 export default MovieDetails;
 
 MovieDetails.propTypes = {
-  props: PropTypes.arrayOf({
-    match: PropTypes.shape({
-      params: PropTypes.shape({
-        id: PropTypes.number.isRequired,
-      }).isRequired,
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.number.isRequired,
     }).isRequired,
   }).isRequired,
 };
