@@ -4,27 +4,25 @@ body {
 }
 
 .forms {
+  align-items: baseline;
+  background-color: aqua;
   display: flex;
   flex-direction: column;
   padding: 50px;
-  align-items: baseline;
-  background-color: aqua;
-  
 }
 
 .login {
-  text-align: center;
-  margin-top: 300px;
   color: blue;
   font-size: 65px;
+  margin-top: 300px;
+  text-align: center;
 }
 
 .link {
   display: flex;
-  justify-content:space-around;
+  justify-content: space-around;
   width: 500px;
 }
-
 
 .movie-card {
   background-color: white;
@@ -41,6 +39,7 @@ body {
 .movie-card-image {
   width: 100%;
 }
+
 .movie-list {
   display: flex;
   flex-flow: row wrap;
