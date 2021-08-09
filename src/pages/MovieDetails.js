@@ -22,7 +22,7 @@ class MovieDetails extends Component {
     // Fazer a requisição com getMovie()
     const destructuredProps = this.props;
     const { id } = destructuredProps.match.params;
-    console.log(destructuredProps);
+    // console.log(destructuredProps);
     this.setState(
       { loading: true },
       async () => {
@@ -54,7 +54,7 @@ class MovieDetails extends Component {
         <p>{ `Rating: ${movie.rating}` }</p>
         <Link to="/">VOLTAR</Link>
         <Link to={ `/movies/${movie.id}/edit` }>EDITAR</Link>
-        { loading ? <Loading /> : console.log('AAAA') }
+        { loading ? <Loading /> : console.log(movie.rating) }
       </div>
     );
   }
