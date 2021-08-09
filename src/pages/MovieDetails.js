@@ -10,7 +10,7 @@ class MovieDetails extends Component {
 
     this.state = {
       movie: {},
-      loading: false,
+      loading: true,
     };
   }
 
@@ -29,14 +29,14 @@ class MovieDetails extends Component {
 
     this.setState({
       movie: movieData,
-      loading: true,
+      loading: false,
     });
   }
 
   render() {
     const { movie, loading } = this.state;
     const { title, storyline, imagePath, genre, rating, subtitle, id } = movie;
-    if (!loading) {
+    if (loading) {
       return <Loading />;
     }
 
