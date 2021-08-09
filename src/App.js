@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { MovieList, MovieDetails, EditMovie, NewMovie, NotFound } from './pages';
+import { MovieList, MovieDetails, EditMovie, NewMovie, NotFound } from './pages/index';
 
 class App extends React.Component {
   render() {
@@ -13,7 +13,6 @@ class App extends React.Component {
             render={ (routeProps) => <EditMovie { ...routeProps } /> }
           />
           <Route exact path="/movies/:id" component={ MovieDetails } />
-          <Route path="/movies/:id/edit" component={ EditMovie } />
           <Route exact path="/" component={ MovieList } />
           <Route path="" component={ NotFound } />
         </Switch>
