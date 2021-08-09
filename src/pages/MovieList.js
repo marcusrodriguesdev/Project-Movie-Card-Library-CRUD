@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import MovieCard from '../components/MovieCard';
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
@@ -29,6 +30,7 @@ class MovieList extends Component {
     // Render Loading here if the request is still happening
     return (
       <div data-testid="movie-list">
+        <Link exact to="/movies/new">ADICIONAR CARTÃO</Link>
         {movies.length > 0 ? (
           <div>
             {movies.map((movie) => (
