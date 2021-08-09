@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 
 import { MovieForm } from '../components';
-import * as movieAPI from '../services/movieAPI';
+// DESCOMENTAAAR
+// import * as movieAPI from '../services/movieAPI';
 
 class EditMovie extends Component {
   constructor(props) {
@@ -10,8 +11,9 @@ class EditMovie extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleSubmit(updatedMovie) {
-  }
+  // DESCOMENTAAAR
+  // handleSubmit(updatedMovie) {
+  // }
 
   render() {
     const { status, shouldRedirect, movie } = this.state;
