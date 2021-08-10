@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
+import MovieInfo from '../components/MovieInfo';
 
 class MovieDetails extends Component {
   constructor(props) {
@@ -18,12 +19,18 @@ class MovieDetails extends Component {
     this.fetchMovie();
   }
 
-  fetchMovie = async () => {
-    const { match } = this.props;
-    const data = await movieAPI.getMovie(match.params.id);
-    if (data) {
-      this.setState({ movie: data, loading: false });
-    }
+  fetchMovie = () => {
+    this.setState(
+      { loading: true },
+      async () => {
+        const { match } = this.props;
+        const data = await movieAPI.getMovie(match.params.id);
+        this.setState({
+          loading: false,
+          movie: data,
+        });
+      },
+    );
   }
 
   deleteMovie = () => {
@@ -37,20 +44,18 @@ class MovieDetails extends Component {
     const { loading, movie } = this.state;
     const { match } = this.props;
 
-    if (loading === true) {
-      return <Loading />;
-    }
-
     const { title, storyline, imagePath, genre, rating, subtitle } = movie;
 
     return (
       <div data-testid="movie-details">
-        <img alt="Movie Cover" src={ `../${imagePath}` } />
-        <p>{ `Title: ${title}` }</p>
-        <p>{ `Subtitle: ${subtitle}` }</p>
-        <p>{ `Storyline: ${storyline}` }</p>
-        <p>{ `Genre: ${genre}` }</p>
-        <p>{ `Rating: ${rating}` }</p>
+        {loading ? <Loading /> : <MovieInfo
+          imagePath={ imagePath }
+          title={ title }
+          subtitle={ subtitle }
+          storyline={ storyline }
+          genre={ genre }
+          rating={ rating }
+        />}
         <Link to={ `/movies/${match.params.id}/edit` }>EDITAR</Link>
         <Link to="/">VOLTAR</Link>
         <Link to="/" onClick={ this.deleteMovie }>DELETAR</Link>
@@ -63,7 +68,7 @@ MovieDetails.propTypes = {
   match: PropTypes.shape({
     params: PropTypes.shape({
       id: PropTypes.number.isRequired,
-    }).isRequired,
+    }),
   }).isRequired,
 };
 
