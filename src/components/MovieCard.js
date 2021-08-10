@@ -10,7 +10,7 @@ class MovieCard extends Component {
       <div data-testid="movie-card">
         <h1>{title}</h1>
         <p>{storyline}</p>
-        <Link to={ `/movies/${id}` }>Ver Detalhes</Link>
+        <Link to={ `/movies/${id}` }>VER DETALHES</Link>
       </div>
     );
   }

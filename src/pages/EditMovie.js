@@ -12,6 +12,7 @@ class EditMovie extends Component {
     this.fetchMovies = this.fetchMovies.bind(this);
 
     this.state = {
+      movie: [],
       loading: false,
       redirect: false,
     };
@@ -30,23 +31,23 @@ class EditMovie extends Component {
   }
 
   async fetchMovies() {
-    const { match } = this.props;
-    const { id } = match.params;
+    const { match: { params: { id } } } = this.props;
 
     this.setState(
       { loading: true },
       async () => {
         const movie = await movieAPI.getMovies(Number(id));
         this.setState({
-          loading: false,
           movie,
+          loading: false,
         });
       },
     );
   }
 
   render() {
-    const { loading, redirect, movie } = this.state;
+    const { movie, loading, redirect } = this.state;
+
     if (redirect) {
       return <Redirect to="/" />;
     }
