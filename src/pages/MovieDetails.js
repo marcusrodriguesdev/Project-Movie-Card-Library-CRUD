@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
-// import movies from '../services/movieData';
 
 class MovieDetails extends Component {
   constructor() {
@@ -14,7 +15,7 @@ class MovieDetails extends Component {
 
   // Criar uma função que vai receber esse id de acordo com o link e passar pro getmovie, e então passar essa função para o didMount, que vai executar essa função
   componentDidMount() {
-    const { id } = this.props.match.params;
+    const { match:{ params: { id } } } = this.props;
     this.fetchRequisition(id);
   }
 
@@ -47,9 +48,16 @@ class MovieDetails extends Component {
         <p>{ `Storyline: ${storyline}` }</p>
         <p>{ `Genre: ${genre}` }</p>
         <p>{ `Rating: ${rating}` }</p>
+        <Link to="/">
+          VOLTAR
+        </Link>
       </div>
     );
   }
 }
 
 export default MovieDetails;
+
+MovieDetails.propTypes = {
+  match: PropTypes.string.isRequired,
+};
