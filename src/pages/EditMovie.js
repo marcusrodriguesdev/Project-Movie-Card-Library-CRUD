@@ -36,7 +36,7 @@ class EditMovie extends Component {
     this.setState(
       { loading: true },
       async () => {
-        const movie = await movieAPI.getMovies(Number(id));
+        const movie = await movieAPI.getMovie(Number(id));
         this.setState({
           movie,
           loading: false,
