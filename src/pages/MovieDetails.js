@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
@@ -9,6 +9,7 @@ class MovieDetails extends Component {
   constructor(props) {
     super(props);
 
+    this.handleClick = this.handleClick.bind(this);
     this.state = {
       movie: {},
       rendered: true,
@@ -25,12 +26,25 @@ class MovieDetails extends Component {
     });
   }
 
+  handleClick() {
+    const { match: { params: { id } } } = this.props;
+    movieAPI.deleteMovie(id)
+      .then(() => {
+        this.setState({
+          shouldRedirect: true,
+        });
+      });
+  }
+
   render() {
     // Change the condition to check the state
     // if (true) return <Loading />;
 
-    const { movie, rendered } = this.state;
+    const { movie, rendered, loading, shouldRedirect } = this.state;
     const { title, storyline, imagePath, genre, rating, subtitle, id } = movie;
+
+    if (shouldRedirect) return <Redirect to="/" />;
+    if (loading) return <Loading />;
 
     return (
       <div data-testid="movie-details">
@@ -43,10 +57,13 @@ class MovieDetails extends Component {
         <p>{ `Rating: ${rating}` }</p>
         <Link to="/">VOLTAR</Link>
         <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
+        <Link to="/" onClick={ this.handleClick }>DELETAR</Link>
       </div>
     );
   }
 }
+
+// Eu e John T. Vale estudamos juntos e recebemos ajuda do Gabriel Lenz gabriellenz-projectMovieCardsCrud.
 
 MovieDetails.propTypes = {
   match: PropTypes.shape({
