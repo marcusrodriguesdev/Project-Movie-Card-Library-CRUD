@@ -13,7 +13,7 @@ class MovieList extends React.Component {
       movies: [],
     };
   }
-  // foi usado setState para atualizar o estado do movies[]. Ajuda de Thais Sampaio para
+  // foi usado setState para atualizar o estado do movies[]. Ajuda de Thais Sampaio para 
   // a estruturação do código!
 
   componentDidMount() {
