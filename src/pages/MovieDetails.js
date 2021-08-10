@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
-// import movies from '../services/movieData';
 
 class MovieDetails extends Component {
   constructor() {
@@ -30,6 +29,7 @@ class MovieDetails extends Component {
   fetchRequisition = (id) => {
     const { getMovie } = movieAPI;
     getMovie(id).then((response) => {
+      console.log(this);
       this.setState({
         componenteMontou: true,
         title: response.title,
@@ -45,8 +45,15 @@ class MovieDetails extends Component {
   render() {
     // Change the condition to check the state
     // if (true) return <Loading />;
-    const { title, storyline, imagePath, genre, rating, subtitle } = this.state;
-    const { componenteMontou } = this.state;
+    const {
+      title,
+      storyline,
+      imagePath,
+      genre,
+      rating,
+      subtitle,
+      componenteMontou,
+    } = this.state;
     const { match: { params: { id } } } = this.props;
     return (
       <div data-testid="movie-details">
