@@ -18,11 +18,13 @@ class MovieList extends Component {
     this.fetchMovies();
   }
 
-  fetchMovies = async () => {
-    const data = await movieAPI.getMovies();
-    if (data) {
-      this.setState({ movies: data, loading: false });
-    }
+  fetchMovies = () => {
+    this.setState(
+      { loading: true },
+      async () => {
+        const data = await movieAPI.getMovies();
+        this.setState({ movies: data, loading: false });
+      });
   }
 
   render() {
