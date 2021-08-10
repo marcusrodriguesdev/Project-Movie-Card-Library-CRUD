@@ -20,16 +20,19 @@ class MovieDetails extends Component {
     };
   }
 
-  // Criar uma função que vai receber esse id de acordo com o link e passar pro getmovie, e então passar essa função para o didMount, que vai executar essa função
   componentDidMount() {
     const { match: { params: { id } } } = this.props;
     this.fetchRequisition(id);
   }
 
+   deleteRequisition = async () => {
+     const { match: { params: { id } } } = this.props;
+     await movieAPI.deleteMovie(id);
+   }
+
   fetchRequisition = (id) => {
     const { getMovie } = movieAPI;
     getMovie(id).then((response) => {
-      console.log(this);
       this.setState({
         componenteMontou: true,
         title: response.title,
@@ -72,9 +75,9 @@ class MovieDetails extends Component {
           EDITAR
         </Link>
         <br />
-        <Link to="/">
+        {/* <Link to="/" onClick={ this.deleteRequisition() }>
           DELETAR
-        </Link>
+        </Link> */}
       </div>
     );
   }
