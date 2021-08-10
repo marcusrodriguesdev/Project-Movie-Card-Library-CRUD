@@ -11,11 +11,11 @@ class App extends Component {
   render() {
     return (
       <BrowserRouter>
-        <div>Movie Card Library CRUD</div>
+        <div id="title">Movie Card Library CRUD</div>
         <Route exact path="/" component={ MovieList } />
-        <Route path="/movies/:id" render={ () => <MovieDetails /> } />
-        <Route path="/movies/new" component={ NewMovie } />
-        <Route path="/movies/:id/edit" render={ () => <EditMovie /> } />
+        <Route exact path="/movies/:id" render={ (props) => <MovieDetails { ...props }  /> } />
+        <Route exact path="/movies/new" component={ NewMovie } />
+        <Route exact path="/movies/:id/edit" render={ () => <EditMovie /> } />
         <Route component={ NotFound } />
       </BrowserRouter>
     );

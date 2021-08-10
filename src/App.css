@@ -3,3 +3,14 @@ body {
   box-sizing: border-box;
 }
 
+#movie-card {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+#title {
+  text-align: center;
+  margin: 25px;
+}

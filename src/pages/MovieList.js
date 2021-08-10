@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import MovieCard from '../components/MovieCard';
-
+import Loading from '../components/Loading';
 import * as movieAPI from '../services/movieAPI';
 
 class MovieList extends Component {
@@ -24,11 +24,10 @@ class MovieList extends Component {
   render() {
     const { movies } = this.state;
     // Render Loading here if the request is still happening
-    const loadingMessage = <span>Carregando...</span>;
     return (
       <div data-testid="movie-list">
         <span>
-          { movies.length === 0 ? loadingMessage : null}
+          { movies.length === 0 ? <Loading /> : null}
         </span>
         {movies.map((movie) => <MovieCard key={ movie.title } movie={ movie } />)}
       </div>
