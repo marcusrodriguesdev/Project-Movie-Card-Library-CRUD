@@ -20,7 +20,6 @@ function App() {
       <Route exact path="" render={ () => <NotFound /> } />
       <Link to="/movies/new">ADICIONAR CARTÃO</Link>
       <Route exact path="/movies/new" component={ NewMovie } />
-      
     </BrowserRouter>
   );
 }
