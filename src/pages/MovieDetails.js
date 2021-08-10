@@ -9,8 +9,15 @@ import { Loading } from '../components';
 class MovieDetails extends Component {
   constructor() {
     super();
+    const loading = 'Carregando...';
     this.state = {
       componenteMontou: false,
+      title: loading,
+      subtitle: loading,
+      storyline: loading,
+      imagePath: loading,
+      genre: loading,
+      rating: loading,
     };
   }
 
@@ -40,6 +47,7 @@ class MovieDetails extends Component {
     // if (true) return <Loading />;
     const { title, storyline, imagePath, genre, rating, subtitle } = this.state;
     const { componenteMontou } = this.state;
+    const { match: { params: { id } } } = this.props;
     return (
       <div data-testid="movie-details">
         { componenteMontou ? null : <Loading /> }
@@ -53,8 +61,12 @@ class MovieDetails extends Component {
           VOLTAR
         </Link>
         <br />
-        <Link to={ `${this.props.match.params.id}/edit` }>
+        <Link to={ `${id}/edit` }>
           EDITAR
+        </Link>
+        <br />
+        <Link to="/">
+          DELETAR
         </Link>
       </div>
     );
