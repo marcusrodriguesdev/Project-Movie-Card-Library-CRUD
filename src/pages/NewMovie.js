@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 import MovieForm from '../components/MovieForm';
 import * as movieAPI from '../services/movieAPI';
@@ -16,6 +17,7 @@ class NewMovie extends Component {
     return (
       <div data-testid="new-movie">
         <MovieForm onSubmit={ this.handleSubmit } />
+        <Link to="/movies/new">ADICIONAR CARTÃO</Link>
       </div>
     );
   }
