@@ -1,7 +1,6 @@
 import React from 'react';
 import {
   BrowserRouter,
-  Link,
   Switch,
   Route,
 } from 'react-router-dom';
@@ -17,24 +16,16 @@ class App extends React.Component {
       <BrowserRouter>
         <Switch>
           <Route exact path="/">
-            <Link to="/">
-              <MovieList />
-            </Link>
-          </Route>
-          <Route exact path="/movies/:id">
-            <Link to="/movies/:id">
-              <MovieDetails />
-            </Link>
+            <MovieList />
           </Route>
           <Route path="/movies/new">
-            <Link to="/movies/new">
-              <NewMovie />
-            </Link>
+            <NewMovie />
+          </Route>
+          <Route exact path="/movies/:id">
+            <MovieDetails />
           </Route>
           <Route path="/movies/:id/edit">
-            <Link to="/movies/:id/edit">
-              <EditMovie />
-            </Link>
+            <EditMovie />
           </Route>
         </Switch>
         <NotFound />
