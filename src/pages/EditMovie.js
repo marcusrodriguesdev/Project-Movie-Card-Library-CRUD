@@ -7,47 +7,50 @@ import * as movieAPI from '../services/movieAPI';
 class EditMovie extends Component {
   constructor(props) {
     super(props);
-    const { match } = this.props;
-    const { params } = match;
-    const { id } = params;
     this.state = {
+      movie: {},
+      shouldRedirect: false,
       status: 'loading',
-      id,
-      shouldRedirect: null,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount() {
-    this.carregafilmes();
-  }
+    const { match } = this.props;
+    const { params } = match;
+    const { id } = params;
 
-  async handleSubmit(updatedMovie) {
-    await movieAPI.updateMovie(updatedMovie);
-    this.setState({ shouldRedirect: '/' });
-  }
-
-  async carregafilmes() {
-    const { id } = this.state;
-    console.log(id);
-    const movie = await movieAPI.getMovie(id);
-    this.setState({
-      movie,
-      status: false,
+    movieAPI.getMovie(id).then((movie) => {
+      this.setState({
+        status: 'ready',
+        movie,
+      });
     });
-    console.log(movie);
+  }
+
+  componentWillUnmount() {
+    this.setState = () => {};
+  }
+
+  handleSubmit(updatedMovie) {
+    movieAPI.updateMovie(updatedMovie)
+      .then(() => {
+        this.setState({
+          shouldRedirect: true,
+        });
+      });
   }
 
   render() {
     const { status, shouldRedirect, movie } = this.state;
-    if (shouldRedirect === '/') {
+    if (shouldRedirect) {
       // Redirect
-      return <Redirect to={ shouldRedirect } />;
+      return <Redirect to="/" />;
     }
 
     if (status === 'loading') {
       // render Loading
-      return <p>Carregando...</p>;
+      return <p>Loading...</p>;
     }
 
     return (
@@ -59,7 +62,6 @@ class EditMovie extends Component {
 }
 
 EditMovie.propTypes = {
-
   match: PropTypes.shape({
     params: PropTypes.shape({
       id: PropTypes.number.isRequired,
