@@ -1,41 +1,37 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import * as movieAPI from '../services/movieAPI';
-import { Loading } from '../components';
+import Loading from '../components/Loading';
 
 class MovieDetails extends Component {
   constructor(props) {
-    super(props);
+    super();
     this.state = {
       movie: {},
       loading: true,
     };
-    this.requiredMovie = this.requiredMovie.bind(this);
+    this.deleteMovie = this.deleteMovie.bind(this);
   }
 
   componentDidMount() {
-    this.loadMovie();
+    this.deleteMovie();
   }
 
-  async loadMovie() {
-    const { id } = this.state;
-    const movie = await movieAPI.getMovie(id);
-    this.setState({
-      movie,
-      loading: false,
-    });
-  }
-
-  async delete() {
-    const { id } = this.state;
-    await movieAPI.deleteMovie(id);
+  async deleteMovie() {
+    const { match } = this.props;
+    const { params } = match;
+    const { id } = params;
+    movieAPI.getMovie(id)
+      .then((movie) => {
+        this.setState({
+          movie,
+          loading: false,
+        });
+      });
   }
 
   render() {
-    // Change the condition to check the state
-    // if (true) return <Loading />;
-
     const { movie, loading, id } = this.state;
     const { title, storyline, imagePath, genre, rating, subtitle } = movie;
     return (
