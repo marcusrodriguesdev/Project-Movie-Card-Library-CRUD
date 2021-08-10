@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
+import { Loading } from '../components';
 import MovieCard from '../components/MovieCard';
-
 import * as movieAPI from '../services/movieAPI';
 
 class MovieList extends Component {
@@ -12,10 +12,17 @@ class MovieList extends Component {
     };
   }
 
+  componentDidMount() {
+    movieAPI.getMovies().then((movies) => this.setState({ movies }));
+  }
+
   render() {
     const { movies } = this.state;
 
     // Render Loading here if the request is still happening
+    if (movies.length === 0) {
+      return <Loading />;
+    }
 
     return (
       <div data-testid="movie-list">
@@ -26,3 +33,4 @@ class MovieList extends Component {
 }
 
 export default MovieList;
+// O colega de turma Jonathan Morais me ajudou no Requisito 2;
