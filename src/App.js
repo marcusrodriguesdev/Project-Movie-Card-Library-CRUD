@@ -6,6 +6,10 @@ import {
   Route,
 } from 'react-router-dom';
 import MovieList from './pages/MovieList';
+import MovieDetails from './pages/MovieDetails';
+import NewMovie from './pages/NewMovie';
+import EditMovie from './pages/EditMovie';
+import NotFound from './pages/NotFound';
 
 class App extends React.Component {
   render() {
@@ -17,7 +21,23 @@ class App extends React.Component {
               <MovieList />
             </Link>
           </Route>
+          <Route exact path="/movies/:id">
+            <Link to="/movies/:id">
+              <MovieDetails />
+            </Link>
+          </Route>
+          <Route path="/movies/new">
+            <Link to="/movies/new">
+              <NewMovie />
+            </Link>
+          </Route>
+          <Route path="/movies/:id/edit">
+            <Link to="/movies/:id/edit">
+              <EditMovie />
+            </Link>
+          </Route>
         </Switch>
+        <NotFound />
       </BrowserRouter>
     );
   }
