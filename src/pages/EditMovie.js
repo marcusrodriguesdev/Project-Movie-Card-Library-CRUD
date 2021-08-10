@@ -32,7 +32,7 @@ class EditMovie extends Component {
   async fetchMovies() {
     const { match } = this.props;
     const { id } = match.params;
-    
+
     this.setState(
       { loading: true },
       async () => {
