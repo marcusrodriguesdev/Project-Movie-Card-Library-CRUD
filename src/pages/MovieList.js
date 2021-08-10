@@ -25,7 +25,7 @@ class MovieList extends Component {
 
     return (
       !movies ? <Loading /> : (
-        <div data-testid="movie-list" className="App">
+        <div data-testid="movie-list" className="body">
           {movies.map((movie) => <MovieCard key={ movie.title } movie={ movie } />)}
         </div>
       )
