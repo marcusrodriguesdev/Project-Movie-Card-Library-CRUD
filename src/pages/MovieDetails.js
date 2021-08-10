@@ -33,7 +33,6 @@ class MovieDetails extends Component {
   };
 
   render() {
-    // Observações: Eu estava colocando o loading dentro do movie na hora de desestruturar, logo dava erro e eu não conseguia recuperar o valor de loading. Outro ponto de atenção foi o id, que eu não estava resgatando na desestruturação do movie !
     const { movie, loading } = this.state;
     if (movie !== undefined) {
       const { id, title, storyline, imagePath, genre, rating, subtitle } = movie;
