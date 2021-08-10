@@ -3,3 +3,18 @@ body {
   box-sizing: border-box;
 }
 
+.movie-list {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.movie-card {
+  border: 1px solid grey;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  margin: 5px;
+  overflow: hidden;
+  width: 300px;
+}
+
