@@ -1,14 +1,23 @@
 import React from 'react';
-import { BrowserRouter, Link } from 'react-router-dom';
+import {
+  BrowserRouter,
+  Link,
+  Switch,
+  Route,
+} from 'react-router-dom';
 import MovieList from './pages/MovieList';
 
 class App extends React.Component {
   render() {
     return (
       <BrowserRouter>
-        <Link to="/">
-          <MovieList />
-        </Link>
+        <Switch>
+          <Route exact path="/">
+            <Link to="/">
+              <MovieList />
+            </Link>
+          </Route>
+        </Switch>
       </BrowserRouter>
     );
   }
