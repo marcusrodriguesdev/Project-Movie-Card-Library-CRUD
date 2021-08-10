@@ -7,8 +7,8 @@ import Loading from '../components/Loading';
 import * as movieAPI from '../services/movieAPI';
 
 class MovieList extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.renderMovies = this.renderMovies.bind(this);
     this.fetchMovies = this.fetchMovies.bind(this);
@@ -17,6 +17,10 @@ class MovieList extends Component {
       movies: [],
       loading: false,
     };
+  }
+
+  componentDidMount() {
+    this.fetchMovies();
   }
 
   async fetchMovies() {
