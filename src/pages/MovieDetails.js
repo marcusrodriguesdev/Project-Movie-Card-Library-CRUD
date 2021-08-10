@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
+// import movies from '../services/movieData';
 
 class MovieDetails extends Component {
   constructor() {
@@ -15,7 +16,7 @@ class MovieDetails extends Component {
 
   // Criar uma função que vai receber esse id de acordo com o link e passar pro getmovie, e então passar essa função para o didMount, que vai executar essa função
   componentDidMount() {
-    const { match:{ params: { id } } } = this.props;
+    const { match: { params: { id } } } = this.props;
     this.fetchRequisition(id);
   }
 
@@ -50,6 +51,10 @@ class MovieDetails extends Component {
         <p>{ `Rating: ${rating}` }</p>
         <Link to="/">
           VOLTAR
+        </Link>
+        <br />
+        <Link to={ `${this.props.match.params.id}/edit` }>
+          EDITAR
         </Link>
       </div>
     );
