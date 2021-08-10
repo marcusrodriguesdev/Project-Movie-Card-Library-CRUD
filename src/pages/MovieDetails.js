@@ -34,6 +34,7 @@ class MovieDetails extends Component {
 
         this.setState({
           loading: false,
+          id,
           title,
           storyline,
           imagePath,
@@ -53,7 +54,7 @@ class MovieDetails extends Component {
   }
 
   renderMovie() {
-    const { title, storyline, imagePath, genre, rating, subtitle } = this.state;
+    const { id, title, storyline, imagePath, genre, rating, subtitle } = this.state;
 
     return (
       <div data-testid="movie-details">
@@ -63,7 +64,7 @@ class MovieDetails extends Component {
         <p>{ `Storyline: ${storyline}` }</p>
         <p>{ `Genre: ${genre}` }</p>
         <p>{ `Rating: ${rating}` }</p>
-        <Link to={ `${url}/edit` }>EDITAR</Link>
+        <Link to={ `${id}/edit` }>EDITAR</Link>
         <Link to="/">VOLTAR</Link>
         <Link to="/" onClick={ this.deleteMovie }>DELETAR</Link>
       </div>
@@ -72,6 +73,7 @@ class MovieDetails extends Component {
 
   render() {
     const { loading } = this.state;
+    
     return (
       loading ? <Loading /> : this.renderMovie()
     );
