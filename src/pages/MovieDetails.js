@@ -10,12 +10,12 @@ class MovieDetails extends Component {
   constructor(props) {
     super(props);
 
-    this.movieRequisition = this.movieRequisition.bind(this);
-
     this.state = {
-      movie: {},
       loading: true,
+      movie: {},
     };
+
+    this.movieRequisition = this.movieRequisition.bind(this);
   }
 
   componentDidMount() {
@@ -26,28 +26,27 @@ class MovieDetails extends Component {
     const { match } = this.props;
     const { params } = match;
     const { id } = params;
-    console.log(this);
-    // const { movie } = this.state;
-    // console.log({ movie });
 
-    const loadingMovie = await movieAPI.getMovie(id);
-    // console.log(loadingMovie); Retorna uma promisse
+    const movie = await movieAPI.getMovie(id);
+    console.log(id);
+    // console.log(movie); Retorna uma promisse
     this.setState({
-      movie: loadingMovie,
       loading: false,
+      movie,
     });
   }
 
   render() {
     // Change the condition to check the state
     const { loading, movie } = this.state;
-    if (loading) return <Loading />;
-
+    console.log(movie);
     const { match } = this.props;
     const { params } = match;
     const { id } = params;
 
     const { title, storyline, imagePath, genre, rating, subtitle } = movie;
+
+    if (loading) return <Loading />;
 
     return (
       <div data-testid="movie-details">
