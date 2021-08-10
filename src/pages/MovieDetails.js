@@ -46,7 +46,7 @@ class MovieDetails extends Component {
         </div>
         <Link to={ `${id}/edit` }> EDITAR </Link>
         <Link to="/"> VOLTAR </Link>
-        <Link to="/" onClick={ this.deletar }>DELETAR</Link>
+        <Link to="/" onClick={ this.deleteMovie }>DELETAR</Link>
         <p>{loading ? <Loading /> : '' }</p>
       </main>
     );

@@ -50,7 +50,7 @@ class EditMovie extends Component {
 
     if (status === 'loading') {
       // render Loading
-      return <p>Loading...</p>;
+      return <p>Carregando...</p>;
     }
 
     return (
