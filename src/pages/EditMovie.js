@@ -12,7 +12,7 @@ class EditMovie extends Component {
       status: true,
       movie: [],
     };
-    this.handleSubmit = this.handleSubmit.bind(this);
+    // this.handleSubmit = this.handleSubmit.bind(this);
     // const loading = 'Carregando...';
   }
 
