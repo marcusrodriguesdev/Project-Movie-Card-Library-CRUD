@@ -18,17 +18,19 @@ class App extends React.Component {
           <Route exact path="/">
             <MovieList />
           </Route>
-          <Route path="/movies/new">
+          <Route exact path="/movies/new">
             <NewMovie />
           </Route>
           <Route exact path="/movies/:id">
             <MovieDetails />
           </Route>
-          <Route path="/movies/:id/edit">
+          <Route exact path="/movies/:id/edit">
             <EditMovie />
           </Route>
+          <Route>
+            <NotFound />
+          </Route>
         </Switch>
-        <NotFound />
       </BrowserRouter>
     );
   }
