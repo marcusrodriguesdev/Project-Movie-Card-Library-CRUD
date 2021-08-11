@@ -22,7 +22,7 @@ class MovieDetails extends Component {
 
   componentDidMount() {
     const { match: { params: { id } } } = this.props;
-    this.fetchRequisition(id);
+    this.movieRequisition(id);
   }
 
    deleteRequisition = async () => {
@@ -30,7 +30,7 @@ class MovieDetails extends Component {
      await movieAPI.deleteMovie(id);
    }
 
-  fetchRequisition = (id) => {
+  movieRequisition = (id) => {
     const { getMovie } = movieAPI;
     getMovie(id).then((response) => {
       this.setState({
