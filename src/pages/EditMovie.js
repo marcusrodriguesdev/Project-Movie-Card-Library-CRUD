@@ -13,19 +13,20 @@ class EditMovie extends Component {
       movie: [],
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    // const loading = 'Carregando...';
   }
 
   // componentDidMount() {
   //   this.editMovieRequisition();
   // }
 
-  async handleSubmit(updatedMovie) {
-    const updated = await movieAPI.updateMovie(updatedMovie);
-    this.setState({
-      movie: updated,
-      // shouldRedirect: true,
-    });
-  }
+  // async handleSubmit(updatedMovie) {
+  //   const updated = await movieAPI.updateMovie(updatedMovie);
+  //   this.setState({
+  //     movie: updated,
+  //     // shouldRedirect: true,
+  //   });
+  // }
 
   // editMovieRequisition = async () => {
   //   const { match: { params: { id } } } = this.props;

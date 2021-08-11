@@ -75,6 +75,7 @@ class MovieDetails extends Component {
           EDITAR
         </Link>
         <br />
+        <br />
         {/* <Link to="/" onClick={ this.deleteRequisition() }>
           DELETAR
         </Link> */}
