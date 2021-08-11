@@ -9,7 +9,7 @@ import NotFound from './pages/NotFound';
 
 function App() {
   return (
-    <div className="App">
+    <div>
       Movie Card Library CRUD
       <BrowserRouter>
         <Switch>
