@@ -57,10 +57,10 @@ class MovieDetails extends React.Component {
   }
 }
 
-MovieDetails.propyTypes = {
+MovieDetails.propTypes = {
   match: PropyTypes.shape({
     params: PropyTypes.shape({
-      id: PropyTypes.number.isRequired,
+      id: PropyTypes.string.isRequired,
     }).isRequired,
   }).isRequired,
 };
