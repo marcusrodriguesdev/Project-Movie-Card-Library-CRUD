@@ -1,12 +1,7 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import { Loading } from '../components';
 import MovieCard from '../components/MovieCard';
-import MovieDetails from './MovieDetails';
-import NewMovie from './NewMovie';
-import EditMovie from './EditMovie';
-import NotFound from './NotFound';
-
-// // import * as movieAPI from '../services/movieAPI';
+import * as movieAPI from '../services/movieAPI';
 
 class MovieList extends Component {
   constructor() {
@@ -15,18 +10,32 @@ class MovieList extends Component {
     this.state = {
       movies: [],
     };
+    this.exibirFilmes = this.exibirFilmes.bind(this);
+  }
+
+  componentDidMount() {
+    this.exibirFilmes();
+  }
+
+  async exibirFilmes() {
+    const movies = await movieAPI.getMovies();
+    this.setState({
+      movies: [...movies],
+    });
   }
 
   render() {
     const { movies } = this.state;
-
+    if (movies[0] === undefined) {
+      return (
+        <Loading />
+      );
+    }
     return (
-      <div data-testid="movie-list">
-        {movies.map((movie) => <MovieCard key={ movie.title } movie={ movie } />)}
-        <Route path="" component={ NotFound } />
-        <Route path="/movies/:id" component={ MovieDetails } />
-        <Route path="/movies/new" component={ NewMovie } />
-        <Route path="/movies/:id/edit" component={ EditMovie } />
+      <div>
+        <div data-testid="movie-list">
+          {movies.map((movie) => <MovieCard key={ movie.title } movie={ movie } />)}
+        </div>
       </div>
     );
   }
