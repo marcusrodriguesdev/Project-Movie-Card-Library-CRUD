@@ -9,8 +9,8 @@ class EditMovie extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleSubmit(updatedMovie) {
-  }
+  // handleSubmit(updatedMovie) {
+  // }
 
   render() {
     const { status, shouldRedirect, movie } = this.state;
@@ -19,7 +19,7 @@ class EditMovie extends Component {
     }
 
     if (status === 'loading') {
-      // render Loading
+      // renderize loading
     }
 
     return (

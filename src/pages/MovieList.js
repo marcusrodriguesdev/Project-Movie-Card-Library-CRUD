@@ -9,6 +9,7 @@ class MovieList extends Component {
 
     this.state = {
       movies: [],
+      loading: false,
     };
     this.requisitionAPI = this.requisitionAPI.bind(this);
   }
@@ -18,22 +19,26 @@ class MovieList extends Component {
   }
 
   async requisitionAPI() {
+    this.setState({
+      loading: true,
+    });
     const movies = await movieAPI.getMovies();
     this.setState({
       movies: [...movies],
+      loading: false,
     });
   }
 
   render() {
-    const { movies } = this.state;
-    if (movies[0] === undefined) {
+    const { movies, loading } = this.state;
+    if (loading) {
       return (
         <Loading />
       );
     }
     return (
       <div>
-        <div data-testid="movie-list">
+        <div data-testid="movie-list" className="movie-list">
           {movies.map((movie) => <MovieCard key={ movie.title } movie={ movie } />)}
         </div>
       </div>

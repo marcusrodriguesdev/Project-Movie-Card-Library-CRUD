@@ -15,6 +15,7 @@ class MovieDetails extends Component {
 
   componentDidMount() {
     this.requestAPI();
+    this.deleteAPI();
   }
 
   async requestAPI() {
@@ -29,6 +30,12 @@ class MovieDetails extends Component {
     });
   }
 
+  async deleteAPI() {
+    const { match: { params: { id } } } = this.props;
+    const apagar = await movieAPI.deleteMovie(id);
+    return apagar;
+  }
+
   render() {
     const { movie, loading } = this.state;
     if (loading) {
@@ -38,14 +45,19 @@ class MovieDetails extends Component {
     }
     return (
       <div data-testid="movie-details">
-        <img alt="Movie Cover" src={ `../${movie.imagePath}` } />
-        <p>{`Title: ${movie.title}`}</p>
-        <p>{ `Subtitle: ${movie.subtitle}` }</p>
+        <img
+          className="movie-card-image"
+          alt="Movie Cover"
+          src={ `../${movie.imagePath}` }
+        />
+        <h4 className="movie-card-title">{`Title: ${movie.title}`}</h4>
+        <h5 className="movie-card-subtitle">{ `Subtitle: ${movie.subtitle}` }</h5>
         <p>{ `Storyline: ${movie.storyline}` }</p>
         <p>{ `Genre: ${movie.genre}` }</p>
-        <p>{ `Rating: ${movie.rating}` }</p>
-        <Link to="/">VOLTAR</Link>
-        <Link to={ `/movies/${movie.id}/edit` }>EDITAR</Link>
+        <p className="Rating">{ `Rating: ${movie.rating}` }</p>
+        <Link className="link" to="/">VOLTAR</Link>
+        <Link className="link" to={ `/movies/${movie.id}/edit` }>EDITAR</Link>
+        <Link className="link" to="/" onChange={ this.deleteAPI }>DELETAR</Link>
       </div>
     );
   }
