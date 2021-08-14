@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter, Route, Route as Router } from 'react-router-dom';
 import MovieList from './pages/MovieList';
 
 function App() {
@@ -11,7 +11,7 @@ function App() {
         </div>
       </Router>
       <BrowserRouter>
-        <MovieList />
+        <Route path="/" component={ MovieList } />
       </BrowserRouter>
     </div>
   );

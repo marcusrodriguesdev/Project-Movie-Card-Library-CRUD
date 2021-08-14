@@ -22,7 +22,6 @@ class MovieList extends Component {
 
     return (
       <div data-testid="movie-list">
-        {console.log('teste')}
         {movies.map((movie) => <MovieCard key={ movie.title } movie={ movie } />)}
         <Route path="" component={ NotFound } />
         <Route path="/movies/:id" component={ MovieDetails } />
