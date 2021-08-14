@@ -84,8 +84,8 @@ body {
 
 .link {
   color: black;
-  transition: 1s;
   text-decoration: none;
+  transition: 1s;
 }
 
 .link:hover {
