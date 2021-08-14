@@ -10,14 +10,14 @@ class MovieList extends Component {
     this.state = {
       movies: [],
     };
-    this.exibirFilmes = this.exibirFilmes.bind(this);
+    this.requisitionAPI = this.requisitionAPI.bind(this);
   }
 
   componentDidMount() {
-    this.exibirFilmes();
+    this.requisitionAPI();
   }
 
-  async exibirFilmes() {
+  async requisitionAPI() {
     const movies = await movieAPI.getMovies();
     this.setState({
       movies: [...movies],
