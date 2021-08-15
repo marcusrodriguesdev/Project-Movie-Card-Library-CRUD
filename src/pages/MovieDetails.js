@@ -12,10 +12,16 @@ class MovieDetails extends Component {
       loading: true,
     };
     this.requestMovie = this.requestMovie.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount() {
     this.requestMovie();
+  }
+
+  handleSubmit() {
+    const { match: { params: { id } } } = this.props;
+    movieAPI.deleteMovie(id);
   }
 
   async requestMovie() {
@@ -47,7 +53,12 @@ class MovieDetails extends Component {
           <p>{ `Rating: ${rating}` }</p>
           <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
           <br />
-          <Link to={ `/movies/${id}/delete` }>DELETAR</Link>
+          <Link
+            to="/"
+            onClick={ this.handleSubmit }
+          >
+            DELETAR
+          </Link>
           <br />
           <Link to="/">VOLTAR</Link>
         </div>
