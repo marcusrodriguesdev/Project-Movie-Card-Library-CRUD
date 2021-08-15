@@ -53,6 +53,8 @@ class MovieDetails extends Component {
           <p>{ `Rating: ${rating}` }</p>
           <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
           <br />
+          {/* Usei como referencia a fonte: https://stackoverflow.com/questions/53426269/call-function-on-click-of-link-in-react-js
+          para colocar a funcao dentro do Link */}
           <Link
             to="/"
             onClick={ this.handleSubmit }
