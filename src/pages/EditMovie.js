@@ -25,6 +25,7 @@ class EditMovie extends Component {
 
     return (
       <div data-testid="edit-movie">
+        <p>dsadsa</p>
         <MovieForm movie={ movie } onSubmit={ this.handleSubmit } />
       </div>
     );
