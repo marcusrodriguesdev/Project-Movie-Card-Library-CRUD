@@ -91,3 +91,7 @@ body {
 .link:hover {
   color: gray;
 }
+
+.link-edit {
+  padding: 10px;
+}

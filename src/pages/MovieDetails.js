@@ -15,7 +15,6 @@ class MovieDetails extends Component {
 
   componentDidMount() {
     this.requestAPI();
-    this.deleteAPI();
   }
 
   async requestAPI() {
@@ -30,10 +29,8 @@ class MovieDetails extends Component {
     });
   }
 
-  async deleteAPI() {
-    const { match: { params: { id } } } = this.props;
-    const apagar = await movieAPI.deleteMovie(id);
-    return apagar;
+  deleteAPI(id) {
+    movieAPI.deleteMovie(id);
   }
 
   render() {
@@ -55,9 +52,20 @@ class MovieDetails extends Component {
         <p>{ `Storyline: ${movie.storyline}` }</p>
         <p>{ `Genre: ${movie.genre}` }</p>
         <p className="Rating">{ `Rating: ${movie.rating}` }</p>
-        <Link className="link" to="/">VOLTAR</Link>
-        <Link className="link" to={ `/movies/${movie.id}/edit` }>EDITAR</Link>
-        <Link className="link" to="/" onChange={ this.deleteAPI }>DELETAR</Link>
+        <Link className="link link-edit" to="/">VOLTAR</Link>
+        <Link
+          className="link link-edit"
+          to={ `/movies/${movie.id}/edit` }
+        >
+          EDITAR
+        </Link>
+        <Link
+          onClick={ () => this.deleteAPI(movie.id) }
+          className="link link-edit"
+          to="/"
+        >
+          DELETAR
+        </Link>
       </div>
     );
   }
