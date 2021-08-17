@@ -30,7 +30,10 @@ class MovieList extends Component {
 
   render() {
     const { movies } = this.state;
-    const list = movies.map((movie) => <MovieCard key={ movie.title } movie={ movie } />)
+    const list = movies.map((movie) => (<MovieCard
+      key={ movie.id }
+      movie={ movie }
+    />));
     return (
       <div data-testid="movie-list">
         {movies.length === 0 ? <Loading /> : list }
