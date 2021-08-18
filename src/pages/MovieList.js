@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import MovieCard from '../components/MovieCard';
+import Loading from '../components/Loading';
 // import { getMovies } from '../services/MovieAPI';
 
 import * as movieAPI from '../services/movieAPI';
@@ -32,7 +33,7 @@ class MovieList extends Component {
 
     if (isLoading) {
       return (
-        <p>Carregando...</p>
+        <Loading />
       );
     }
 
