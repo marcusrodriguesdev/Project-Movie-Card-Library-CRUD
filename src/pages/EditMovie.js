@@ -5,6 +5,7 @@ import { Loading, MovieForm } from '../components';
 import * as movieAPI from '../services/movieAPI';
 
 class EditMovie extends Component {
+
   constructor(props) {
     super(props);
     this.state = {
