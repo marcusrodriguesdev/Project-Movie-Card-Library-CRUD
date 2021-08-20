@@ -9,13 +9,12 @@ class MovieDetails extends React.Component {
     super(props);
 
     this.state = {
-      movie: {},
+      movies: {},
       loading: true,
     };
   }
 
   componentDidMount() {
-    // movieAPI.getMovie().then((movie) => this.setState({  }));
     this.fetchMovie();
   }
 
@@ -27,19 +26,21 @@ class MovieDetails extends React.Component {
     } = this.props;
     const movie = await movieAPI.getMovie(id);
     this.setState({
-      movie,
+      movies: movie,
       loading: false,
     });
   };
 
   render() {
-    const { movie, loading } = this.state;
-    const { title, storyline, imagePath, genre, rating, subtitle, id } = movie;
+    const { movies, loading } = this.state;
+    const { title, storyline, imagePath, genre, rating, subtitle, id } = movies;
 
     if (loading) {
       return <Loading />;
     }
+
     const del = () => { movieAPI.deleteMovie(id); };
+
     console.log(this.props);
     return (
       <div data-testid="movie-details">

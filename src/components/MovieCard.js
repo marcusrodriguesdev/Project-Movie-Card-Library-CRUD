@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { BrowserRouter, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class MovieCard extends React.Component {
   render() {
@@ -11,9 +11,10 @@ class MovieCard extends React.Component {
       <div data-testid="movie-card">
         <p>{ title }</p>
         <p>{ storyline }</p>
-        <BrowserRouter>
+        <div>
+
           <Link to={ `movies/${id}` }>VER DETALHES</Link>
-        </BrowserRouter>
+        </div>
       </div>
     );
   }

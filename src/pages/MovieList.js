@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import MovieCard from '../components/MovieCard';
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
@@ -11,19 +12,27 @@ class MovieList extends React.Component {
 
     this.state = {
       movies: [],
+      loading: true,
     };
   }
-  // foi usado setState para atualizar o estado do movies[]. Ajuda de Thais Sampaio para 
+  // foi usado setState para atualizar o estado do movies[]. Ajuda de Thais Sampaio para
   // a estruturação do código!
 
   componentDidMount() {
-    movieAPI.getMovies().then((movies) => this.setState({ movies }));
+    this.movieRequestion();
+  }
+
+  async movieRequestion() {
+    this.setState({
+      movies: await movieAPI.getMovies(),
+      loading: false,
+    });
   }
 
   render() {
-    const { movies } = this.state;
+    const { movies, loading } = this.state;
 
-    if (movies.length === 0) {
+    if (loading) {
       return <Loading />;
     }
 
@@ -31,6 +40,7 @@ class MovieList extends React.Component {
       <div data-testid="movie-list">
         <span>
           {movies.map((movie) => <MovieCard key={ movie.title } movie={ movie } />)}
+          <Link to="/movies/new">ADICIONAR CARTÃO</Link>
         </span>
       </div>
     );
