@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class MovieCard extends React.Component {
   render() {
@@ -7,7 +8,7 @@ class MovieCard extends React.Component {
       <div data-testid="movie-card">
         <div style={ {color: 'red'} }>{ movie.title }</div>
         <div>{ movie.storyline }</div>
-        <a href={ `http://localhost/movies/${movie.id}` }>VER DETALHES</a>
+        <Link to={ `/movies/${movie.id}` }>VER DETALHES</Link>
       </div>
     );
   }
