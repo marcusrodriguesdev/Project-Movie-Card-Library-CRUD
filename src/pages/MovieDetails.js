@@ -34,6 +34,7 @@ class MovieDetails extends Component {
 
   render() {
     const { movie, loading } = this.state;
+    // console.log(movie);
     if (movie !== undefined) {
       const { id, title, storyline, imagePath, genre, rating, subtitle } = movie;
       return loading ? (
@@ -45,11 +46,11 @@ class MovieDetails extends Component {
           <p>{`Subtitle: ${subtitle}`}</p>
           <p>{`Storyline: ${storyline}`}</p>
           <p>{`Genre: ${genre}`}</p>
-          <p>{`Rating: ${Number(rating)}`}</p>
+          <p>{`Rating: ${rating}`}</p>
           <Link to="/">VOLTAR</Link>
-          &nbsp;|&nbsp;
+          <br />
           <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
-          &nbsp;|&nbsp;
+          <br />
           <Link to="/" onClick={ () => this.deletingMovie(id) }>
             DELETAR
           </Link>
