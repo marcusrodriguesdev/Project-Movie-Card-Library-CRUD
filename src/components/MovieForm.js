@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 class MovieForm extends React.Component {
   constructor(props) {
@@ -136,16 +137,19 @@ class MovieForm extends React.Component {
 
   renderSubmitButton() {
     return (
-      <div>
-        <button
-          type="button"
-          onClick={ this.handleSubmit }
-        >
-          Submit
-        </button>
-      </div>
+      <Link to="/">
+        <div>
+          <button
+            type="button"
+            onClick={ this.handleSubmit }
+          >
+            Submit
+          </button>
+        </div>
+      </Link>
     );
   }
+  // rever a necessidade do link no botao
 
   render() {
     return (
