@@ -84,6 +84,8 @@ class MovieForm extends React.Component {
           <textarea
             id="movie_storyline"
             value={ storyline }
+            rows="6"
+            cols="30"
             onChange={ (event) => this.updateMovie('storyline', event.target.value) }
           />
           Sinopse
@@ -163,5 +165,19 @@ class MovieForm extends React.Component {
     );
   }
 }
+
+MovieForm.propTypes = {
+  movie: PropTypes.shape({
+    title: PropTypes.string,
+    subtitle: PropTypes.string,
+    storyline: PropTypes.string,
+    imagePath: PropTypes.string,
+    genre: PropTypes.string,
+    id: PropTypes.number,
+    rating: PropTypes.number,
+    bookmarked: PropTypes.bool,
+  }).isRequired,
+  onSubmit: PropTypes.func.isRequired,
+};
 
 export default MovieForm;

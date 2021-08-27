@@ -22,9 +22,7 @@ class App extends React.Component {
             <NewMovie />
           </Route>
           <Route exact path="/movies/:id" component={ MovieDetails } />
-          <Route exact path="/movies/:id/edit">
-            <EditMovie />
-          </Route>
+          <Route path="/movies/:id/edit" component={ EditMovie } />
           <Route>
             <NotFound />
           </Route>
