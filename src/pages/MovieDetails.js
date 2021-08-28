@@ -18,6 +18,11 @@ class MovieDetails extends Component {
     this.requestMovie();
   }
 
+  handleClick = async () => {
+    const { match: { params: { id } } } = this.props;
+    await movieAPI.deleteMovie(id);
+  }
+
   requestMovie = async () => {
     const { match: { params: { id } } } = this.props;
     const movie = await movieAPI.getMovie(id);
@@ -46,6 +51,7 @@ class MovieDetails extends Component {
               <p>{ `Genre: ${genre}` }</p>
               <p>{ `Rating: ${rating}` }</p>
               <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
+              <Link onClick={ this.handleClick } to="/">DELETAR</Link>
               <Link to="/">VOLTAR</Link>
             </div>
           )}
