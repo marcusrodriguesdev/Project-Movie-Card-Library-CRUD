@@ -4,12 +4,12 @@ import { Link } from 'react-router-dom';
 
 class MovieCard extends React.Component {
   render() {
-    const { key, movie } = this.props;
+    const { movie } = this.props;
     const { id, title, imagePath, subtitle, storyline } = movie;
     return (
       <div data-testid="movie-card">
         <img src={ imagePath } alt={ imagePath } />
-        <div key={ key }>
+        <div>
           <p>{ title }</p>
           <p>{ subtitle }</p>
           <p>{ storyline }</p>
@@ -23,8 +23,13 @@ class MovieCard extends React.Component {
 }
 
 MovieCard.propTypes = {
-  key: PropTypes.string.isRequired,
-  movie: PropTypes.objectOf(PropTypes.string).isRequired,
+  movie: PropTypes.objectOf(PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    subtitle: PropTypes.string.isRequired,
+    imagePath: PropTypes.string.isRequired,
+    storyline: PropTypes.string.isRequired,
+  })).isRequired,
 };
 
 export default MovieCard;
