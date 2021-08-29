@@ -32,7 +32,6 @@ class MovieDetails extends Component {
   }
 
   renderMovieData() {
-    console.log(this.props);
     const { match: { params: { id } } } = this.props;
     this.setState({ loading: true }, () => {
       movieAPI
@@ -57,14 +56,14 @@ class MovieDetails extends Component {
             <p>{`Storyline: ${movie.storyline}`}</p>
             <p>{`Genre: ${movie.genre}`}</p>
             <p>{`Rating: ${movie.rating}`}</p>
+            <div className="controls">
+              <Link to="/">VOLTAR</Link>
+              <Link to={ `/movies/${movie.id}/edit` }>EDITAR</Link>
+              <Link to="/" onClick={ this.deleteMovie }>DELETAR</Link>
+            </div>
           </>
         )}
 
-        <div className="controls">
-          <Link to="/">VOLTAR</Link>
-          <Link to={ `/movies/${movie.id}/edit` }>EDITAR</Link>
-          <Link to="/" onClick={ this.deleteMovie }>DELETAR</Link>
-        </div>
       </div>
     );
   }
