@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import * as movieAPI from '../services/movieAPI';
@@ -10,10 +10,12 @@ class MovieDetails extends Component {
     super(props);
     this.state = {
       requisition: false,
+      shouldRedirect: false,
       movie: [],
     };
     this.renderDetails = this.renderDetails.bind(this);
     this.handleState = this.handleState.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   componentDidMount() {
@@ -29,10 +31,21 @@ class MovieDetails extends Component {
     });
   }
 
+  async handleDelete(movieId) {
+    const { deleteMovie } = movieAPI;
+    await deleteMovie(movieId);
+    this.setState({
+      shouldRedirect: true,
+    });
+  }
+
   renderDetails(movie) {
     const { title, storyline, imagePath, genre, rating, subtitle, id } = movie;
     return (
       <div data-testid="movie-details">
+        {/* Não faria mais sentido ser um botão??
+        Para fazer o redirecionamento através da checagem do state shouldRedirect?? */}
+        <Link to="/" onClick={ () => this.handleDelete(id) }>DELETAR</Link>
         <img alt="Movie Cover" src={ `../${imagePath}` } />
         <p>{ `Ttile: ${title}` }</p>
         <p>{ `Subtitle: ${subtitle}` }</p>
@@ -47,7 +60,10 @@ class MovieDetails extends Component {
   }
 
   render() {
-    const { state: { requisition, movie }, renderDetails } = this;
+    const { state: { shouldRedirect, requisition, movie }, renderDetails } = this;
+    if (shouldRedirect === true) {
+      return <Redirect to="/" />;
+    }
     return (
       <div>
         { requisition === true ? renderDetails(movie) : <Loading /> }
