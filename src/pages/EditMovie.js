@@ -23,7 +23,6 @@ class EditMovie extends Component {
     const { history: { push } } = this.props;
 
     movieAPI.updateMovie(updatedMovie).then((response) => {
-      console.log(response);
       if (response === 'OK') push('/');
     });
   }

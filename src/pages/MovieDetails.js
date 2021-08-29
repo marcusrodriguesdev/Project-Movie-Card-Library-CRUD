@@ -26,8 +26,7 @@ class MovieDetails extends Component {
     const { history: { push } } = this.props;
 
     movieAPI.deleteMovie(movie.id).then((response) => {
-      console.log(response.status);
-      push('/');
+      if (response.status === 'OK') push('/');
     });
   }
 
