@@ -1,27 +1,40 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { Redirect } from 'react-router-dom';
 
-import { MovieForm } from '../components';
-import * as movieAPI from '../services/movieAPI';
+import { Loading, MovieForm } from '../components';
+import { getMovie, updateMovie } from '../services/movieAPI';
 
 class EditMovie extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.state = {
+      movie: [],
+      loading: true,
+      shouldRedirect: false,
+    };
   }
 
-  handleSubmit(updatedMovie) {
+  componentDidMount() {
+    this.getMovieAPI();
+  }
+
+  handleSubmit = async (updatedMovie) => {
+    await updateMovie(updatedMovie);
+    this.setState({ shouldRedirect: true });
+  }
+
+  getMovieAPI = async () => {
+    const { match: { params: { id } } } = this.props;
+    const movie = await getMovie(id);
+    this.setState({ movie, loading: false });
   }
 
   render() {
-    const { status, shouldRedirect, movie } = this.state;
-    if (shouldRedirect) {
-      // Redirect
-    }
+    const { shouldRedirect, movie, loading } = this.state;
+    if (shouldRedirect) return <Redirect to="/" />;
 
-    if (status === 'loading') {
-      // render Loading
-    }
+    if (loading) return <Loading />;
 
     return (
       <div data-testid="edit-movie">
@@ -30,5 +43,10 @@ class EditMovie extends Component {
     );
   }
 }
+
+EditMovie.propTypes = {
+  match: PropTypes.objectOf().isRequired,
+};
+// O Redirect e a descontrução do math foram consutadas do código do Haron Preste
 
 export default EditMovie;

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import { Link } from 'react-router-dom';
 import { getMovies } from '../services/movieAPI';
 import { Loading } from '../components';
-import { Link } from 'react-router-dom';
 
 class MovieDetails extends Component {
   constructor(props) {
@@ -30,8 +30,7 @@ class MovieDetails extends Component {
 
     if (loading) return <Loading />;
 
-    const { match } = this.props;
-    const { id } = match.params;
+    const { match: { params: { id } } } = this.props;
     const {
       title, storyline, imagePath, genre, rating, subtitle,
     } = movie[id - 1];
