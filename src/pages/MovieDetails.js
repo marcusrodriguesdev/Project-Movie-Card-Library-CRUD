@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import { Link } from 'react-router-dom';
-import { getMovies } from '../services/movieAPI';
+import { getMovie, deleteMovie } from '../services/movieAPI';
 import { Loading } from '../components';
 
 class MovieDetails extends Component {
@@ -15,8 +15,15 @@ class MovieDetails extends Component {
     };
   }
 
+  deleteMovieAPI = async () => {
+    const { movie: { id } } = this.state;
+    console.log(id);
+    await deleteMovie(id);
+  }
+
   getMovieApi = async () => {
-    const moviesApi = await getMovies();
+    const { match: { params: { id } } } = this.props;
+    const moviesApi = await getMovie(id);
     this.setState({ loading: false, movie: moviesApi });
   }
 
@@ -30,10 +37,9 @@ class MovieDetails extends Component {
 
     if (loading) return <Loading />;
 
-    const { match: { params: { id } } } = this.props;
     const {
-      title, storyline, imagePath, genre, rating, subtitle,
-    } = movie[id - 1];
+      id, title, storyline, imagePath, genre, rating, subtitle,
+    } = movie;
 
     return (
       <div data-testid="movie-details">
@@ -49,6 +55,11 @@ class MovieDetails extends Component {
         <Link to={ `/movies/${id}/edit` }>
           EDITAR
         </Link>
+        <button type="button" onClick={ this.deleteMovieAPI }>
+          <Link to="/">
+            DELETAR
+          </Link>
+        </button>
       </div>
     );
   }
