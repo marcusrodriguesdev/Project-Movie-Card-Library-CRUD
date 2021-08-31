@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, BrowserRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 class MovieCard extends React.Component {
@@ -14,9 +14,7 @@ class MovieCard extends React.Component {
         <h5>{subtitle}</h5>
         <p>{storyline}</p>
         <p>{rating}</p>
-        <BrowserRouter>
-          <Link to={ `movies/${id}` }>VER DETALHES</Link>
-        </BrowserRouter>
+        <Link to={ `/movies/${id}` }>VER DETALHES</Link>
       </div>
     );
   }
