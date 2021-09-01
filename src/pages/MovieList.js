@@ -12,18 +12,13 @@ class MovieList extends Component {
       movies: [],
       loading: true,
     };
-    this.changeState = this.changeState.bind(this);
   }
 
   componentDidMount() {
-    this.changeState();
-  }
-
-  changeState() {
-    console.log('alo');
-    this.setState({
+    getMovies().then((resolve) => this.setState({
+      movies: resolve,
       loading: false,
-    });
+    }));
   }
 
   render() {
@@ -31,7 +26,7 @@ class MovieList extends Component {
 
     return (
       <div data-testid="movie-list">
-        {loading === true
+        {loading
           ? <Loading />
           : movies.map((movie) => <MovieCard key={ movie.title } movie={ movie } />)}
         {/* <Loading /> */}
