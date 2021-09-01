@@ -56,14 +56,13 @@ body {
   text-align: justify;
 }
 
-.detail {
+.detail-card {
   border-top: 1px solid rgba(0, 0, 0, 0.125);
-  color: rgb(247, 153, 14);
   display: flex;
   font-size: 14px;
   font-weight: 400;
   justify-content: flex-start;
-  padding: 12px 20px;
+  padding: 12px 20px 1px;
 }
 
 .loading {
