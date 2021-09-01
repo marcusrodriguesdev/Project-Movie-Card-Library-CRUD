@@ -17,7 +17,7 @@ class App extends Component {
             render={() => <StrictAccess
             user={ { username: 'joao', password: '1234' } } />} /> */}
           {/* <Route path="/movies/:id"
-          render={(props) => <Users {...props} greetingsMessage="Good Morning" />} /> */}
+          render={(props) => <Users {...props} age="Good" />} /> */}
           <Route exact path="/movies/new" component={ NewMovie } />
           <Route exact path="/movies/:id/edit" component={ EditMovie } />
           <Route exact path="/movies/:id" component={ MovieDetails } />
