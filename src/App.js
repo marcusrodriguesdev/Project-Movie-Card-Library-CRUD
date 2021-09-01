@@ -11,7 +11,6 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div>Movie Card Library CRUD</div>
         <Switch>
           {/* <Route
             path="/strict-access"
@@ -19,8 +18,8 @@ class App extends Component {
             user={ { username: 'joao', password: '1234' } } />} /> */}
           {/* <Route path="/movies/:id"
           render={(props) => <Users {...props} greetingsMessage="Good Morning" />} /> */}
-          <Route exact path="/movies/:id/edit" component={ EditMovie } />
           <Route exact path="/movies/new" component={ NewMovie } />
+          <Route exact path="/movies/:id/edit" component={ EditMovie } />
           <Route exact path="/movies/:id" component={ MovieDetails } />
           <Route exact path="/" component={ MovieList } />
           <Route path="/" component={ NotFound } />
