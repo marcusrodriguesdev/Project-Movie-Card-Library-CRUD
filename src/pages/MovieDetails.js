@@ -62,7 +62,12 @@ class MovieDetails extends Component {
         <p>{ `Genre: ${genre}` }</p>
         <p>{ `Rating: ${rating}` }</p>
         <div>
-          <Link to={ `/movies/${id}/edit` }>
+          <Link
+            to={ {
+              pathname: `/movies/${id}/edit`,
+              movieProps: { id },
+            } }
+          >
             EDITAR
           </Link>
           <Link to="/" onClick={ () => { this.deletMovie(id); } }>DELETAR</Link>
@@ -74,9 +79,13 @@ class MovieDetails extends Component {
     );
   }
 }
+
 MovieDetails.propTypes = {
-  movie: PropTypes.arrayOf(PropTypes.object),
-  id: PropTypes.number,
-  param: PropTypes.arrayOf(PropTypes.object),
-}.isRequired;
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.number,
+    }),
+  }).isRequired,
+};
+
 export default MovieDetails;
