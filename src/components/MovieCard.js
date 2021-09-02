@@ -26,6 +26,13 @@ class MovieCard extends React.Component {
           >
             VER DETALHES
           </Link>
+          {/* to={ {
+              pathname: `/movies/${id}`,
+              id,
+            } }
+          >
+            VER DETALHES
+          </Link> */}
         </p>
       </div>
     );
@@ -36,7 +43,10 @@ MovieCard.propTypes = {
   movie: PropTypes.shape({
     id: PropTypes.number,
     title: PropTypes.string,
+    subtitle: PropTypes.string,
     storyline: PropTypes.string,
+    genre: PropTypes.string,
+    rating: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     imagePath: PropTypes.string,
   }).isRequired,
 };
