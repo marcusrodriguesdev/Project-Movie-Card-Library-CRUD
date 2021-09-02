@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import { Loading } from '../components';
 import MovieCard from '../components/MovieCard';
-
 import { getMovies } from '../services/movieAPI';
 
 class MovieList extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       movies: [],
@@ -29,8 +28,6 @@ class MovieList extends Component {
         {loading
           ? <Loading />
           : movies.map((movie) => <MovieCard key={ movie.title } movie={ movie } />)}
-        {/* <Loading /> */}
-        {/* {movies.map((movie) => <MovieCard key={ movie.title } movie={ movie } />)} */}
       </div>
     );
   }
