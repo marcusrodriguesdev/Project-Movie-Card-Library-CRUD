@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 class MovieForm extends React.Component {
   constructor(props) {
@@ -140,13 +141,27 @@ class MovieForm extends React.Component {
   renderSubmitButton() {
     return (
       <div>
-        <br />
         <button
           type="button"
           onClick={ this.handleSubmit }
         >
-          Atualizar
+          Finalizar
         </button>
+      </div>
+    );
+  }
+
+  renderReturn() {
+    return (
+      <div>
+        <Link
+          style={
+            { textDecoration: 'none', color: 'rgb(247, 153, 14)' }
+          }
+          to="/"
+        >
+          VOLTAR
+        </Link>
       </div>
     );
   }
@@ -161,14 +176,19 @@ class MovieForm extends React.Component {
           {this.renderStorylineInput()}
           {this.renderGenreSelection()}
           {this.renderRatingInput()}
-          {this.renderSubmitButton()}
         </form>
+        <br />
+        <section className="edit-new-buttons">
+          {this.renderSubmitButton()}
+          {this.renderReturn()}
+        </section>
       </div>
     );
   }
 }
 
 MovieForm.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
   movie: PropTypes.shape({
     title: PropTypes.string,
     subtitle: PropTypes.string,
@@ -176,7 +196,6 @@ MovieForm.propTypes = {
     rating: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     imagePath: PropTypes.string,
   }).isRequired,
-  onSubmit: PropTypes.func.isRequired,
 };
 
 export default MovieForm;

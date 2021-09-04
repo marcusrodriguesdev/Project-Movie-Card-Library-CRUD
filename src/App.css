@@ -4,17 +4,18 @@ body {
   font-size: 16px;
 }
 
-.page-title {
-  color: #f8f9fa;
-  font-size: 28px;
+.movie-header {
+  color: blacks;
+  font-size: 24px;
   font-weight: 500;
+  padding: 48px 30px;
   text-align: center;
 }
 
 .movie-list {
   display: flex;
   flex-flow: row wrap;
-  padding: 48px 30px;
+  padding: 1px 30px;
 }
 
 .movie-card {
@@ -29,7 +30,21 @@ body {
   width: 300px;
 }
 
+.movie-detail {
+  align-content: flex-start;
+  background-color: white;
+  border: 1px solid rgba(192, 152, 152, 0.125);
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  height: 700px;
+  margin: 5px;
+  overflow: hidden;
+  width: 600px;
+}
+
 .movie-card-image {
+  height: 150px;
   width: 100%;
 }
 
@@ -65,18 +80,46 @@ body {
   padding: 12px 20px 1px;
 }
 
-/* .detail-buttons {
+.movie-edit {
+  background-color: white;
+  border: 2px solid rgba(0, 0, 0, 0.125);
+  border-radius: 30px;
+  height: 390px;
+  margin: 20px;
+  padding: 12px 20px 1px;
+  width: 340px;
+}
+
+.movie-new {
+  background-color: white;
+  border: 2px solid rgba(0, 0, 0, 0.125);
+  border-radius: 30px;
+  height: 390px;
+  margin: 20px;
+  padding: 12px 20px 1px;
+  width: 340px;
+}
+
+.detail-buttons {
+  align-content: center;
   border-top: 1px solid rgba(0, 0, 0, 0.125);
   display: flex;
   font-size: 14px;
-  font-weight: 400;
-  justify-content: flex-start;
-  padding: 12px 20px 1px;
-} */
+  justify-content: space-evenly;
+  padding: 20px 2px 10px;
+}
+
+.edit-new-buttons {
+  border-top: 1px solid rgba(0, 0, 0, 0.125);
+  display: flex;
+  justify-content: space-evenly;
+  padding: 14px 1px;
+}
 
 .loading {
   align-items: center;
   display: flex;
+  font-size: 25px;
   height: 500px;
   justify-content: center;
 }
