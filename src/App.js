@@ -12,12 +12,6 @@ class App extends Component {
     return (
       <Router>
         <Switch>
-          {/* <Route
-            path="/strict-access"
-            render={() => <StrictAccess
-            user={ { username: 'joao', password: '1234' } } />} /> */}
-          {/* <Route path="/movies/:id"
-          render={(props) => <Users {...props} age="Good" />} /> */}
           <Route exact path="/movies/new" component={ NewMovie } />
           <Route exact path="/movies/:id/edit" component={ EditMovie } />
           <Route exact path="/movies/:id" component={ MovieDetails } />

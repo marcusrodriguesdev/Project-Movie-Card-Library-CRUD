@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
 
@@ -66,6 +65,17 @@ class MovieDetails extends Component {
           >
             EDITAR
           </Link>
+          {/* <Link
+            style={
+              { textDecoration: 'none', color: 'rgb(247, 153, 14)' }
+            }
+            to={ {
+              pathname: `/movies/${Number(id)}/edit`,
+              selectedMovie: movie,
+            } }
+          >
+            EDITAR
+          </Link> */}
           <br />
           <Link
             style={
