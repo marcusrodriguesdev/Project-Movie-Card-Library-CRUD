@@ -26,15 +26,10 @@ class EditMovie extends Component {
   }
 
   handleSubmit(updatedMovie) {
-    const numero = 6;
-    const last = document.URL.slice(document.URL.length - numero);
-    updateMovie(last).then(() => (
-      this.setState({
-        shouldRedirect: true,
-        movie: updatedMovie,
-      })
-    ));
-    console.log(updatedMovie);
+    updateMovie(updatedMovie).then();
+    this.setState({
+      shouldRedirect: true,
+    });
   }
 
   render() {
@@ -53,7 +48,6 @@ class EditMovie extends Component {
     return (
       <div data-testid="edit-movie">
         <MovieForm movie={ movie } onSubmit={ this.handleSubmit } />
-        {console.log(movie)}
       </div>
     );
   }
