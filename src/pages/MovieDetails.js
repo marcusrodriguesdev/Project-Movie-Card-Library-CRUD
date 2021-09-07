@@ -30,24 +30,26 @@ class MovieDetails extends Component {
   render() {
     const { movie, loading } = this.state;
     const { title, storyline, imagePath, genre, rating, subtitle, id } = movie;
-
+    if (loading) {
+      return (
+        <Loading />
+      );
+    }
     return (
       <div data-testid="movie-details">
-        {loading
-          ? <Loading />
-          : <section>
-            <img alt="Movie Cover" src={ `../${imagePath}` } />
-            <h1>{ `Title: ${title}` }</h1>
-            <p>{ `Subtitle: ${subtitle}` }</p>
-            <p>{ `Storyline: ${storyline}` }</p>
-            <p>{ `Genre: ${genre}` }</p>
-            <p>{ `Rating: ${rating}` }</p>
-            <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
-            <br />
-            <Link to="/">VOLTAR</Link>
-            <br />
-            <Link to="/" onClick={ this.deleteMovies }>DELETAR</Link>
-          </section> }
+        <section>
+          <img alt="Movie Cover" src={ `../${imagePath}` } />
+          <h1>{ `Title: ${title}` }</h1>
+          <p>{ `Subtitle: ${subtitle}` }</p>
+          <p>{ `Storyline: ${storyline}` }</p>
+          <p>{ `Genre: ${genre}` }</p>
+          <p>{ `Rating: ${rating}` }</p>
+          <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
+          <br />
+          <Link to="/">VOLTAR</Link>
+          <br />
+          <Link to="/" onClick={ this.deleteMovies }>DELETAR</Link>
+        </section>
       </div>
     );
   }
