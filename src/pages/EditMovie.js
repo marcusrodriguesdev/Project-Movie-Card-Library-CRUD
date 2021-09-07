@@ -15,15 +15,26 @@ class EditMovie extends Component {
   }
 
   componentDidMount() {
-    const numero = 5;
+    const numero = 6;
     const last = document.URL.slice(document.URL.length - numero);
-    updateMovie().then(resul)
+    getMovie(last).then((result) => (
+      this.setState({
+        movie: result,
+        status: false,
+      })
+    ));
   }
 
   handleSubmit(updatedMovie) {
-    this.setState({
-      shouldRedirect: true,
-    });
+    const numero = 6;
+    const last = document.URL.slice(document.URL.length - numero);
+    updateMovie(last).then(() => (
+      this.setState({
+        shouldRedirect: true,
+        movie: updatedMovie,
+      })
+    ));
+    console.log(updatedMovie);
   }
 
   render() {

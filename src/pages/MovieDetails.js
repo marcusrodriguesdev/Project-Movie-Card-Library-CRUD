@@ -25,7 +25,6 @@ class MovieDetails extends Component {
   deleteMovies() {
     const last = document.URL.slice(document.URL.length - 1);
     deleteMovie(last).then();
-    console.log(deleteMovie(last).then());
   }
 
   render() {
