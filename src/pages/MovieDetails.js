@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-
 import { Link } from 'react-router-dom';
-import { getMovie } from '../services/movieAPI';
+import { getMovie, deleteMovie } from '../services/movieAPI';
 import { Loading } from '../components';
 
 class MovieDetails extends Component {
@@ -12,6 +11,7 @@ class MovieDetails extends Component {
       loading: true,
       movie: [],
     });
+    this.deleteMovies = this.deleteMovies.bind(this);
   }
 
   componentDidMount() {
@@ -22,9 +22,13 @@ class MovieDetails extends Component {
     }));
   }
 
+  deleteMovies() {
+    const last = document.URL.slice(document.URL.length - 1);
+    deleteMovie(last).then();
+    console.log(deleteMovie(last).then());
+  }
+
   render() {
-    // Change the condition to check the state
-    // if (true) return <Loading />;
     const { movie, loading } = this.state;
     const { title, storyline, imagePath, genre, rating, subtitle, id } = movie;
 
@@ -34,7 +38,7 @@ class MovieDetails extends Component {
           ? <Loading />
           : <section>
             <img alt="Movie Cover" src={ `../${imagePath}` } />
-            <h1>{ `Subtitle: ${title}` }</h1>
+            <h1>{ `Title: ${title}` }</h1>
             <p>{ `Subtitle: ${subtitle}` }</p>
             <p>{ `Storyline: ${storyline}` }</p>
             <p>{ `Genre: ${genre}` }</p>
@@ -43,7 +47,7 @@ class MovieDetails extends Component {
             <br />
             <Link to="/">VOLTAR</Link>
             <br />
-            <Link to>DELETAR</Link>
+            <Link to="/" onClick={ this.deleteMovies }>DELETAR</Link>
           </section> }
       </div>
     );
