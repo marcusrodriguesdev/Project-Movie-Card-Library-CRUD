@@ -7,34 +7,37 @@ import { Loading } from '../components';
 class MovieDetails extends Component {
   constructor() {
     super();
+
     this.state = {
-      getDetails: {},
+      returnedDetails: {},
       loading: true,
     };
-    this.movDetails = this.movDetails.bind(this);
+    this.requireMovieDetails = this.reqMovieDetails.bind(this);
   }
 
   componentDidMount() {
-    this.movDetails();
+    this.reqMovieDetails();
   }
 
-  async movDetails() {
+  async reqMovieDetails() {
     const { match: { params: { id } } } = this.props;
-    const getDetails = await movieAPI.getMovie(id);
-    this.setState({ getDetails, loading: false });
+    const returnedDetails = await movieAPI.getMovie(id);
+    this.setState({ returnedDetails, loading: false });
   }
 
   render() {
-    const { getDetails, loading } = this.state;
-    const { title, storyline, imagePath, genre, rating, subtitle } = getDetails;
+    const { returnedDetails, loading } = this.state;
+    const { title, storyline, imagePath, genre, rating, subtitle, id } = returnedDetails;
 
-    // Change the condition to check the state
-    if (loading === true) return <Loading />;
+    // REQ.04 O componente Loading deve ser renderizado enquanto a requisição estiver em curso.
+    if (loading === true) {
+      return <Loading />;
+    }
 
     return (
       <div data-testid="movie-details">
         <img alt="Movie Cover" src={ `../${imagePath}` } />
-        <p>{`Tile ${title}`}</p>
+        <h3>{ `Title: ${title}` }</h3>
         <p>{ `Subtitle: ${subtitle}` }</p>
         <p>{ `Storyline: ${storyline}` }</p>
         <p>{ `Genre: ${genre}` }</p>
@@ -52,8 +55,6 @@ class MovieDetails extends Component {
   }
 }
 
-export default MovieDetails;
-
 MovieDetails.propTypes = {
   match: propTypes.shape({
     params: propTypes.shape({
@@ -61,3 +62,5 @@ MovieDetails.propTypes = {
     }),
   }).isRequired,
 };
+
+export default MovieDetails;
