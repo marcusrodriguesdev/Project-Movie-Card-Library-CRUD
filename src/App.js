@@ -1,8 +1,10 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import MovieDetails from './pages/MovieDetails';
-import EditMovie from './pages/MovieList';
+import './App.css';
+import MovieList from './pages/MovieList';
 import NewMovie from './pages/NewMovie';
+import MovieDetails from './pages/MovieDetails';
+import EditMovie from './pages/EditMovie';
 import NotFound from './pages/NotFound';
 
 function App() {
