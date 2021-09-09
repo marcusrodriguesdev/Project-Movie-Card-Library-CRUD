@@ -5,62 +5,57 @@ import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
 
 class MovieDetails extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+    this.fetchMovie = this.fetchMovie.bind(this);
     this.state = {
       loading: true,
-      id: 0,
-      imagePath: '',
-      title: '',
-      subtitle: '',
-      storyline: '',
-      genre: '',
-      rating: 0,
+      movie: {},
     };
   }
 
   componentDidMount() {
-    this.getMovie();
+    this.fetchMovie();
   }
 
-  getMovie = async () => {
+  fetchMovie = async () => {
     const { match: { params } } = this.props;
     const movie = await movieAPI.getMovie(params.id);
-    const { id, imagePath, title, subtitle, storyline, genre, rating } = movie;
     this.setState({
+      movie,
       loading: false,
-      id,
-      imagePath,
-      title,
-      subtitle,
-      storyline,
-      genre,
-      rating,
     });
   }
 
   render() {
-    // Change the condition to check the state
-    // if (true) return <Loading />;
+    const { loading, movie } = this.state;
+    const { id, title, storyline, imagePath, genre, rating, subtitle } = movie;
 
-    const {
-      loading, id, title, storyline, imagePath, genre, rating, subtitle } = this.state;
+    const deleteMovie = () => { movieAPI.deleteMovie(id); };
 
     if (loading) {
       return <Loading />;
     }
 
     return (
-      <div data-testid="movie-details" className="movie-details">
-        <img alt="Movie Cover" src={ `../${imagePath}` } />
-        <p>{ `Title: ${title}` }</p>
-        <p>{ `Subtitle: ${subtitle}` }</p>
-        <p>{ `Storyline: ${storyline}` }</p>
-        <p>{ `Genre: ${genre}` }</p>
-        <p>{ `Rating: ${rating}` }</p>
-        <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
-        <Link exact to="/">VOLTAR</Link>
-      </div>
+      !loading ? (
+        <div data-testid="movie-details">
+          <img alt="Movie Cover" src={ `../${imagePath}` } />
+          <h1>{ `Title: ${title}` }</h1>
+          <p>{ `Subtitle: ${subtitle}` }</p>
+          <p>{ `Storyline: ${storyline}` }</p>
+          <p>{ `Genre: ${genre}` }</p>
+          <p>{ `Rating: ${rating}` }</p>
+          <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
+          <Link
+            to="/"
+            onClick={ deleteMovie }
+          >
+            DELETAR
+          </Link>
+          <Link to="/">VOLTAR</Link>
+        </div>
+      ) : <Loading />
     );
   }
 }
